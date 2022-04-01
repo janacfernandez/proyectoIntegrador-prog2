@@ -1,2 +1,0 @@
-# programaci-nII
-repositorio compartido 
