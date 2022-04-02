@@ -130,12 +130,6 @@ const data = {
         descripcion: "El Lexus RZ 2023 es el primer paso de Lexus en su conversión a marca 100% eléctrica como parte del gran plan de Toyota. Se trata de un SUV medio de angulosas formas que tiene las mismas entrañas que el Toyota bZ4x y el Subaru Solterra",
         anio: 2022 ,
     },
-    {
-        imagen: "",
-        nombre: "Maserati Quattroporte",
-        descripcion: "El Maserati Quattroporte2​ es un automóvil sedán de lujo (segmento F), fabricado por Maserati en Italia. El nombre, traducido directamente del italiano significa «cuatro puertas». Han existido seis generaciones del coche, cada una separada por un periodo de aproximadamente cinco años.",
-        anio: 2013,
-    },
 ],
 
     comentarios: [
