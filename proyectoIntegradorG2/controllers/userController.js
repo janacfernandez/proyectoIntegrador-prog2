@@ -1,4 +1,8 @@
-// const users = require('');
+const users = require('../db/data');
+
+
+
+
 
 const controller = {
     login: (req,res) => {
