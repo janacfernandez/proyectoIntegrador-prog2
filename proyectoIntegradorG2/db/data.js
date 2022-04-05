@@ -12,6 +12,7 @@ const data = {
 
     productos: [{
         imagen: "",
+        id: 1,
         nombre: "Toyota Yaris",
         descripcion: "El Toyota Yaris Cross es el nuevo B-SUV de Toyota, un modelo basado en la misma plataforma del Yaris que llega para competir en uno de los segmentos de mayor crecimiento de los últimos años, el de los crossover urbanos.",
         anio: 2021,
@@ -128,7 +129,7 @@ const data = {
         imagen: "",
         nombre: "Jaguar XJ",
         descripcion: "El Lexus RZ 2023 es el primer paso de Lexus en su conversión a marca 100% eléctrica como parte del gran plan de Toyota. Se trata de un SUV medio de angulosas formas que tiene las mismas entrañas que el Toyota bZ4x y el Subaru Solterra",
-        anio: 2022 ,
+        anio: 2022,
     },
 ],
 

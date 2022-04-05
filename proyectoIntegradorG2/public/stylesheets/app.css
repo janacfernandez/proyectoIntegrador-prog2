@@ -257,6 +257,11 @@ hr {
   box-shadow: 0 0 5px var(--green);
 }
 
+.form-log-in{
+  display: flex;
+  flex-direction: column;
+}
+
 /*====== Footer ======*/
 .main-footer {
   background-color: #ffffff;
