@@ -15,7 +15,7 @@ const data = {
         nombre: "Toyota Yaris",
         descripcion: "El Toyota Yaris Cross es el nuevo B-SUV de Toyota, un modelo basado en la misma plataforma del Yaris que llega para competir en uno de los segmentos de mayor crecimiento de los últimos años, el de los crossover urbanos.",
         anio: 2021,
-        id: 1, 
+        id: "1", 
     },
     {
         img: "/images/products/audiA3.jpg",
