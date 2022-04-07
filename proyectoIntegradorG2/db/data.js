@@ -1,17 +1,17 @@
 const data = {
     usuario:  {
-        foto: "", 
-        nombre: "Martín",
+        foto: "/images/users/martinPerez.jpg", 
+        nombre: "Martin",
         apellido: "Perez",
         email: "mperez@gmail.com",
-        usuario: "MartínPerez_",
+        usuario: "MartinPerez_",
         constrasenia: "m1980",
         fDeNac : "22-09-1980",
         nroDeDoc: "28740858", 
     },
 
     productos: [{
-        img: "/images/products/yaris.png",
+        img: "/images/products/yaris.jpg",
         nombre: "Toyota Yaris",
         descripcion: "El Toyota Yaris Cross es el nuevo B-SUV de Toyota, un modelo basado en la misma plataforma del Yaris que llega para competir en uno de los segmentos de mayor crecimiento de los últimos años, el de los crossover urbanos.",
         anio: 2021,
@@ -60,7 +60,7 @@ const data = {
         id : 7, 
     },
     {
-        img: "/images/products/yaris.png",
+        img: "/images/products/yaris.jpg",
         nombre: "Toyota Yaris",
         descripcion: "El Toyota Yaris Cross es el nuevo B-SUV de Toyota, un modelo basado en la misma plataforma del Yaris que llega para competir en uno de los segmentos de mayor crecimiento de los últimos años, el de los crossover urbanos.",
         anio: 2021,
@@ -109,7 +109,7 @@ const data = {
         id: 7, 
     },
     {
-        img: "/images/products/yaris.png",
+        img: "/images/products/yaris.jpg",
         nombre: "Toyota Yaris",
         descripcion: "El Toyota Yaris Cross es el nuevo B-SUV de Toyota, un modelo basado en la misma plataforma del Yaris que llega para competir en uno de los segmentos de mayor crecimiento de los últimos años, el de los crossover urbanos.",
         anio: 2021,
