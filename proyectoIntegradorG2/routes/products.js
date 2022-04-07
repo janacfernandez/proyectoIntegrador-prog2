@@ -7,8 +7,4 @@ router.get('/detail/:id', productController.detail),
 router.get('/add', productController.add),
 
 
-
-router.get('/', productController.profile),
-
-
 module.exports = router;

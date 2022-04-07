@@ -1,9 +1,6 @@
 const users = require('../db/data');
 
 
-
-
-
 const controller = {
     login: (req,res) => {
         return res.render('login')
@@ -11,6 +8,14 @@ const controller = {
     register: (req,res) => {
         return res.render('register')
     }, 
+   profile: (req, res) => { 
+       return res.render('profile',{
+        listaAutos : users.productos,
+        nombreUsuario : users.usuario.usuario,
+        img : users.usuario.foto,
+       }) 
+
+   },
 
 };
 

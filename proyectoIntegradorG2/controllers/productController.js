@@ -17,13 +17,6 @@ detail:  (req, res) => {
       }
     }, 
 
-
- profile : (req, res) => {
-    return res.render('profile', {
-       nombreUsuario : data.usuario.usuario, 
-    })
- }
-
 }; 
 
 module.exports = controller;

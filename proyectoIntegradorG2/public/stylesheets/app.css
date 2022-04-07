@@ -42,7 +42,13 @@ ol {
 a {
   display: inline-block;
   text-decoration: none;
-  color: inherit;
+  color: black;
+}
+
+.aHeader {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
 }
 
 figure {
@@ -64,11 +70,10 @@ hr {
   border-bottom: solid 1px var(--light-gray);
 }
 
-
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--yellow);
+  background-color: black;
 }
 
 .main-header_home-link,
@@ -257,12 +262,20 @@ hr {
   box-shadow: 0 0 5px var(--green);
 }
 
+
+.form-register {
+    display: flex;
+    flex-direction: column;
+}
+
+
 .form-log-in{
   display: flex;
   flex-direction: column;
 }
 
 /*====== Footer ======*/
+
 .main-footer {
   background-color: #ffffff;
   padding: 20px 0;
