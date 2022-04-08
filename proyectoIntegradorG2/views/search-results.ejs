@@ -1,31 +1,71 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('./partials/head') %>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link width="" rel="shortcut icon" href="/images/logo.jpg" />
+
+	<title> Top Wheels </title>
+	<!-- Font Awesome Stylesheet -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+	<!-- Bootstrap Grid Stylesheet -->
+	<link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css">
+	<!-- Own Stylesheet -->
+	<link rel="stylesheet" href="/stylesheets/app.css">
+</head>
 <!-- Fin Include Head -->
 
 
 <body>
-	 <!-- Header -->
-	 <%- include('./partials/headerDeslogueado') %>
-	 <!-- /Header -->
+	<!-- Header -->
+	<%- include('./partials/headerDeslogueado') %>
+		<!-- /Header -->
 
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Resultados de búsqueda</h2>
+		<!-- Novedades -->
+		<div class="container products-wrapper">
+			<div class="row">
+				<div class="col-12">
+					<h2 class="products-title">Resultados de búsqueda: Autos rojos </h2>
+				</div>
+				<!-- Show the "ultimos" products -->
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/products/detail/<%= listaAutos[4].id %>">
+							<figure class="product-box_image">
+								<img src=<%= listaAutos[4].img %> alt="<%= listaAutos[4].nombre %>">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= listaAutos[4].nombre %></h2>
+								<p><%= listaAutos[4].descripcion %></p>
+								<p>Comentarios: 12</p>
+							</article>
+						</a>
+					</section>
+				</div>		
+
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/products/detail/<%= listaAutos[0].id %>">
+							<figure class="product-box_image">
+								<img src=<%= listaAutos[0].img %> alt="<%= listaAutos[0].nombre %>">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= listaAutos[0].nombre %></h2>
+								<p><%= listaAutos[0].descripcion %></p>
+								<p>Comentarios: 12</p>
+							</article>
+						</a>
+					</section>
+				</div>	
 			</div>
-			<!-- Show the "ultimos" products -->
-			<h2 class="col-12"> <i>///////////////////////////////////////// <br> Acá van los resultados de búsqueda. <br>
-			Eliminen estás líneas y cosntruyan la página de resultados de búsqueda. <br>
-			////////////////
-			</h2>
+		</div>
 
 
-	<!-- footer -->
-	<%- include('./partials/footer')  %> 
-	<!-- /footer -->
+				<!-- footer -->
+				<%- include('./partials/footer') %>
+					<!-- /footer -->
 </body>
 
 </html>

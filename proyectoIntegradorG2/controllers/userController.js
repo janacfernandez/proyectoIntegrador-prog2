@@ -8,6 +8,9 @@ const controller = {
     register: (req,res) => {
         return res.render('register')
     }, 
+    profileEdit: (req,res) => {
+        return res.render('profile-edit')
+    }, 
    profile: (req, res) => { 
        return res.render('profile',{
         listaAutos : users.productos,
