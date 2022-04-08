@@ -27,19 +27,40 @@
 		<div class="container products-wrapper">
 			<div class="row">
 				<div class="col-12">
-					<h2 class="products-title">Resultados de búsqueda: Autos 2020 </h2>
+					<h2 class="products-title">Resultados de búsqueda: Autos rojos </h2>
 				</div>
 				<!-- Show the "ultimos" products -->
-				<h2 class="col-12"> <i>
-						<ul>
-							<li>
-								Audi A3 Sportback
-							</li>
-							<li>
-								Kia Sorento
-							</li>
-						</ul>
-				</h2>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/products/detail/<%= listaAutos[4].id %>">
+							<figure class="product-box_image">
+								<img src=<%= listaAutos[4].img %> alt="<%= listaAutos[4].nombre %>">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= listaAutos[4].nombre %></h2>
+								<p><%= listaAutos[4].descripcion %></p>
+								<p>Comentarios: 12</p>
+							</article>
+						</a>
+					</section>
+				</div>		
+
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/products/detail/<%= listaAutos[0].id %>">
+							<figure class="product-box_image">
+								<img src=<%= listaAutos[0].img %> alt="<%= listaAutos[0].nombre %>">
+							</figure>
+							<article class="product-box_data">
+								<h2><%= listaAutos[0].nombre %></h2>
+								<p><%= listaAutos[0].descripcion %></p>
+								<p>Comentarios: 12</p>
+							</article>
+						</a>
+					</section>
+				</div>	
+			</div>
+		</div>
 
 
 				<!-- footer -->

@@ -45,12 +45,6 @@ a {
   color: black;
 }
 
-.aHeader {
-  display: inline-block;
-  text-decoration: none;
-  color: white;
-}
-
 figure {
   margin: 0;
   padding: 0;
@@ -71,6 +65,13 @@ hr {
 }
 
 /*====== Main Header ======*/
+.aHeader {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+}
+
 .main-header {
   padding: 15px 0;
   background-color: black;
@@ -93,8 +94,13 @@ hr {
   align-items: center;
 }
 
+ ::placeholder {
+  color: black;
+
+}
+
 .search-form_input {
-  border: solid 1px var(--light-gray);
+  border: solid 2px #ADA195;
   display: block;
   width: 100%;
   padding: 7px 35px 7px 7px;
@@ -109,8 +115,8 @@ hr {
   height: 60%;
   background-color: #ffffff;
   border: none;
-  border-left: solid 1px var(--light-gray);
-  color: var(--gray);
+  border-left: solid 1px #ADA195;
+  color: black;
   cursor: pointer;
 }
 
@@ -159,6 +165,14 @@ hr {
 
 /*====== Banner ======*/
 .banner {
+  background-image: url(/images/porsche.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  height: 100px;
+}
+
+.porsche {
   background-image: url(/images/img-home-banner.jpg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -176,7 +190,7 @@ hr {
 .products-title {
   font-size: 2.4em;
   font-weight: 400;
-  color: var(--gray);
+  color: black;
 }
 
 .product-box {
@@ -277,7 +291,7 @@ hr {
 /*====== Footer ======*/
 
 .main-footer {
-  background-color: #ffffff;
+  background-color: black;
   padding: 20px 0;
   margin-top: 80px;
 }
@@ -287,18 +301,18 @@ hr {
 }
 
 .footer-data i {
-  color: var(--light-blue);
+  color: #ADA195;
   font-size: 3.5em;
 }
 
 .footer-data h2 {
-  color: var(--gray);
+  color: white;
   font-size: 2.4em;
   font-weight: 400;
 }
 
 .footer-data p {
-  color: var(--gray);
+  color: white;
   font-size: 1.5em;
   font-weight: 300;
 }
