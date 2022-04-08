@@ -16,7 +16,7 @@ const data = {
         descripcion: "El Toyota Yaris Cross es el nuevo B-SUV de Toyota, un modelo basado en la misma plataforma del Yaris que llega para competir en uno de los segmentos de mayor crecimiento de los últimos años, el de los crossover urbanos.",
         anio: 2021,
         id: "1", 
-        comentarios: '12'
+        comentarios: 'Comentarios: 12'
     },
     {
         img: "/images/products/audiA3.jpg",
@@ -24,7 +24,7 @@ const data = {
         descripcion: "El Audi A3 Sportback 2020, que también se vende con carrocería Sedán, es la cuarta generación del compacto premium. El mismo es un híbrido enchufable que permite disfrutar de la conducción como nunca. Con toda la autonomía que necesitamos y la potencia que buscamos, combina las ventajas de un motor de combustión y un motor eléctrico. ¿Lo mejor? Que une lo más gratificante de uno para escenificar todo lo bueno del otro",
         anio: 2015,
         id: 2, 
-        comentarios: '15'
+        comentarios: 'Comentarios: 15'
     },
     {
         img: "/images/products/bmw.jpg",
@@ -32,7 +32,7 @@ const data = {
         descripcion: "El primer BMW Serie 2 Gran Coupé introduce una nueva forma de dominio en la clase compacta. Sobre todo la estética orientada al rendimiento deja claras sus ambiciones. En consonancia con las tecnologías de gama alta y funciones de dinamismo de conducción, el BMW Serie 2 Gran Coupé se distingue fácilmente de los demás vehículos y sigue su propio camino.",
         anio: 2019,
         id: 3,
-        comentarios: '9'
+        comentarios: 'Comentarios: 9'
     },
     {
         img: "/images/products/kiaSorento.jpg",
@@ -40,7 +40,7 @@ const data = {
         descripcion: "Se trata de un SUV que nació con todo lo aprendido de sus homólogos. De hecho, será bastante usual dar con él un automóvil con varias similitudes técnicas con su primo 100% eléctrico, el e-Niro. Con numerosas funcionalidades, un interior muy equipado y dimensiones bien pronunciadas, este entrega una potencia combinada de 230 CV. Sus rivales más próximos son el Lexus RX 450h L, el Skoda Kodiaq 2.0 TSI 4×4 y el BMW X3 xDrive30i.",
         anio: 2020,
         id: 4, 
-        comentarios: '3'
+        comentarios: 'Comentarios: 3'
     },
     {
         img: "/images/products/fordKa.jpg",
@@ -48,7 +48,7 @@ const data = {
         descripcion: "El Ford Ka es un automóvil de turismo del segmento A comercializado por el fabricante estadounidense Ford Motor Company para el mercado europeo desde 1996, y al año siguiente para el latinoamericano. El Ka es el modelo más pequeño de la línea europea de Ford, orientado al público más joven que precisa un vehículo para transportarse por la ciudad. Es un cinco plazas con motor delantero transversal y tracción delantera.",
         anio: 2015,
         id: 5, 
-        comentarios: '10'
+        comentarios: 'Comentarios: 10'
     },
     {
         img: "/images/products/jaguarXj.jpg",
@@ -56,7 +56,7 @@ const data = {
         descripcion: "El Lexus RZ 2023 es el primer paso de Lexus en su conversión a marca 100% eléctrica como parte del gran plan de Toyota. Se trata de un SUV medio de angulosas formas que tiene las mismas entrañas que el Toyota bZ4x y el Subaru Solterra",
         anio: 2022 ,
         id : 6, 
-        comentarios: '6'
+        comentarios: 'Comentarios: 6'
     },
     {
         img: "/images/products/maserati.jpg",
@@ -64,7 +64,7 @@ const data = {
         descripcion: "El Maserati Quattroporte2​ es un automóvil sedán de lujo (segmento F), fabricado por Maserati en Italia. El nombre, traducido directamente del italiano significa «cuatro puertas». Han existido seis generaciones del coche, cada una separada por un periodo de aproximadamente cinco años.",
         anio: 2013,
         id : 7, 
-        comentarios: '20'
+        comentarios: 'Comentarios: 20'
     },
     {
         img: "/images/products/yaris.jpg",
@@ -72,7 +72,7 @@ const data = {
         descripcion: "El Toyota Yaris Cross es el nuevo B-SUV de Toyota, un modelo basado en la misma plataforma del Yaris que llega para competir en uno de los segmentos de mayor crecimiento de los últimos años, el de los crossover urbanos.",
         anio: 2021,
         id : 1,
-        comentarios: '17'
+        comentarios: 'Comentarios: 17'
     },
     {
         img: "/images/products/audiA3.jpg",
@@ -80,7 +80,7 @@ const data = {
         descripcion: "El Audi A3 Sportback 2020, que también se vende con carrocería Sedán, es la cuarta generación del compacto premium. El mismo es un híbrido enchufable que permite disfrutar de la conducción como nunca. Con toda la autonomía que necesitamos y la potencia que buscamos, combina las ventajas de un motor de combustión y un motor eléctrico. ¿Lo mejor? Que une lo más gratificante de uno para escenificar todo lo bueno del otro",
         anio: 2015,
         id: 2,
-        comentarios: '11'
+        comentarios: 'Comentarios: 11'
     },
     {
         img: "/images/products/bmw.jpg",
@@ -88,7 +88,7 @@ const data = {
         descripcion: "El primer BMW Serie 2 Gran Coupé introduce una nueva forma de dominio en la clase compacta. Sobre todo la estética orientada al rendimiento deja claras sus ambiciones. En consonancia con las tecnologías de gama alta y funciones de dinamismo de conducción, el BMW Serie 2 Gran Coupé se distingue fácilmente de los demás vehículos y sigue su propio camino.",
         anio: 2019,
         id: 3,
-        comentarios: '22'
+        comentarios: 'Comentarios: 22'
     },
     {
         img: "/images/products/kiaSorento.jpg",
@@ -96,7 +96,7 @@ const data = {
         descripcion: "Se trata de un SUV que nació con todo lo aprendido de sus homólogos. De hecho, será bastante usual dar con él un automóvil con varias similitudes técnicas con su primo 100% eléctrico, el e-Niro. Con numerosas funcionalidades, un interior muy equipado y dimensiones bien pronunciadas, este entrega una potencia combinada de 230 CV. Sus rivales más próximos son el Lexus RX 450h L, el Skoda Kodiaq 2.0 TSI 4×4 y el BMW X3 xDrive30i.",
         anio: 2020,
         id: 4, 
-        comentarios: '30'
+        comentarios: 'Comentarios: 30'
     },
     {
         img: "/images/products/fordKa.jpg",
@@ -104,7 +104,7 @@ const data = {
         descripcion: "El Ford Ka es un automóvil de turismo del segmento A comercializado por el fabricante estadounidense Ford Motor Company para el mercado europeo desde 1996, y al año siguiente para el latinoamericano. El Ka es el modelo más pequeño de la línea europea de Ford, orientado al público más joven que precisa un vehículo para transportarse por la ciudad. Es un cinco plazas con motor delantero transversal y tracción delantera.",
         anio: 2015,
         id: 5,
-        comentarios: '18' 
+        comentarios: 'Comentarios: 18' 
     },
     {
         img: "/images/products/jaguarXj.jpg",
@@ -112,7 +112,7 @@ const data = {
         descripcion: "El Lexus RZ 2023 es el primer paso de Lexus en su conversión a marca 100% eléctrica como parte del gran plan de Toyota. Se trata de un SUV medio de angulosas formas que tiene las mismas entrañas que el Toyota bZ4x y el Subaru Solterra",
         anio: 2022 ,
         id: 6, 
-        comentarios: '20'
+        comentarios: 'Comentarios: 20'
     },
     {
         img: "/images/products/maserati.jpg",
@@ -120,7 +120,7 @@ const data = {
         descripcion: "El Maserati Quattroporte2​ es un automóvil sedán de lujo (segmento F), fabricado por Maserati en Italia. El nombre, traducido directamente del italiano significa «cuatro puertas». Han existido seis generaciones del coche, cada una separada por un periodo de aproximadamente cinco años.",
         anio: 2013,
         id: 7, 
-        comentarios: '29'
+        comentarios: 'Comentarios: 29'
     },
     {
         img: "/images/products/yaris.jpg",
@@ -128,7 +128,7 @@ const data = {
         descripcion: "El Toyota Yaris Cross es el nuevo B-SUV de Toyota, un modelo basado en la misma plataforma del Yaris que llega para competir en uno de los segmentos de mayor crecimiento de los últimos años, el de los crossover urbanos.",
         anio: 2021,
         id: 1, 
-        comentarios: '18'
+        comentarios: 'Comentarios: 18'
     },
     {
         img: "/images/products/audiA3.jpg",
@@ -136,7 +136,7 @@ const data = {
         descripcion: "El Audi A3 Sportback 2020, que también se vende con carrocería Sedán, es la cuarta generación del compacto premium. El mismo es un híbrido enchufable que permite disfrutar de la conducción como nunca. Con toda la autonomía que necesitamos y la potencia que buscamos, combina las ventajas de un motor de combustión y un motor eléctrico. ¿Lo mejor? Que une lo más gratificante de uno para escenificar todo lo bueno del otro",
         anio: 2015,
         id: 2, 
-        comentarios: '10'
+        comentarios: 'Comentarios: 10'
     },
     {
         img: "/images/products/bmw.jpg",
@@ -144,7 +144,7 @@ const data = {
         descripcion: "El primer BMW Serie 2 Gran Coupé introduce una nueva forma de dominio en la clase compacta. Sobre todo la estética orientada al rendimiento deja claras sus ambiciones. En consonancia con las tecnologías de gama alta y funciones de dinamismo de conducción, el BMW Serie 2 Gran Coupé se distingue fácilmente de los demás vehículos y sigue su propio camino.",
         anio: 2019,
         id: 3,
-        comentarios: '12'
+        comentarios: 'Comentarios: 12'
     },
     {
         img: "/images/products/kiaSorento.jpg",
@@ -152,7 +152,7 @@ const data = {
         descripcion: "Se trata de un SUV que nació con todo lo aprendido de sus homólogos. De hecho, será bastante usual dar con él un automóvil con varias similitudes técnicas con su primo 100% eléctrico, el e-Niro. Con numerosas funcionalidades, un interior muy equipado y dimensiones bien pronunciadas, este entrega una potencia combinada de 230 CV. Sus rivales más próximos son el Lexus RX 450h L, el Skoda Kodiaq 2.0 TSI 4×4 y el BMW X3 xDrive30i.",
         anio: 2020,
         id: 4, 
-        comentarios: '17'
+        comentarios: 'Comentarios: 17'
     },
     {
         img: "/images/products/fordKa.jpg",
@@ -160,7 +160,7 @@ const data = {
         descripcion: "El Ford Ka es un automóvil de turismo del segmento A comercializado por el fabricante estadounidense Ford Motor Company para el mercado europeo desde 1996, y al año siguiente para el latinoamericano. El Ka es el modelo más pequeño de la línea europea de Ford, orientado al público más joven que precisa un vehículo para transportarse por la ciudad. Es un cinco plazas con motor delantero transversal y tracción delantera.",
         anio: 2015,
         id: 5, 
-        comentarios: '21'
+        comentarios: 'Comentarios: 21'
     },
     {
         img: "/images/products/jaguarXj.jpg",
@@ -168,7 +168,7 @@ const data = {
         descripcion: "El Lexus RZ 2023 es el primer paso de Lexus en su conversión a marca 100% eléctrica como parte del gran plan de Toyota. Se trata de un SUV medio de angulosas formas que tiene las mismas entrañas que el Toyota bZ4x y el Subaru Solterra",
         anio: 2022 ,
         id: 6, 
-        comentarios: '29'
+        comentarios: 'Comentarios: 29'
     },
 ],
 
