@@ -31,14 +31,14 @@
 										<img src="<%= comment[i].image %>" alt="">
 										<div class="data">
 											<p class="user">
-											<strong> <a href="profile.html"> <%= comment[i].nombre %></a> </strong>
+											<strong> <a href="/users/profile"> <%= comment[i].nombre %></a> </strong>
 											<%= comment[i].text %></p>
 										</div>
 									</article>
 								</section>
 								<% } %>
 					</section>
-					<form class="form" action="" method="POST">
+					<form class="form" action="/products/detail" method="POST">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
