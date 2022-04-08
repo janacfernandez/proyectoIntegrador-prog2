@@ -148,10 +148,11 @@ hr {
   border: 0px;
   cursor: pointer;
   font-size: 1em;
+  color: white;
 }
 
 .logout:hover{
-  color: #1259c3;
+  color: #ADA195;
 }
 
 .left-navbar a,
