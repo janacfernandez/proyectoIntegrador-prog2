@@ -1,19 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="/images/logo.jpg" />
-	
-	<title> Top Wheels </title>
-			<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css">
-	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/app.css">
-</head>
+<%- include('./partials/head') %>
 
 <body>
 	<!-- Header -->
@@ -25,7 +13,7 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"> <%= listaAutos[id].nombre %> </h2> 
 			<p class="product-detail-description">
-				<a href="product-add.html">Editar</a>
+				<a href="/products/add">Editar</a>
 			</p>
 		</div>
 		<div class="product-detail">
@@ -37,7 +25,7 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-								<% for( let i = 0; i < comment.length; i++ ) { %>
+								<% for( let i = 0; i < 5; i++ ) { %>
 								<section class="comments">
 									<article>
 										<img src="<%= comment[i].image %>" alt="">

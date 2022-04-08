@@ -5,7 +5,7 @@ const controller = {
 detail:  (req, res) => {
        return res.render('product-detail', {
           listaAutos : data.productos,
-          id: req.params.id,
+          id: req.params.id - 1,
          comment : data.comentarios,
           
        })
