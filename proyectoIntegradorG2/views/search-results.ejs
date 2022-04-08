@@ -27,45 +27,36 @@
 		<div class="container products-wrapper">
 			<div class="row">
 				<div class="col-12">
-					<h2 class="products-title">Resultados de búsqueda: Autos rojos </h2>
+					<h2 class="products-title">Resultados de búsqueda: <%= busq %> </h2>
 				</div>
 				<!-- Show the "ultimos" products -->
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/products/detail/<%= listaAutos[4].id %>">
-							<figure class="product-box_image">
-								<img src=<%= listaAutos[4].img %> alt="<%= listaAutos[4].nombre %>">
-							</figure>
-							<article class="product-box_data">
-								<h2><%= listaAutos[4].nombre %></h2>
-								<p><%= listaAutos[4].descripcion %></p>
-								<p>Comentarios: 12</p>
-							</article>
-						</a>
+				
+					
+					<% for( let i = 0; i < listaAutos.length; i++ ) { %>
+					<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">	
+							<a href="/products/detail/<%= listaAutos[i].id %>">
+								<figure class="product-box_image">
+									<img src=<%= listaAutos[i].img %> alt="<%= listaAutos[i].nombre %>">
+								</figure>
+								<article class="product-box_data">
+									<h2><%= listaAutos[i].nombre %></h2>
+									<p><%= listaAutos[i].descripcion %></p>
+									<p>Comentarios: 12</p>
+								</article>
+							</a>
 					</section>
-				</div>		
-
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/products/detail/<%= listaAutos[0].id %>">
-							<figure class="product-box_image">
-								<img src=<%= listaAutos[0].img %> alt="<%= listaAutos[0].nombre %>">
-							</figure>
-							<article class="product-box_data">
-								<h2><%= listaAutos[0].nombre %></h2>
-								<p><%= listaAutos[0].descripcion %></p>
-								<p>Comentarios: 12</p>
-							</article>
-						</a>
-					</section>
-				</div>	
+					</div>	
+					<% } %>
+					
+									
 			</div>
 		</div>
 
 
-				<!-- footer -->
-				<%- include('./partials/footer') %>
-					<!-- /footer -->
+	<!-- footer -->
+	<%- include('./partials/footer') %>
+	<!-- /footer -->
 </body>
 
 </html>
