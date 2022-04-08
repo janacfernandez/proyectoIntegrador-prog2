@@ -17,10 +17,13 @@
 /*====== Basics ======*/
 * {
   box-sizing: border-box;
+
 }
 
 html,
 body {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
   margin: 0;
   font-size: 10px;
@@ -123,8 +126,8 @@ hr {
 
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
-  background-color: var(--dark-blue);
-  color: #ffffff;
+  background-color: #ADA195;
+  color: white;
   font-size: 1.5em;
   border: none;
   border-radius: 4px;
@@ -189,9 +192,9 @@ hr {
 }
 
 .products-title {
-  font-size: 2.4em;
-  font-weight: 400;
+  font-size: 30px;
   color: black;
+  margin: 0
 }
 
 .product-box {
@@ -277,6 +280,14 @@ hr {
   box-shadow: 0 0 5px var(--green);
 }
 
+.button-register {
+  color: white;
+  background-color: #ADA195;
+}
+
+h4.register {
+  font-size: 17px;
+}
 
 .form-register {
     display: flex;
@@ -294,7 +305,7 @@ hr {
 .main-footer {
   background-color: black;
   padding: 20px 0;
-  margin-top: 80px;
+  margin-top: auto;
 }
 
 .footer-data {
@@ -503,7 +514,7 @@ textarea.form-input {
 }
 
 .btn{
-  background-color: #1259c3;
+  background-color: #ADA195;
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
