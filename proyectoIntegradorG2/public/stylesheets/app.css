@@ -285,7 +285,20 @@ hr {
   background-color: #ADA195;
 }
 
+.button-product-add {
+  color: white;
+  background-color: #ADA195;
+}
+
 h4.register {
+  font-size: 17px;
+}
+
+h4.file {
+  font-size: 17px;
+}
+
+h4.text {
   font-size: 17px;
 }
 
