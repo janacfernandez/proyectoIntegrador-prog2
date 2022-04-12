@@ -28,7 +28,7 @@ const data = {
     },
     {
         img: "/images/products/bmw.jpg",
-        nombre: "BMW Serie 2 Gran Coupé",
+        nombre: "BMW Gran Coupé",
         descripcion: "El primer BMW Serie 2 Gran Coupé introduce una nueva forma de dominio en la clase compacta. Sobre todo la estética orientada al rendimiento deja claras sus ambiciones. En consonancia con las tecnologías de gama alta y funciones de dinamismo de conducción, el BMW Serie 2 Gran Coupé se distingue fácilmente de los demás vehículos y sigue su propio camino.",
         anio: 2019,
         id: 3,
@@ -60,7 +60,7 @@ const data = {
     },
     {
         img: "/images/products/maserati.jpg",
-        nombre: "Maserati Quattroporte",
+        nombre: "Maserati",
         descripcion: "El Maserati Quattroporte2​ es un automóvil sedán de lujo (segmento F), fabricado por Maserati en Italia. El nombre, traducido directamente del italiano significa «cuatro puertas». Han existido seis generaciones del coche, cada una separada por un periodo de aproximadamente cinco años.",
         anio: 2013,
         id : 7, 
@@ -84,7 +84,7 @@ const data = {
     },
     {
         img: "/images/products/bmw.jpg",
-        nombre: "BMW Serie 2 Gran Coupé",
+        nombre: "BMW Gran Coupé",
         descripcion: "El primer BMW Serie 2 Gran Coupé introduce una nueva forma de dominio en la clase compacta. Sobre todo la estética orientada al rendimiento deja claras sus ambiciones. En consonancia con las tecnologías de gama alta y funciones de dinamismo de conducción, el BMW Serie 2 Gran Coupé se distingue fácilmente de los demás vehículos y sigue su propio camino.",
         anio: 2019,
         id: 3,
@@ -116,7 +116,7 @@ const data = {
     },
     {
         img: "/images/products/maserati.jpg",
-        nombre: "Maserati Quattroporte",
+        nombre: "Maserati",
         descripcion: "El Maserati Quattroporte2​ es un automóvil sedán de lujo (segmento F), fabricado por Maserati en Italia. El nombre, traducido directamente del italiano significa «cuatro puertas». Han existido seis generaciones del coche, cada una separada por un periodo de aproximadamente cinco años.",
         anio: 2013,
         id: 7, 
@@ -140,7 +140,7 @@ const data = {
     },
     {
         img: "/images/products/bmw.jpg",
-        nombre: "BMW Serie 2 Gran Coupé",
+        nombre: "BMW Gran Coupé",
         descripcion: "El primer BMW Serie 2 Gran Coupé introduce una nueva forma de dominio en la clase compacta. Sobre todo la estética orientada al rendimiento deja claras sus ambiciones. En consonancia con las tecnologías de gama alta y funciones de dinamismo de conducción, el BMW Serie 2 Gran Coupé se distingue fácilmente de los demás vehículos y sigue su propio camino.",
         anio: 2019,
         id: 3,

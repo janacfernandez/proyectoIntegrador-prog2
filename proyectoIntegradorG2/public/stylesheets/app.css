@@ -221,6 +221,7 @@ hr {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .product-box_data h2 {
@@ -545,6 +546,7 @@ textarea.form-input {
 .main-title{
   font-size: 25px;
   margin-bottom: 10px;
+  margin-top: auto;
 }
 
 .btn{
@@ -552,8 +554,19 @@ textarea.form-input {
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
+  margin-bottom: 0px;
 }
 
+.profile-p{
+  margin: auto;
+  padding-bottom: 2px;
+  color:black;
+
+}
+
+.cprofile{
+  color: dimgrey;
+}
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
