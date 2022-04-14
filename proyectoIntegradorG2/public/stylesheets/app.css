@@ -166,6 +166,7 @@ h4.register {
   cursor: pointer;
   font-size: 1em;
   color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .logout:hover{
