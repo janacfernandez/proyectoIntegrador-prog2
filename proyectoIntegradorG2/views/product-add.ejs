@@ -2,28 +2,27 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('./partials/head') %>
-<body>
+<body class="bregister">
 <!-- Header -->
 <%- include('./partials/headerLogueado') %>
 <!-- /Header -->
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
-		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Agregar productos</h2>
 				  
-				<form class="add" action="/products/add" method="get">
-				   <h4  class="register" class="file">Imagen</h4>
-				   <input class="add" type="file" name="" id="" placeholder="">
+				<form class="form-register" action="/products/add" method="get">
+				   <h4 class="register" class="file">Imagen</h4>
+				   <input class="register" type="file" name="" id="" placeholder="">
 				   <h4 class="register" class="text">Producto</h4>
-				   <input class="add" type="text" name="" id="" placeholder=""> <br>
+				   <input class="register" type="text" name="" id="" placeholder=""> <br>
 				   <h4 class="register" class="text">Descripción del producto</h4>
-				   <br><input class="add" type="text" name="" id="" placeholder="">
+				   <input class="register" type="text" name="" id="" placeholder="">
 				   <h4 class="register" class="text">Fecha de creación</h4>
-				   <br><input class="add" type="date" name="" id="" placeholder=""> <br>
+				   <input class="register" type="date" name="" id="" placeholder=""> <br>
 				   <br>
-				   <br><button class= "button-product-add" type="submit">Guardar</button>
+				   <button class= "button-product-add" type="submit">Guardar</button>
 			    </form><br>
 		   </div>
 		</div>
