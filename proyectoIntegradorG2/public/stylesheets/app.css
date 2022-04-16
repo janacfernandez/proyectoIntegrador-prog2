@@ -446,7 +446,7 @@ h4.text {
   flex-direction: column;
 }
 
-div.d-flex.align-items-center{
+.productD .d-flex.align-items-center{
   background-color: #ADA195;
   padding-left:  10px;
 }
@@ -551,11 +551,15 @@ div.d-flex.align-items-center{
   margin: 8px;
 }
 
+form.form {
+  width:90%
+}
+
 .form-input {
   margin-bottom: 15px;
-  font-size: 1.5em;
+  font-size: 1.6em;
   border: solid 1px black;
-  padding: 0 15px;
+  padding: 15px;
 }
 
 .error{
@@ -587,7 +591,6 @@ form.form-login {
 
 input.register {
   font-size: 15px;
-  text-align: left;
 
 }
 
@@ -628,9 +631,16 @@ form.form-register {
   flex-wrap: calc(55px - 1px );
 }
 
+form.add {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+ 
+ }
 input.add, .button-product-add, .button-register {
   margin: 0px 10px;
 }
+
 
 /*====== Profile ======*/
 .info-usuario{
