@@ -37,7 +37,8 @@ body {
 
 
 body.bregister {
-  background-color: #ADA195 ;;
+  background-color: #ADA195;
+  ;
 }
 
 ul,
@@ -51,7 +52,7 @@ a {
   display: inline-block;
   text-decoration: none;
   color: black;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 figure {
@@ -73,6 +74,10 @@ hr {
   border-bottom: solid 1px var(--light-gray);
 }
 
+h2 {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 h2.products-title {
   text-align: center;
   margin-bottom: 5px;
@@ -80,15 +85,24 @@ h2.products-title {
 
 h4.register {
   color: rgb(32, 29, 29);
-  background-color:  #ADA195;
+  background-color: #ADA195;
 
 }
+
 /*====== Main Header ======*/
 .aHeader {
   display: inline-block;
   text-decoration: none;
   color: white;
+  font-size: 16px;
+}
+
+.aHeader2 {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
   font-size: 15px;
+  font-family: inherit;
 }
 
 .main-header {
@@ -113,7 +127,7 @@ h4.register {
   align-items: center;
 }
 
- ::placeholder {
+::placeholder {
   color: black;
 
 }
@@ -162,16 +176,18 @@ h4.register {
   font-size: 1.5em;
 }
 
-.logout{
+.logout {
   background: transparent;
   border: 0px;
   cursor: pointer;
-  font-size: 1em;
+  font-size: 16px;
+  padding: 0%;
   color: white;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: inherit;
 }
 
-.logout:hover{
+.logout:hover {
   color: #ADA195;
 }
 
@@ -206,6 +222,12 @@ h4.register {
 .products-wrapper {
   margin-top: 30px;
   margin-bottom: 30px;
+}
+
+.products-wrapper-2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  width: 30%;
 }
 
 .products-title {
@@ -300,22 +322,32 @@ h4.register {
 
 .button-register {
   padding: 6px;
-  background: rgb(0, 0, 0); 
+  background: rgb(0, 0, 0);
   color: white;
   font-size: 17px;
   text-align: center;
   border: rgb(0, 0, 0);
   margin: 10px;
+  border-radius: 0px;
+}
+
+.button-register:hover {
+  color: #ADA195;
 }
 
 .button-product-add {
   padding: 6px;
-  background: rgb(0, 0, 0); 
+  background: rgb(0, 0, 0);
   color: white;
   font-size: 17px;
   text-align: center;
   border: rgb(0, 0, 0);
   margin: 10px;
+  border-radius: 0px;
+}
+
+.button-product-add:hover {
+  color: #ADA195;
 }
 
 h4.register {
@@ -331,8 +363,8 @@ h4.text {
 }
 
 .form-register {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-profile-edit {
@@ -340,7 +372,7 @@ h4.text {
   flex-direction: column;
 }
 
-.form-log-in{
+.form-log-in {
   display: flex;
   flex-direction: column;
 }
@@ -433,17 +465,25 @@ h4.text {
   padding: 15px 15px 15px 40px;
   font-size: 1.8em;
   line-height: 1.5;
+  margin-left: auto;
 }
 
 .product-detail-price {
   font-size: 5.5em;
   margin: 10px 0;
 }
-.product-detail .form{
+
+.product-detail .form {
   padding: 0 15px;
   display: flex;
   flex-direction: column;
 }
+
+.productD .d-flex.align-items-center {
+  background-color: #ADA195;
+  padding-left: 10px;
+}
+
 .small {
   font-size: 1.8em;
   color: var(--green);
@@ -481,14 +521,14 @@ h4.text {
   font-size: 1.6em;
   color: #ffffff;
   padding: 15px;
-  border-radius: 8px;
+  border-radius: 0px;
   border: none;
   margin-bottom: 15px;
 }
 
 .action-button {
   border: none;
-  border-radius: 8px;
+  border-radius: 0px;
   font-size: 1.2em;
   color: #ffffff;
   display: inline-flex;
@@ -501,33 +541,40 @@ h4.text {
 .action-button.edit {
   background-color: chocolate;
 }
+
 .action-button.delete {
   background-color: rgb(248, 69, 37);
 }
+
 .comments {
   padding: 30px 15px 15px 0;
 }
-.comments article{
+
+.comments article {
   margin-bottom: 7.5px;
   padding-bottom: 7.5px;
   border-bottom: 1px solid #dcdcdc;
   display: flex;
   justify-content: space-between;
 }
-.comments img{
+
+.comments img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
-.comments .data{
+
+.comments .data {
   width: 85%;
-  
+
 }
-.comments p{
+
+.comments p {
   font-size: 1.5em;
   margin-top: 0;
 }
-.comments .user{
+
+.comments .user {
   font-size: 1.7em;
 }
 
@@ -539,19 +586,28 @@ h4.text {
   margin: 10px 0;
 }
 
-.checkbox{
+.checkbox {
   text-align: center;
   margin: 8px;
 }
 
-.form-input {
-  margin-bottom: 15px;
-  font-size: 1.5em;
-  border: solid 1px black;
-  padding: 0 15px;
+form.form {
+  width: 90%
 }
 
-.error{
+.form-input {
+  margin-bottom: 15px;
+  font-size: 1.6em;
+  border: solid 2px #ADA195;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.form ::placeholder {
+  color: #ADA195;
+}
+
+.error {
   color: rgb(209, 0, 0);
   font-size: 1.4em;
 }
@@ -563,10 +619,11 @@ textarea.form-input {
 }
 
 form.form-login {
-  background-color: #ADA195 ;
+  background-color: #ADA195;
 }
 
-.form-login, .form-profile-edit {
+.form-login,
+.form-profile-edit {
   display: flex;
   flex-direction: column;
 }
@@ -596,68 +653,89 @@ input.fecha {
   text-align: center;
 }
 
-.archivo{
+.archivo {
   text-align: center;
   margin: 8px;
 }
 
 button.submitb {
   padding: 6px;
-  background: rgb(0, 0, 0); 
+  background: rgb(0, 0, 0);
   color: white;
   font-size: 17px;
   text-align: center;
   border: rgb(0, 0, 0);
   margin: 10px;
+  border-radius: 0px;
 }
+
+.submitb:hover {
+  color: #ADA195;
+}
+
 div.col-12 {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-form.form-register {
-  display: flex;
-  flex-wrap: calc(55px - 1px );
+div.col-13 {
+  flex-direction: column;
+  align-items: center;
 }
 
-input.add, .button-product-add, .button-register {
+form.form-register {
+  display: flex;
+  flex-wrap: calc(55px - 1px);
+}
+
+form.add {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+}
+
+input.add,
+.button-product-add,
+.button-register {
   margin: 0px 10px;
 }
 
+
 /*====== Profile ======*/
-.info-usuario{
+.info-usuario {
   border-bottom: 1px solid #ccc;
   padding-bottom: 30px;
   font-size: 16px;
 }
 
-.foto-perfil{
+.foto-perfil {
   border-radius: 50%;
 }
 
-.main-title{
+.main-title {
   font-size: 25px;
   margin-bottom: 10px;
   margin-top: auto;
 }
 
-.btn{
+.btn {
   background-color: #ADA195;
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
-  margin-bottom: 0px;
+  margin-bottom: 7px;
 }
 
-.profile-p{
+.profile-p {
   margin: auto;
   padding-bottom: 2px;
-  color:black;
+  color: black;
 
 }
 
-.cprofile{
+.cprofile {
   color: dimgrey;
 }
 
