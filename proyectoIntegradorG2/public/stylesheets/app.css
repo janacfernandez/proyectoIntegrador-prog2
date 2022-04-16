@@ -35,6 +35,11 @@ body {
   background-color: var(--light-gray);
 }
 
+
+body.bregister {
+  background-color: #ADA195 ;;
+}
+
 ul,
 ol {
   list-style: none;
@@ -68,6 +73,16 @@ hr {
   border-bottom: solid 1px var(--light-gray);
 }
 
+h2.products-title {
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+h4.register {
+  color: rgb(32, 29, 29);
+  background-color:  #ADA195;
+
+}
 /*====== Main Header ======*/
 .aHeader {
   display: inline-block;
@@ -153,6 +168,7 @@ hr {
   cursor: pointer;
   font-size: 1em;
   color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .logout:hover{
@@ -220,6 +236,7 @@ hr {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .product-box_data h2 {
@@ -282,13 +299,23 @@ hr {
 }
 
 .button-register {
+  padding: 6px;
+  background: rgb(0, 0, 0); 
   color: white;
-  background-color: #ADA195;
+  font-size: 17px;
+  text-align: center;
+  border: rgb(0, 0, 0);
+  margin: 10px;
 }
 
 .button-product-add {
+  padding: 6px;
+  background: rgb(0, 0, 0); 
   color: white;
-  background-color: #ADA195;
+  font-size: 17px;
+  text-align: center;
+  border: rgb(0, 0, 0);
+  margin: 10px;
 }
 
 h4.register {
@@ -308,6 +335,10 @@ h4.text {
     flex-direction: column;
 }
 
+.form-profile-edit {
+  display: flex;
+  flex-direction: column;
+}
 
 .form-log-in{
   display: flex;
@@ -500,6 +531,7 @@ h4.text {
   font-size: 1.7em;
 }
 
+
 /*====== Formularios ======*/
 .form-label {
   display: inline-block;
@@ -507,15 +539,15 @@ h4.text {
   margin: 10px 0;
 }
 
+.checkbox{
+  text-align: center;
+  margin: 8px;
+}
+
 .form-input {
-  display: block;
-  width: 100%;
-  height: 45px;
   margin-bottom: 15px;
   font-size: 1.5em;
-  border-radius: 8px;
-  border: none;
-  border: solid 1px var(--gray);
+  border: solid 1px black;
   padding: 0 15px;
 }
 
@@ -528,6 +560,69 @@ textarea.form-input {
   min-height: 140px;
   resize: vertical;
   padding: 15px;
+}
+
+form.form-login {
+  background-color: #ADA195 ;
+}
+
+.form-login, .form-profile-edit {
+  display: flex;
+  flex-direction: column;
+}
+
+.register {
+  margin: 10px;
+  font-size: 19px;
+  padding: 6px;
+  text-align: center;
+}
+
+input.register {
+  font-size: 15px;
+  text-align: left;
+
+}
+
+input.fecha {
+  font-size: 15px;
+  text-align: center;
+}
+
+.fecha {
+  margin: 10px;
+  font-size: 19px;
+  padding: 6px;
+  text-align: center;
+}
+
+.archivo{
+  text-align: center;
+  margin: 8px;
+}
+
+button.submitb {
+  padding: 6px;
+  background: rgb(0, 0, 0); 
+  color: white;
+  font-size: 17px;
+  text-align: center;
+  border: rgb(0, 0, 0);
+  margin: 10px;
+}
+div.col-12 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form.form-register {
+  display: flex;
+  flex-wrap: calc(55px - 1px );
+}
+
+input.add, .button-product-add, .button-register {
+  margin: 0px 10px;
 }
 
 /*====== Profile ======*/
@@ -544,6 +639,7 @@ textarea.form-input {
 .main-title{
   font-size: 25px;
   margin-bottom: 10px;
+  margin-top: auto;
 }
 
 .btn{
@@ -551,8 +647,19 @@ textarea.form-input {
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
+  margin-bottom: 0px;
 }
 
+.profile-p{
+  margin: auto;
+  padding-bottom: 2px;
+  color:black;
+
+}
+
+.cprofile{
+  color: dimgrey;
+}
 
 /*====== Media-Queries ======*/
 @media (min-width: 768px) {
