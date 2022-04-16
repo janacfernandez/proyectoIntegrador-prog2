@@ -7,8 +7,7 @@ const controller = {
        })
     },
 
-    searchResults: (req, res) => { 
-
+    searchResults: (req, res) => {
         let resultado = req.query.search;
         let autosEncontrados = [];
         for (let i = 0; i < autos.productos.length; i++) {
@@ -16,12 +15,12 @@ const controller = {
                 autosEncontrados.push(autos.productos[i])
             }            
         }
-
         return res.render('search-results', {
             listaAutos: autosEncontrados,
             busq: req.query.search,
         })
      },
 };
+
 
 module.exports = controller;

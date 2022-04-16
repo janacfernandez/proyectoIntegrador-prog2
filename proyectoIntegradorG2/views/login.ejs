@@ -1,50 +1,38 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link width="" rel="shortcut icon" href="/images/logo.jpg" />
-	
-	<title> Top Wheels </title>
-			<!-- Font Awesome Stylesheet -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-	<!-- Bootstrap Grid Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/bootstrap-grid.min.css">
-	<!-- Own Stylesheet -->
-	<link rel="stylesheet" href="/stylesheets/app.css">
-</head>
+<%- include('./partials/head') %>
 
-<body class="bregister">
-	<!-- Header -->
-	<%- include('./partials/headerdesLogueado') %>
-	<!-- /Header -->>
-	<!-- Novedades -->
-	<div class="container products-wrapper">
-		<div>
-			<div class="col-12">
-				<h2 class="products-title">Ingresar</h2>
+	<body class="bregister">
+		<!-- Header -->
+		<%- include('./partials/headerdesLogueado') %>
+		<!-- /Header -->>
+			<!-- Novedades -->
+			<div class="container products-wrapper">
+				<div>
+					<div class="col-12">
+						<h2 class="products-title">Ingresar</h2>
+					</div>
+					<!-- Show the "ultimos" products -->
+					<h2 class="col-12">
+						<form class="form-login" action="/users/profile" method="get">
+							<h4 class="register">E-mail</h4>
+							<input class="register" type="email" name="" id="" placeholder="">
+							<h4 class="register">Contraseña</h4>
+							<input class="register" type="password" name="" id="" placeholder="">
+							<div class="checkbox">
+								<span>Recordarme</span>
+								<input type="checkbox" name="" id="">
+							</div>
+							<button class="submitb" type="submit">Ingresar</button>
+						</form>
+					</h2>
+				</div>
 			</div>
-			<!-- Show the "ultimos" products -->
-		    <h2 class="col-12">				
-			   <form class="form-login" action="/users/profile" method="get">
-				 <h4 class = "register">E-mail</h4>
-				 <input class = "register" type="email" name="" id="" placeholder="">
-				 <h4 class="register">Contraseña</h4>
-				 <input class = "register" type="password" name="" id="" placeholder="">
-				 <div class="checkbox">
-				     <span>Recordarme</span>
-				     <input type="checkbox" name="" id="">
-				 </div>
-				  <button class="submitb" type="submit">Ingresar</button>
-			   </form>
-         </h2>
-		</div>
-	</div>
-			
-	<!-- footer -->
-	<%- include('./partials/footer')  %> 
-	<!-- /footer -->
-</body>
+
+			<!-- footer -->
+			<%- include('./partials/footer') %>
+			<!-- /footer -->
+	</body>
 
 </html>
