@@ -4,45 +4,45 @@
 
 <%- include('./partials/head') %>
 
-<!-- Fin Head -->
+	<!-- Fin Head -->
 
-<body>
-	<!-- Header -->
-	<%- include('./partials/headerDeslogueado') %>
-		<!-- /Header -->
+	<body class="bregister">
+		<!-- Header -->
+		<%- include('./partials/headerDeslogueado') %>
+			<!-- /Header -->
 
-		<!-- Novedades -->
-		<div class="container products-wrapper">
-			<div class="row">
-				<div class="col-12">
-					<h2 class="products-title">Registrate</h2>
+			<!-- Novedades -->
+			<div class="container products-wrapper">
+				<div>
+					<div class="col-12">
+						<h2 class="products-title">Registrate</h2>
+					</div>
+					<!-- Show the "ultimos" products -->
+					<form class="form-register" action="/users/profile" method="get">
+						<h4 class="register">E-mail</h4>
+						<input class="register" type="email" name="" id="">
+						<h4 class="register"> Usuario </h4>
+						<input class="register" type="text" name="" id="">
+						<h4 class="register">Contraseña</h4>
+						<input class="register" type="password" name="" id="">
+						<h4 class="register"> Fecha de nacimiento </h4>
+						<input class="fecha" type="date" name="" id="">
+						<h4 class="register"> Número de documento </h4>
+						<input class="register" type="number" name="" id="">
+						<h4 class="register"> Foto de perfil </h4>
+						<input class="register" type="file" name="" id="">
+						<br>
+						<button class="button-register" type="submit"> Crear </button>
+					</form>
+
+
+
 				</div>
-				<!-- Show the "ultimos" products -->
-								<form class="form-register" action="/users/profile" method="get">
-									<h4 class="register">E-mail</h4>
-									<input type="email" name="" id="">
-									<h4 class="register"> Usuario </h4>
-									<input type="text" name="" id="">
-									<h4 class="register">Contraseña</h4>
-									<input type="password" name="" id="">
-									<h4 class="register"> Fecha de nacimiento </h4>
-									<input type="date" name="" id="">
-									<h4 class="register"> Número de documento </h4>
-									<input type="number" name="" id="">
-									<h4 class="register"> Foto de perfil </h4>
-									<input type="file" name="" id="" >
-									<br>
-									<button class= "button-register" type="submit"> Finalizar </button>
-								</form>
-						
-
-			
 			</div>
-		</div>
 
-		<!-- footer -->
-	<%- include('./partials/footer') %>
-			<!-- /footer -->
-</body>
+			<!-- footer -->
+			<%- include('./partials/footer') %>
+				<!-- /footer -->
+	</body>
 
 </html>
