@@ -417,6 +417,7 @@ h4.text {
   padding: 15px 15px 15px 40px;
   font-size: 1.8em;
   line-height: 1.5;
+  margin-left: auto;
 }
 
 .product-detail-price {
@@ -428,6 +429,12 @@ h4.text {
   display: flex;
   flex-direction: column;
 }
+
+div.d-flex.align-items-center{
+  background-color: #ADA195;
+  padding-left:  10px;
+}
+
 .small {
   font-size: 1.8em;
   color: var(--green);
