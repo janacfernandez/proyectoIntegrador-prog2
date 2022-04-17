@@ -176,6 +176,13 @@ h4.register {
   font-size: 1.5em;
 }
 
+.right-navbar {
+  margin-right: 50px
+}
+.left-navbar {
+  margin-left: 5px;
+}
+
 .logout {
   background: transparent;
   border: 0px;
