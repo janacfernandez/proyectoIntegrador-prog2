@@ -1,11 +1,11 @@
 const data = {
     usuario:  {
-        foto: "/images/users/martinPerez.jpg", 
-        nombre: "Martin",
-        apellido: "Perez",
-        email: "mperez@gmail.com",
-        usuario: "Martin Perez",
-        constrasenia: "m1980",
+        foto: "/images/users/brianGomez.png", 
+        nombre: "Brian",
+        apellido: "Gomez",
+        email: "bgomez@gmail.com",
+        usuario: "Brian Gomez",
+        constrasenia: "b1980",
         fDeNac : "22-09-1980",
         nroDeDoc: "28740858", 
     },
