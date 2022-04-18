@@ -12,7 +12,10 @@
 			<!-- Novedades -->
 			<div class="container products-wrapper">
 				<div class="row">
-
+					<div class="col-12">
+						<h2 class="products-title">Resultados de búsqueda: <%= busq %>
+						</h2>
+					</div>
 					<!-- Show the "ultimos" products -->
 
 					<% if (listaAutos.length===0) { %>
@@ -21,10 +24,7 @@
 						</div>
 						<% } else { %>
 							<% for( let i=0; i < listaAutos.length; i++ ) { %>
-								<div class="col-12">
-									<h2 class="products-title">Resultados de búsqueda: <%= busq %>
-									</h2>
-								</div>
+
 								<div class="col-12 col-sm-6 col-lg-3">
 									<section class="product-box">
 										<a href="/products/detail/<%= listaAutos[i].id %>">
@@ -52,7 +52,7 @@
 
 			<!-- footer -->
 			<%- include('./partials/footer') %>
-			<!-- /footer -->
+				<!-- /footer -->
 	</body>
 
 </html>
