@@ -20,6 +20,9 @@
 							<input class="register" type="email" name="email" id="" placeholder="">
 							<h4 class="register">Contraseña</h4>
 							<input class="register" type="password" name="contrasenia" id="" placeholder="">
+							<% if (!contraseniaValida) { %>
+								<label>Contraseña incorrecta intente de nuevo</label>
+							<% } %>
 							<div class="checkbox">
 								<span>Recordarme</span>
 								<input type="checkbox" name="recordar" id="">

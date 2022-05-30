@@ -7,6 +7,7 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const productRouter = require('./routes/products');
+const userController = require('./controllers/userController')
 
 const app = express();
 
@@ -19,6 +20,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function(req,res,next){
+  res.locals.contraseniaValida = userController.contraseniaValida
+  return next()
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

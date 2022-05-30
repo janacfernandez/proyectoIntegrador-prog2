@@ -2,9 +2,11 @@ const db = require("../database/models");
 const user = db.User;
 const bcrypt = require('bcryptjs');
 
-const users = require('../db/data')
+const users = require('../db/data');
+
 
 const controller = {
+
     login: (req,res) => res.render('login'),
 
     procesarLogin: (req,res) => {
@@ -13,12 +15,17 @@ const controller = {
             where: [{email: info.email}]
         };
         user.findOne(filtro)
-        .then(result => {
-            if(result != null){
-            console.log(result)
-            res.redirect('/users/profile')
-            }else{
-                res.send("No existe el mail")
+        .then(resultado => {
+            if (resultado != null) {
+                let contraEncriptada = bcrypt.compareSync(info.contrasenia, resultado.contrasenia)
+                if (contraEncriptada) {
+                    return res.redirect('/users/profile')
+                } else {
+                    this.contraseniaValida = false
+                    return res.redirect('/users/login');
+                }
+            } else {
+                return res.send("Mail incorrecto");
             }
         })
         .catch(err => console.log(err));
