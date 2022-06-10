@@ -3,6 +3,8 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const session = require('express-session');
+const db = require("./database/models");
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
@@ -21,10 +23,33 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req,res,next){
-  res.locals.contraseniaValida = userController.contraseniaValida
-  return next()
+app.use(session({secret: "app", resave: false, saveUninitialized: true}));
+
+app.use(function(req, res, next) {
+  if ( req.session.user != undefined) {
+    res.locals.user = req.session.user;
+    return next()
+  }
+  return next();
 });
+
+app.use(function(req, res, next) {
+  if (req.cookies.userId != undefined && req.session.user == undefined) {
+
+    let idCookieUser = req.cookies.userId;
+    
+    db.User.findByPk(idCookieUser)
+    .then((user) => {
+      req.session.user = user.dataValues;
+      res.locals.user  = user.dataValues;
+      return next();
+    }).catch((err) => {
+      console.log(err);
+    });
+  } else {
+    return next();
+  }
+})
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

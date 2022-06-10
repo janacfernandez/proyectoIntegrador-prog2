@@ -7,9 +7,12 @@ const users = require('../db/data');
 
 const controller = {
 
+
     login: (req,res) => res.render('login'),
 
     procesarLogin: (req,res) => {
+
+        let errors = {};
         let info = req.body;
         let filtro = {
             where: [{email: info.email}]
@@ -19,13 +22,20 @@ const controller = {
             if (resultado != null) {
                 let contraEncriptada = bcrypt.compareSync(info.contrasenia, resultado.contrasenia)
                 if (contraEncriptada) {
+                    req.session.user = resultado.dataValues;
+                    if(req.body.recordar != undefined){
+                        res.cookie('userId', resultado.dataValues.id)
+                    }
                     return res.redirect('/users/profile')
                 } else {
-                    this.contraseniaValida = false
-                    return res.redirect('/users/login');
+                    errors.message = "Contraseña incorrecta";
+                    res.locals.errors = errors;
+                    return res.render('login'); //Render aca
                 }
             } else {
-                return res.send("Mail incorrecto");
+                errors.message = "Mail incorrecto";
+                res.locals.errors = errors;
+                return res.render('login');
             }
         })
         .catch(err => console.log(err));
@@ -65,6 +75,12 @@ const controller = {
        listaAutos: users.productos, 
        img: users.usuario.foto, nombreUsuario: users.usuario.usuario, 
        emailUsuario: users.usuario.email}),
+    
+    logout : (req, res) => {
+        req.session.destroy();
+        res.clearCookie('userId');
+        return res.render('login')
+    },
 };
 
 

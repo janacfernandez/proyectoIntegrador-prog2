@@ -17,7 +17,7 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center  ">
-					<h1 class="main-title">  <%= nombreUsuario%> 
+					<h1 class="main-title">  <%= locals.user.nombre%> 
 						<a href="profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
@@ -26,7 +26,7 @@
 				</div>
 				<div>
 					<ul class="">
-						<p class="profile-p"><%= emailUsuario %></p>
+						<p class="profile-p"><%= locals.user.email %></p>
 						<li class="cprofile">8 productos</li>
 						<li class="cprofile">200 seguidores</li>
 						<li class="cprofile">300 comentarios</li>

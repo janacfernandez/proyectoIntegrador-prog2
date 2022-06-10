@@ -3,6 +3,7 @@
 <!-- Include Head -->
 <%- include('./partials/head') %>
 
+
 	<body class="bregister">
 		<!-- Header -->
 		<%- include('./partials/headerdesLogueado') %>
@@ -20,8 +21,8 @@
 							<input class="register" type="email" name="email" id="" placeholder="">
 							<h4 class="register">Contraseña</h4>
 							<input class="register" type="password" name="contrasenia" id="" placeholder="">
-							<% if (!contraseniaValida) { %>
-								<label>Contraseña incorrecta intente de nuevo</label>
+							<% if (locals.errors != undefined) { %>
+								<p><%=  locals.errors.message%> </p>
 							<% } %>
 							<div class="checkbox">
 								<span>Recordarme</span>
