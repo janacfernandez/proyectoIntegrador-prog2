@@ -5,7 +5,11 @@
 
 	<body class="productD">
 		<!-- Header -->
-		<%- include('./partials/headerDeslogueado') %>
+		<% if (locals.user != undefined) { %>
+			<%- include('./partials/headerLogueado')  %> 
+	  <% }else {%>
+			<%- include('./partials/header')  %> 
+	  <% } %>
 		<!-- /Header -->
 
 			<!-- product detail -->
