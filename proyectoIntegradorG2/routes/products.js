@@ -35,7 +35,7 @@ router.get('/add', productController.add),
 router.post('/add', productController.procesarAdd),
 router.post('/add', upload.single('imgProducto'), productController.updateAdd)
 router.post('/detail/:id', productController.comentarios) // ver
-// falta ruta de editar 
+// falta ruta de procesarAdd 
 
 
 module.exports = router;

@@ -3,6 +3,7 @@ const db = require("../database/models");
 const Comentario = db.Comentario; /* El alias que le pondre a mi modelo */
 const product = db.Product; /* El alias que le pondre a mi modelo */
 const bcrypt = require('bcryptjs');
+let imgProducto = req.file.img;
 
 const controller = {
     detail: (req, res) => res.render('product-detail', {
@@ -15,9 +16,8 @@ const controller = {
 
     procesarAdd: (req, res) => {
         let info = req.body;
-        let imagenP = req.filename.imagen;
         let productoN = {
-            img: imagenP,
+            img: imgProducto,
             nombre: info.nombre,
             descripcion: info.descripcion,
             anio: info.anio,
@@ -42,7 +42,7 @@ const controller = {
         let idEdit = req.params.id;
 
         let producto = {
-            img: '',
+            img: imgProducto,
             nombre: info.nombre,
             descripcion: info.descripcion,
             anio: info.anio,
@@ -67,7 +67,7 @@ const controller = {
     comentarios: (req, res) => {
 
         Comentario.findAll({
-            limit: 10,
+            limit: 20,
             order: [
                 ['created_at', 'DESC']
             ]
