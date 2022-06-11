@@ -28,12 +28,4 @@ let storage = multer.diskStorage({
 
 let upload = multer({storage : storage})
 
-
-/* GET & POST users listing. */
-router.get('/detail/:id', productController.detail),
-router.get('/add', productController.add),
-router.post('/add', productController.procesarAdd),
-router.post('/add', upload.single('imgProducto'), productController.updateAdd)
-
-
 module.exports = router;
