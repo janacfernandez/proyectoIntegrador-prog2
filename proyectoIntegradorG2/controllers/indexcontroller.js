@@ -9,8 +9,7 @@ const controller = {
       product
       .findAll()
       .then((result) => {
-        res.send(result)
-       /*return res.render("index", { listaAutos: result}); */
+       return res.render("index", { listaAutos: result}); 
     });
 }, 
   searchResults: (req, res) => {

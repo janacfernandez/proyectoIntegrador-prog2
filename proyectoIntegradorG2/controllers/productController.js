@@ -6,7 +6,6 @@ const bcrypt = require('bcryptjs');
 const controller = {
     detail: (req, res) => {
         let id = req.params.id;
-
         product.findByPk(id).then((result)=>{
             let product = {
                 img: '',
@@ -17,23 +16,24 @@ const controller = {
                 updatedAt: new Date()
             }
             return res.render("product-detail", {
-                product : product
-            })
-        }) },
+                listaAutos: product})
+        })
+        },
 
     add: (req, res) =>  res.render('product-add'),
 
     procesarAdd: (req, res) => {
         let info = req.body;
-        let producto = {
-            img: '',
+        let imagenP = req.filename.imagen;
+        let productoN = {
+            img: imagenP,
             nombre: info.nombre,
             descripcion: info.descripcion,
             anio: info.anio,
             createdAt: new Date(),
             updatedAt: new Date()
         }
-        product.create(producto)
+        product.create(productoN)
         .then((result) => {
             return res.redirect("/")
           }).catch((err) => {
@@ -42,20 +42,7 @@ const controller = {
         }, 
         
     edit: (req, res) => {
-        let id = req.params.id;
-        product.findByPK(id)
-        .then((result) => {
-           
-            let producto = {
-                img: '',
-                nombre: result.nombre,
-                descripcion: result.descripcion,
-                anio: result.anio,
-                createdAt: new Date(),
-                updatedAt: new Date()
-            }
-            return res.render(),( 'product-edit',{ product : producto})
-        })
+            return res.render('product-edit')
     },
 
     updateAdd : (req, res) => {
