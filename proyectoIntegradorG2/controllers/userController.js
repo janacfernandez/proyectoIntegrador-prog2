@@ -46,6 +46,7 @@ const controller = {
 
     procesarRegister: (req, res) => {
         let info = req.body;
+        let imgPerfil = req.file.img;
         let usuario = {
             nombre: info.name,
             apellido: info.apellido,
@@ -54,7 +55,7 @@ const controller = {
             contrasenia: bcrypt.hashSync(info.contrasenia, 10),
             fDeNac: info.fDeNac,
             dni: info.dni,
-            foto: info.foto,
+            foto: imgPerfil,
             created_at : new Date(),
             updated_at :  new Date(),
         }
@@ -65,15 +66,15 @@ const controller = {
     },
 
 
-    profileEdit: (req,res) => res.render('profile-edit',{ 
+    profileEdit: (req,res) => res.render('profile-edit',{
         listaAutos: users.productos, 
         nombreUsuario: users.usuario.usuario, 
-        img: users.usuario.foto
-        }), 
+        img: imgPerfil 
+    }), 
 
    profile: (req, res) =>  res.render('profile',{ 
        listaAutos: users.productos, 
-       img: users.usuario.foto, nombreUsuario: users.usuario.usuario, 
+       img: imgPerfil, nombreUsuario: users.usuario.usuario, 
        emailUsuario: users.usuario.email}),
     
     logout : (req, res) => {
