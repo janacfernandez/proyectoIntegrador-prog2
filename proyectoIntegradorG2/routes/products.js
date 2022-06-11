@@ -1,16 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/productController'); 
-
-router.get('/id/:id', productController.detail),
-
-router.get('/add/', productController.add),
-router.post('/add/', productController.procesarAdd),
-
-router.get('/product-edit', productController.edit),
-router.post('/product-edit', productController.updateAdd), 
-
-router.get('/deleteProduct/:id', productController.destroy)
+ 
 /* Importaciones */
 let multer = require('multer');
 let path = require('path');
@@ -30,12 +21,14 @@ let upload = multer({storage : storage})
 
 
 /* GET & POST users listing. */
-router.get('/detail/:id', productController.detail),
+router.get('/id/:id', productController.detail),
 router.get('/add', productController.add),
-router.post('/add', productController.procesarAdd),
-router.post('/add', upload.single('imgProducto'), productController.updateAdd)
+router.get('/product-edit', productController.edit),
+router.post('/add', upload.single('imgProducto'), productController.procesarAdd),
+router.post('/product-edit', upload.single('imgProducto'), productController.updateAdd)
 router.post('/detail/:id', productController.comentarios) // ver
-// falta ruta de procesarAdd 
+router.get('/deleteProduct/:id', productController.destroy) 
+
 
 
 module.exports = router;

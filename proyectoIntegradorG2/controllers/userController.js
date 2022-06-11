@@ -1,7 +1,6 @@
 const db = require("../database/models");
 const user = db.User;
 const bcrypt = require('bcryptjs');
-let imgPerfil = req.file.img;
 
 const users = require('../db/data');
 
@@ -47,6 +46,7 @@ const controller = {
 
     procesarRegister: (req, res) => {
         let info = req.body;
+        let imgPerfil = req.file.img;
         let usuario = {
             nombre: info.name,
             apellido: info.apellido,
@@ -66,11 +66,11 @@ const controller = {
     },
 
 
-    profileEdit: (req,res) => res.render('profile-edit',{ 
+    profileEdit: (req,res) => res.render('profile-edit',{
         listaAutos: users.productos, 
         nombreUsuario: users.usuario.usuario, 
-        img: imgPerfil
-        }), 
+        img: imgPerfil 
+    }), 
 
    profile: (req, res) =>  res.render('profile',{ 
        listaAutos: users.productos, 

@@ -3,7 +3,6 @@ const db = require("../database/models");
 const Comentario = db.Comentario; /* El alias que le pondre a mi modelo */
 const product = db.Product; /* El alias que le pondre a mi modelo */
 const bcrypt = require('bcryptjs');
-let imgProducto = req.file.img;
 
 const controller = {
     detail: (req, res) => res.render('product-detail', {
@@ -16,6 +15,7 @@ const controller = {
 
     procesarAdd: (req, res) => {
         let info = req.body;
+        let imgProducto = req.file.img;
         let productoN = {
             img: imgProducto,
             nombre: info.nombre,
@@ -38,7 +38,7 @@ const controller = {
 
     updateAdd: (req, res) => {
         let info = req.body;
-
+        let imgProducto = req.file.img;
         let idEdit = req.params.id;
 
         let producto = {
