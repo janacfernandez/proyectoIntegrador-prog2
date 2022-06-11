@@ -25,6 +25,8 @@ router.get('/detail/:id', productController.detail),
 router.get('/add', productController.add),
 router.post('/add', productController.procesarAdd),
 router.post('/add', upload.single('imgProducto'), productController.updateAdd)
+router.post('/detail/:id', productController.comentarios) // ver
+// falta ruta de editar 
 
 
 module.exports = router;
