@@ -42,7 +42,7 @@ const controller = {
         }, 
         
     edit: (req, res) => {
-            return res.render('product-edit')
+        return res.render('product-edit')
     },
 
     updateAdd : (req, res) => {
