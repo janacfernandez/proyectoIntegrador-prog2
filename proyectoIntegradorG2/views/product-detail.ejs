@@ -16,39 +16,25 @@
 			<div class="container products-wrapper">
 				<div class="d-flex align-items-center">
 					<h2 class="products-title">
-						<%= listaAutos[id].nombre %>
+						<%= listaAutos.nombre %>
 					</h2>
 					<p class="product-detail-description">
-						<a href="/products/add">Editar</a>
+						<a href="/products/product-edit">Editar</a>
 					</p>
 				</div>
 				<div class="product-detail">
 					<div class="row">
 						<article class="col-12 col-lg-8 product-detail-info">
-							<img src="<%= listaAutos[id].img %>" alt="" class="product-detail-img">
+							<img src="<%= listaAutos.img %>" alt="" class="product-detail-img">
 							<p class="product-detail-description">
-								<%= listaAutos[id].descripcion %>
+								<%= listaAutos.descripcion %>
 							</p>
 						</article>
 						<div class="col-12 col-lg-4">
 							<section class="comments">
-								<% for( let i=0; i < 5; i++ ) { %>
-									<section class="comments">
-										<article>
-											<img src="<%= comment[i].image %>" alt="">
-											<div class="data">
-												<p class="user">
-													<strong> <a href="/users/profile">
-															<%= comment[i].nombre %>
-														</a> </strong>
-													<%= comment[i].text %>
-												</p>
-											</div>
-										</article>
-									</section>
-									<% } %>
+							 
 							</section>
-							<form class="form" action="/products/detail/<%= listaAutos[id].id %> " method="post">
+							<form class="form" action="/products/detail/<%= listaAutos.id %> " method="post">
 								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 								<button type="submit" class="buy-now-button"> ENVIAR </button>
 							</form>

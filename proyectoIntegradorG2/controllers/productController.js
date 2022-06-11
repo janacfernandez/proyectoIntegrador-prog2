@@ -15,36 +15,25 @@ const controller = {
 
     procesarAdd: (req, res) => {
         let info = req.body;
-        let producto = {
-            img: '',
+        let imagenP = req.filename.imagen;
+        let productoN = {
+            img: imagenP,
             nombre: info.nombre,
             descripcion: info.descripcion,
             anio: info.anio,
-            created_at: new Date(),
-            updated_at: new Date()
+            createdAt: new Date(),
+            updatedAt: new Date()
         }
-        product.create(producto)
-            .then((result) => {
-                return res.redirect("/")
-            }).catch((err) => {
-                return res.send("Hay un error" + err)
-            });
-    },
-
+        product.create(productoN)
+        .then((result) => {
+            return res.redirect("/")
+          }).catch((err) => {
+            return res.send("Hay un error" + err)
+          });
+        }, 
+        
     edit: (req, res) => {
-
-        product.findByPK(id) // este id de donde sale? hacer
-            .then((result) => {
-                let producto = {
-                    img: req.file.filename,
-                    nombre: info.nombre, // que es info? hay que sacar de result.dataValues
-                    descripcion: info.descripcion,
-                    anio: info.anio,
-                    created_at: new Date(),
-                    updated_at: new Date()
-                }
-                return res.render(), ('productEdit', { product: producto }) // ver, raro 
-            })
+            return res.render('product-edit')
     },
 
     updateAdd: (req, res) => {
@@ -57,8 +46,8 @@ const controller = {
             nombre: info.nombre,
             descripcion: info.descripcion,
             anio: info.anio,
-            created_at: new DATE(),
-            updated_at: new DATE()
+            createdAt: new Date(),
+            updatedAt: new Date()
         }
 
         let filter = {

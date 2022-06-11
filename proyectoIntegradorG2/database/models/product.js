@@ -18,8 +18,7 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.STRING
         },
         anio: {
-            type: dataTypes.DATE,
-            allowNull: true,
+            type: dataTypes.INTEGER
         },
         comentarios: {
             type: dataTypes.STRING
