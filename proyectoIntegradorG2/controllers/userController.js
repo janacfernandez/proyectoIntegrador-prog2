@@ -46,6 +46,7 @@ const controller = {
 
     procesarRegister: (req, res) => {
         let info = req.body;
+        let imgPerfil = req.file.img;
         let usuario = {
             nombre: info.name,
             apellido: info.apellido,
@@ -54,7 +55,7 @@ const controller = {
             contrasenia: bcrypt.hashSync(info.contrasenia, 10),
             fDeNac: info.fDeNac,
             dni: info.dni,
-            foto: info.foto,
+            foto: imgPerfil,
             created_at : new Date(),
         }
 

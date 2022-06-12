@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%- include('./partials/head') %>
+
+	<body>
+		<!-- Header -->
+		<% if (locals.user != undefined) { %>
+			<%- include('./partials/headerLogueado')  %> 
+	  <% }else {%>
+			<%- include('./partials/headerDeslogueado')  %> 
+	  <% } %>
+		<!-- /Header -->
+
+			<!-- Novedades -->
+			<div class="container products-wrapper">
+				<div class="col-12">
+					<h2 class="products-title">Editar producto</h2>
+
+					<form class="form-register" action="/products/edit" method="post">
+						<h4 class="register" class="file" >Imagen</h4>
+						<input class="register" type="file" name="img" id="" placeholder="">
+						<h4 class="register" class="text">Producto</h4>
+						<input class="register" type="text" name="nombre" id="" placeholder=""> <br>
+						<h4 class="register" class="text">Descripción del producto</h4>
+						<input class="register" type="text" name="descripcion" id="" placeholder="">
+						<h4 class="register" class="text"> Año</h4>
+						<input class="register" type="text" name="anio" id="" placeholder=""> <br>
+						<br>
+						<button class="button-product-add" type="submit">Guardar</button>
+					</form><br>
+				</div>
+			</div>
+			</div>
+
+			<!-- footer -->
+			<%- include('./partials/footer') %>
+			<!-- /footer -->
+	</body>
+
+</html>

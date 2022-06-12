@@ -19,7 +19,7 @@ let storage = multer.diskStorage({
 
 let upload = multer({storage : storage})
 
-/* GET users listing. */
+/* GET & POST users listing. */
 router.get('/login', userController.login),
 
 router.post('/login', userController.procesarLogin),
@@ -30,11 +30,9 @@ router.post('/register', upload.single('imgPerfil'), userController.procesarRegi
 
 router.get('/profile', userController.profile),
 
-router.post('/product-add', upload.single('imgProducto'), userController.profileEdit), // no se si va .profileEdit o cual
-
 router.get('/profile-edit', userController.profileEdit),
 
-router.post('/profile-edit', userController.profileUpdate),
+router.post('/profile-edit', upload.single('imgPerfil'), userController.profileUpdate),
 
 router.get('/logout', userController.logout)
 
