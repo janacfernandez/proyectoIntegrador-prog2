@@ -34,7 +34,9 @@ router.post('/product-add', upload.single('imgProducto'), userController.profile
 
 router.get('/profile-edit', userController.profileEdit),
 
-router.post('/profile-edit',  upload.single('imgPerfil'), userController.procesarLogin)
+router.post('/profile-edit', userController.profileUpdate),
+
+router.get('/logout', userController.logout)
 
 
 module.exports = router;

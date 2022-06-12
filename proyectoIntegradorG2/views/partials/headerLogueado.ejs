@@ -37,15 +37,14 @@
 
 		<ul class="right-navbar">
 			<li><a class="aHeader" href="/users/profile">
-					PEPItO
+				<%= locals.user.nombre + " " + locals.user.apellido %>
 						<i class="fas fa-user"></i>
 				</a>
 			</li>
 			<li>
-				<form action="/" method="GET">
-					<button class="logout" type="submit">
+					<a href="/users/logout" class="logout" type="submit">
 						Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-					</button>
+					</a>
 				</form>
 			</li>
 		</ul>

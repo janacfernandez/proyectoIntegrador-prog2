@@ -56,7 +56,6 @@ const controller = {
             dni: info.dni,
             foto: info.foto,
             created_at : new Date(),
-            updated_at :  new Date(),
         }
 
         user.create(usuario)
@@ -65,16 +64,44 @@ const controller = {
     },
 
 
-    profileEdit: (req,res) => res.render('profile-edit',{ 
-        listaAutos: users.productos, 
-        nombreUsuario: users.usuario.usuario, 
-        img: users.usuario.foto
-        }), 
+    profileEdit: (req,res) => {
+        if (req.session.user != undefined) {
+            res.render('profile-edit')
+        } else {
+            res.redirect('/users/login')
+        }
+    },
 
-   profile: (req, res) =>  res.render('profile',{ 
-       listaAutos: users.productos, 
-       img: users.usuario.foto, nombreUsuario: users.usuario.usuario, 
-       emailUsuario: users.usuario.email}),
+    profileUpdate: (req, res) => {
+        let info = req.body;
+        let idEdicion = req.session.user.id;
+    
+        let usuario = {
+            nombre: info.name,
+            apellido: info.apellido,
+            email: info.email,
+            usuario: info.usuario,
+            fDeNac: info.fDeNac,
+            dni: info.dni,
+            foto: info.foto,
+            updated_at: new Date(),
+        }
+        let filtro = {
+          where: {
+            id: idEdicion
+          }
+        }
+    
+        user.update(usuario, filtro)
+        .then (resultado => res.redirect('/'))
+        .catch(err => console.log(err));
+    },
+
+   profile: (req, res) =>  {
+    res.render('profile',{
+        listaAutos: users.productos, 
+        img: users.usuario.foto})
+   },
     
     logout : (req, res) => {
         req.session.destroy();
