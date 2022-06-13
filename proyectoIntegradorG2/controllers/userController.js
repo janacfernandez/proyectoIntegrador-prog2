@@ -46,7 +46,7 @@ const controller = {
 
     procesarRegister: (req, res) => {
         let info = req.body;
-        let imgPerfil = req.file.img;
+        let imgPerfil = req.file.filename;
         let usuario = {
             nombre: info.name,
             apellido: info.apellido,

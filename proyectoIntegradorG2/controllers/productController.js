@@ -9,7 +9,7 @@ const controller = {
         Product.findByPk(id).then((result)=>{
             let product = {
                 id: result.dataValues.id,
-                img: '',
+                img: result.img,
                 nombre: result.nombre,
                 descripcion: result.descripcion,
                 anio: result.anio,
@@ -28,9 +28,9 @@ const controller = {
 
     store: (req, res) => {
         let info = req.body;
-        /*let imgProduct = req.file.filename; */
+        let imgProduct = req.file.filename; 
         let product = {
-            img: '',
+            img: imgProduct,
             nombre: info.nombre,
             descripcion: info.descripcion,
             anio: info.anio,
@@ -53,7 +53,7 @@ const controller = {
         .then((result) => {
             let product = {
                 id: result.dataValues.id, 
-                img: '',
+                img: result.dataValues.img,
                 nombre: result.dataValues.nombre,
                 descripcion: result.dataValues.descripcion,
                 anio: result.dataValues.anio,
@@ -68,11 +68,11 @@ const controller = {
 
     updateProd : (req, res) => {
         let info = req.body;
-        /*let imgProduct = req.file.filename; */
+        let imgProduct = req.file.filename; 
         let idEdit = req.params.id;
 
         let producto = {
-            img:'',
+            img:imgProduct,
             nombre: info.nombre,
             descripcion: info.descripcion,
             anio: info.anio,
@@ -93,8 +93,17 @@ const controller = {
            return res.send(err)
         }); 
     }, 
-    destroy: (req, res) => {
-        return res.send("ruta para el destroy")
+    delete: (req, res) => {
+        let idDelete = req.params.id;
+        Product.destroy({
+            where : {
+                id : idDelete
+            }
+        })
+        .then((result) => {
+            console.log(result);
+            return res.redirect('/')
+        })
     }
 }; 
 module.exports = controller;

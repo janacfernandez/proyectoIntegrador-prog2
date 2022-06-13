@@ -21,6 +21,11 @@
 					<p class="product-detail-description">
 						<a href="/products/product-edit/id/<%= listaAutos.id %>">Editar</a>
 					</p>
+					 <% if (locals.user != undefined) { %>
+							<p class="product-detail-description">
+								<a href="/products/delete/id/<%= listaAutos.id %>">Borrar</a>	
+							</p>
+							<% } %> 
 				</div>
 				<div class="product-detail">
 					<div class="row">
