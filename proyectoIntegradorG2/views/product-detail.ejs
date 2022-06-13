@@ -19,13 +19,13 @@
 						<%= listaAutos.nombre %>
 					</h2>
 					<p class="product-detail-description">
-						<a href="/products/product-edit">Editar</a>
+						<a href="/products/product-edit/id/<%= listaAutos.id %>">Editar</a>
 					</p>
 				</div>
 				<div class="product-detail">
 					<div class="row">
 						<article class="col-12 col-lg-8 product-detail-info">
-							<img src="<%= listaAutos.img %>" alt="" class="product-detail-img">
+							<img src="/images/products/<%= listaAutos.img %>" alt="" class="product-detail-img">
 							<p class="product-detail-description">
 								<%= listaAutos.descripcion %>
 							</p>
@@ -34,7 +34,7 @@
 							<section class="comments">
 							 
 							</section>
-							<form class="form" action="/products/detail/<%= listaAutos.id %> " method="post">
+							<form class="form" action="/products/detail/<%= listaAutos.id %> " method="POST">
 								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 								<button type="submit" class="buy-now-button"> ENVIAR </button>
 							</form>

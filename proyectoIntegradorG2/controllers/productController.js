@@ -1,13 +1,14 @@
 const data = require('../db/data');
 const db = require("../database/models");
-const product = db.Product;
+const Product = db.Product;
 const bcrypt = require('bcryptjs');
 
 const controller = {
     detail: (req, res) => {
         let id = req.params.id;
-        product.findByPk(id).then((result)=>{
+        Product.findByPk(id).then((result)=>{
             let product = {
+                id: result.dataValues.id,
                 img: '',
                 nombre: result.nombre,
                 descripcion: result.descripcion,
@@ -15,25 +16,29 @@ const controller = {
                 createdAt: new Date(),
                 updatedAt: new Date()
             }
-            return res.render("product-detail", {
+            return res.render('product-detail', {
                 listaAutos: product})
         })
+        .catch((err) => {
+            console.log(err);
+        });
         },
 
     add: (req, res) =>  res.render('product-add'),
 
-    procesarAdd: (req, res) => {
+    store: (req, res) => {
         let info = req.body;
-        let imagenP = req.filename.imagen;
-        let productoN = {
-            img: imagenP,
+        /*let imgProduct = req.file.filename; */
+        let product = {
+            img: '',
             nombre: info.nombre,
             descripcion: info.descripcion,
             anio: info.anio,
             createdAt: new Date(),
             updatedAt: new Date()
         }
-        product.create(productoN)
+
+        Product.create(product)
         .then((result) => {
             return res.redirect("/")
           }).catch((err) => {
@@ -42,16 +47,32 @@ const controller = {
         }, 
         
     edit: (req, res) => {
-        return res.render('product-edit')
+        let id = req.params.id;
+
+        Product.findByPk(id)
+        .then((result) => {
+            let product = {
+                id: result.dataValues.id, 
+                img: '',
+                nombre: result.dataValues.nombre,
+                descripcion: result.dataValues.descripcion,
+                anio: result.dataValues.anio,
+            }
+            return res.render('product-edit', {
+                listaAutos: product})
+        })
+        .catch((err) => {
+            console.log(err);
+        });
     },
 
-    updateAdd : (req, res) => {
+    updateProd : (req, res) => {
         let info = req.body;
-
+        /*let imgProduct = req.file.filename; */
         let idEdit = req.params.id;
 
         let producto = {
-            img: '',
+            img:'',
             nombre: info.nombre,
             descripcion: info.descripcion,
             anio: info.anio,
@@ -65,7 +86,7 @@ const controller = {
             }
         }
         
-        product.updateAdd(producto, filter)
+        Product.update(producto, filter)
         .then((result) => {
            return res.redirect("/");
         }).catch((err) => {

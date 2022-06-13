@@ -17,15 +17,15 @@
 				<div class="col-12">
 					<h2 class="products-title">Editar producto</h2>
 
-					<form class="form-register" action="/products/edit" method="post">
+					<form class="form-register" action="/products/product-edit/id/<%= listaAutos.id %>" method="POST">
 						<h4 class="register" class="file" >Imagen</h4>
-						<input class="register" type="file" name="img" id="" placeholder="">
+						<input class="register" type="file" name="img" id="" placeholder="" >
 						<h4 class="register" class="text">Producto</h4>
-						<input class="register" type="text" name="nombre" id="" placeholder=""> <br>
+						<input class="register" type="text" name="nombre" id="" placeholder="" value="<%= listaAutos.nombre %>"> <br>
 						<h4 class="register" class="text">Descripción del producto</h4>
-						<input class="register" type="text" name="descripcion" id="" placeholder="">
+						<input class="register" type="text" name="descripcion" id="" placeholder="" value="<%= listaAutos.descripcion %>">
 						<h4 class="register" class="text"> Año</h4>
-						<input class="register" type="text" name="anio" id="" placeholder=""> <br>
+						<input class="register" type="text" name="anio" id="" placeholder="" value="<%= listaAutos.anio %>"> <br>
 						<br>
 						<button class="button-product-add" type="submit">Guardar</button>
 					</form><br>
