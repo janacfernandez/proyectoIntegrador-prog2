@@ -9,7 +9,7 @@ const controller = {
         Product.findByPk(id).then((result)=>{
             let product = {
                 id: result.dataValues.id,
-                img: result.img,
+                img: result.dataValues.img,
                 nombre: result.nombre,
                 descripcion: result.descripcion,
                 anio: result.anio,
@@ -26,9 +26,9 @@ const controller = {
 
     store: (req, res) => {
         let info = req.body;
-        let imgProduct = req.file.filename; 
+        let imgProductAdd = req.file.filename; 
         let product = {
-            img: imgProduct,
+            img: imgProductAdd,
             nombre: info.nombre,
             descripcion: info.descripcion,
             anio: info.anio,
@@ -65,11 +65,11 @@ const controller = {
 
     updateProd : (req, res) => {
         let info = req.body;
-        let imgProduct = req.file.filename; 
+        let imgProductEdit = req.file.filename; 
         let idEdit = req.params.id;
 
         let producto = {
-            img:imgProduct,
+            img:imgProductEdit,
             nombre: info.nombre,
             descripcion: info.descripcion,
             anio: info.anio,
@@ -104,3 +104,38 @@ const controller = {
     }
 }; 
 module.exports = controller;
+
+//  comentarios: (req, res) => {
+
+    // Comentario.findAll({
+   //     limit: 10,
+     //   limit: 20,
+      //  order: [
+       //     ['created_at', 'DESC']
+      //  ]
+
+    /*   procesarComentarios : (req, res) => {
+        let info = req.body
+        let comentario = {
+            comentario : info.comentario
+        }
+        Comentario.create(comentario)
+        .then((result) => {
+            return res.redirect('/products/')
+        }).catch((err) => {
+            console.log(err);
+        });
+    },
+    showComentarios : (req, res) => {
+        let id = req.params.id;
+        Comentario.findByPk(id).then((result) => {
+            let comentario = {
+                comentario: result.comentario, 
+            }
+        return res.render('products', {comentarios : comentario})
+        }).catch((err) => {
+            console.log(err);
+        });
+    },
+
+     */

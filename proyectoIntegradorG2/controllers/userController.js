@@ -44,7 +44,7 @@ const controller = {
 
     procesarRegister: (req, res) => {
         let info = req.body;
-        let imgPerfil = req.file.filename;
+        let imgRegister = req.file.filename;
         let usuario = {
             nombre: info.name,
             apellido: info.apellido,
@@ -53,7 +53,7 @@ const controller = {
             contrasenia: bcrypt.hashSync(info.contrasenia, 10),
             fDeNac: info.fDeNac,
             dni: info.dni,
-            foto: imgPerfil,
+            foto: imgRegister,
             created_at : new Date(),
         }
 
@@ -73,6 +73,7 @@ const controller = {
     profileUpdate: (req, res) => {
         let info = req.body;
         let idEdicion = req.session.user.id;
+        let imgPerfil = req.file.filename;
     
         let usuario = {
             nombre: info.name,
@@ -81,7 +82,7 @@ const controller = {
             usuario: info.usuario,
             fDeNac: info.fDeNac,
             dni: info.dni,
-            foto: info.foto,
+            foto: imgPerfil,
             updated_at: new Date(),
         }
 
@@ -102,7 +103,7 @@ const controller = {
    profile: (req, res) =>  {
     res.render('profile',{
         listaAutos: users.productos, 
-        img: users.usuario.foto})
+        img: users.foto})
    },
     
     logout : (req, res) => {

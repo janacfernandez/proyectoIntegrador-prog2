@@ -21,12 +21,18 @@ let upload = multer({storage : storage})
 /* GET home page. */
 router.get('/id/:id', productController.detail),
 
-router.get('/add', productController.add),
-router.post('/store', upload.single('imgProduct'), productController.store),
+router.get('/add/', productController.add),
+router.post('/add', upload.single('imgProductAdd'), productController.store),
 
 router.get('/product-edit/id/:id', productController.edit),
-router.post('/product-edit/id/:id', upload.single('imgProduct'), productController.updateProd);
+router.post('/product-edit/id/:id', upload.single('imgProductEdit'), productController.updateProd);
 
 router.get('/delete/id/:id', productController.delete);
 
+// router.post('/detail/:id', productController.comentarios) VER
+
+/* // Rutas para agregar y mostrar un comentario
+router.get('/comentario', productController.showComentarios)
+router.post('/comentario', productController.procesarComentarios); */
 module.exports = router;
+

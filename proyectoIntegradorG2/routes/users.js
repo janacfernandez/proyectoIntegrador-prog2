@@ -26,7 +26,7 @@ router.post('/login', userController.procesarLogin),
 
 router.get('/register', userController.register),
 
-router.post('/register', upload.single('imgPerfil'), userController.procesarRegister)
+router.post('/register', upload.single('imgRegister'), userController.procesarRegister)
 
 router.get('/profile', userController.profile),
 
