@@ -30,5 +30,9 @@ router.post('/product-edit/id/:id', upload.single('imgProductEdit'), productCont
 router.get('/delete/id/:id', productController.delete);
 
 // router.post('/detail/:id', productController.comentarios) VER
+
+/* // Rutas para agregar y mostrar un comentario
+router.get('/comentario', productController.showComentarios)
+router.post('/comentario', productController.procesarComentarios); */
 module.exports = router;
 

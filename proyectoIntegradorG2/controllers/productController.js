@@ -116,3 +116,29 @@ module.exports = controller;
       //  order: [
        //     ['created_at', 'DESC']
       //  ]
+
+    /*   procesarComentarios : (req, res) => {
+        let info = req.body
+        let comentario = {
+            comentario : info.comentario
+        }
+        Comentario.create(comentario)
+        .then((result) => {
+            return res.redirect('/products/')
+        }).catch((err) => {
+            console.log(err);
+        });
+    },
+    showComentarios : (req, res) => {
+        let id = req.params.id;
+        Comentario.findByPk(id).then((result) => {
+            let comentario = {
+                comentario: result.comentario, 
+            }
+        return res.render('products', {comentarios : comentario})
+        }).catch((err) => {
+            console.log(err);
+        });
+    },
+
+     */
