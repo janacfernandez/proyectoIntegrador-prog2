@@ -19,9 +19,7 @@ const controller = {
             return res.render('product-detail', {
                 listaAutos: product})
         })
-        .catch((err) => {
-            console.log(err);
-        });
+        .catch(err => console.log(err));
         },
 
     add: (req, res) =>  res.render('product-add'),
@@ -41,9 +39,8 @@ const controller = {
         Product.create(product)
         .then((result) => {
             return res.redirect("/")
-          }).catch((err) => {
-            return res.send("Hay un error" + err)
-          });
+          })
+        .catch(err => res.send("Hay un error" + err));
         }, 
         
     edit: (req, res) => {

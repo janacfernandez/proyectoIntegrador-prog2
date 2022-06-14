@@ -11,7 +11,6 @@ const controller = {
     login: (req,res) => res.render('login'),
 
     procesarLogin: (req,res) => {
-
         let errors = {};
         let info = req.body;
         let filtro = {
@@ -38,8 +37,7 @@ const controller = {
                 return res.render('login');
             }
         })
-        .catch(err => console.log(err));
-        
+        .catch(err => console.log(err));    
     },
      
     register: (req,res) =>  res.render('register'),
@@ -64,7 +62,6 @@ const controller = {
         .catch(err => console.log(err));
     },
 
-
     profileEdit: (req,res) => {
         if (req.session.user != undefined) {
             res.render('profile-edit')
@@ -87,6 +84,7 @@ const controller = {
             foto: info.foto,
             updated_at: new Date(),
         }
+
         let filtro = {
           where: {
             id: idEdicion
@@ -94,7 +92,10 @@ const controller = {
         }
     
         user.update(usuario, filtro)
-        .then (resultado => res.redirect('/'))
+        .then (resultado => {
+            req.session.user = resultado.dataValues;
+            res.redirect('/users/profile')
+        })
         .catch(err => console.log(err));
     },
 
@@ -110,6 +111,5 @@ const controller = {
         return res.render('login')
     },
 };
-
 
 module.exports = controller;
