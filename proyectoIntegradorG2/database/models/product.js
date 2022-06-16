@@ -9,7 +9,7 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.INTEGER
         },
         img: {
-            type: dataTypes.STRING,
+            type: dataTypes.STRING
         },
         nombre: {
             type: dataTypes.STRING
@@ -31,6 +31,9 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.DATE,
             allowNull: true,
         },
+        userId: {
+            type: dataTypes.INTEGER,
+        }
     }
 
     let config = {
@@ -40,6 +43,13 @@ module.exports = function (sequelize, dataTypes){
     };
 
     const Product = sequelize.define(alias, cols, config);
+
+    Product.associate = function(models){
+            Product.belongsTo(models.User,{
+                as: "user",
+                foreign_key: "userId"
+            })
+        }
 
     return Product;
 }

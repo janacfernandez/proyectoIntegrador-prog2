@@ -44,11 +44,18 @@ module.exports = function (sequelize, dataTypes){
 
     let config = {
         tableName: "users",
-        timestamps: true, 
+        timestamps: true,
         underscored: false,
     };
 
     const User = sequelize.define(alias, cols, config);
+
+    User.associate = function(models){
+        User.hasMany(models.Product, {
+            as: "product",
+            foreign_key: "userId",
+        })
+    }
 
     return User;
 }

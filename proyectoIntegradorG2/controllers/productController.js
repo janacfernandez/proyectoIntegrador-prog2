@@ -1,7 +1,6 @@
-const data = require('../db/data');
 const db = require("../database/models");
 const Product = db.Product;
-const bcrypt = require('bcryptjs');
+
 
 const controller = {
     detail: (req, res) => {
@@ -32,8 +31,9 @@ const controller = {
             nombre: info.nombre,
             descripcion: info.descripcion,
             anio: info.anio,
+            userId: req.session.user.id,
             createdAt: new Date(),
-            updatedAt: new Date()
+
         }
 
         Product.create(product)

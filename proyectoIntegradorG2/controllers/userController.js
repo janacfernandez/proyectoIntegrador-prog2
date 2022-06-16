@@ -1,8 +1,8 @@
 const db = require("../database/models");
 const user = db.User;
 const bcrypt = require('bcryptjs');
+const product = db.Product
 
-const users = require('../db/data');
 
 
 const controller = {
@@ -23,7 +23,7 @@ const controller = {
                 if (contraEncriptada) {
                     req.session.user = resultado.dataValues;
                     if(req.body.recordar != undefined){
-                        res.cookie('userId', resultado.dataValues.id)
+                        res.cookie('userId', resultado.dataValues.id, {maxAge : 1000 * 60 *10 })
                     }
                     return res.redirect('/users/profile')
                 } else {
@@ -101,15 +101,22 @@ const controller = {
     },
 
    profile: (req, res) =>  {
-    res.render('profile',{
-        listaAutos: users.productos, 
-        img: users.foto})
+       product.findAll({
+           where: [{userId: req.session.user.id}]
+       })
+       .then(resultado => {
+
+        res.render('profile',{
+            productos: resultado})
+       })
+       .catch(err => console.log (err)); 
+   
    },
     
     logout : (req, res) => {
-        res.clearCookie('userId');
         req.session.destroy();
-        return res.render('login')
+        res.clearCookie('userId'); 
+        return res.redirect('login')
     },
 };
 

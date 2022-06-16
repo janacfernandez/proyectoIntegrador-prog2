@@ -6,7 +6,7 @@ const op = db.Sequelize.Op;
 
 const controller = {
     index: (req, res) => {
-      product.findAll()
+      product.findAll({ include: { all: true, nested: true }})
       .then((result) => {
        return res.render("index", {listaAutos: result}); 
     });
