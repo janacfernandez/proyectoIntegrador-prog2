@@ -57,5 +57,14 @@ module.exports = function (sequelize, dataTypes){
         })
     }
 
+    User.associate = function(models){
+        User.belongsToMany(models.User, {
+            as: "seguidores",
+            through: "followers",/*nombre de la tabla pivot*/
+            foreignKey: "seguidor",
+            otherKey: "seguido",
+            timestamps: false
+        })
+    }
     return User;
 }

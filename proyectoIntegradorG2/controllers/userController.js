@@ -1,46 +1,48 @@
 const db = require("../database/models");
 const user = db.User;
 const bcrypt = require('bcryptjs');
-const product = db.Product
+const User = require("../database/models/User");
+const producto = db.Product;
+const follower = db.Follower; 
 
 
 
 const controller = {
 
 
-    login: (req,res) => res.render('login'),
+    login: (req, res) => res.render('login'),
 
-    procesarLogin: (req,res) => {
+    procesarLogin: (req, res) => {
         let errors = {};
         let info = req.body;
         let filtro = {
-            where: [{email: info.email}]
+            where: [{ email: info.email }]
         };
         user.findOne(filtro)
-        .then(resultado => {
-            if (resultado != null) {
-                let contraEncriptada = bcrypt.compareSync(info.contrasenia, resultado.contrasenia)
-                if (contraEncriptada) {
-                    req.session.user = resultado.dataValues;
-                    if(req.body.recordar != undefined){
-                        res.cookie('userId', resultado.dataValues.id, {maxAge : 1000 * 60 *10 })
+            .then(resultado => {
+                if (resultado != null) {
+                    let contraEncriptada = bcrypt.compareSync(info.contrasenia, resultado.contrasenia)
+                    if (contraEncriptada) {
+                        req.session.user = resultado.dataValues;
+                        if (req.body.recordar != undefined) {
+                            res.cookie('userId', resultado.dataValues.id, { maxAge: 1000 * 60 * 10 })
+                        }
+                        return res.redirect('/users/profile')
+                    } else {
+                        errors.message = "Contraseña incorrecta";
+                        res.locals.errors = errors;
+                        return res.render('login'); //Render aca
                     }
-                    return res.redirect('/users/profile')
                 } else {
-                    errors.message = "Contraseña incorrecta";
+                    errors.message = "Mail incorrecto";
                     res.locals.errors = errors;
-                    return res.render('login'); //Render aca
+                    return res.render('login');
                 }
-            } else {
-                errors.message = "Mail incorrecto";
-                res.locals.errors = errors;
-                return res.render('login');
-            }
-        })
-        .catch(err => console.log(err));    
+            })
+            .catch(err => console.log(err));
     },
-     
-    register: (req,res) =>  res.render('register'),
+
+    register: (req, res) => res.render('register'),
 
     procesarRegister: (req, res) => {
         let info = req.body;
@@ -54,15 +56,15 @@ const controller = {
             fDeNac: info.fDeNac,
             dni: info.dni,
             foto: imgRegister,
-            created_at : new Date(),
+            created_at: new Date(),
         }
 
         user.create(usuario)
-        .then(resultado => res.redirect("/users/login"))
-        .catch(err => console.log(err));
+            .then(resultado => res.redirect("/users/login"))
+            .catch(err => console.log(err));
     },
 
-    profileEdit: (req,res) => {
+    profileEdit: (req, res) => {
         if (req.session.user != undefined) {
             res.render('profile-edit')
         } else {
@@ -74,7 +76,7 @@ const controller = {
         let info = req.body;
         let idEdicion = req.session.user.id;
         let imgPerfil = req.file.filename;
-    
+
         let usuario = {
             nombre: info.name,
             apellido: info.apellido,
@@ -87,35 +89,81 @@ const controller = {
         }
 
         let filtro = {
-          where: {
-            id: idEdicion
-          }
+            where: {
+                id: idEdicion
+            }
         }
-    
+
         user.update(usuario, filtro)
-        .then (resultado => {
-            req.session.user = resultado.dataValues;
-            res.redirect('/users/profile')
-        })
-        .catch(err => console.log(err));
+            .then(resultado => {
+                req.session.user = resultado.dataValues;
+                res.redirect('/users/profile')
+            })
+            .catch(err => console.log(err));
     },
 
-   profile: (req, res) =>  {
-       product.findAll({
-           where: [{userId: req.session.user.id}]
-       })
-       .then(resultado => {
+    profile: (req, res) => {
+        producto.findAll({
+            where: [{ userId: req.session.user.id }]
+        })
+            .then(resultado => {
 
-        res.render('profile',{
-            productos: resultado})
-       })
-       .catch(err => console.log (err)); 
-   
-   },
+                res.render('profile', {
+                    productos: resultado
+                })
+            })
+            .catch(err => console.log(err));
+
+    },
+
+    profileUsers: (req, res) => {
+        let idProd = req.params.id;
+        console.log(idProd);
+        producto.findOne({
+            include: {
+                all: true,
+                nested: true
+            },
+
+            where: [{ id: idProd }]
+        })
+            .then(resultado => {
+                console.log(resultado),
+                    res.render('profileUsers', {
+                        productos: resultado.dataValues
+                    })
+            })
+            .catch(err => console.log(err));
+
+    },
+    follow: (req, res) => {
+        let idProd = req.params.id;
+        console.log(idProd);
+        producto.findOne({
+            include: {
+                all: true,
+                nested: true
+            },
+            where: [{ id: idProd }]
+        })
+        .then(resultado => {
+            let seguidor = {
+                seguidor: req.session.user.id, /*id del usuario en sesion*/
+                seguido: resultado.dataValues.user.id,
     
-    logout : (req, res) => {
+            }
+            follower.create(seguidor).then(resultado => {
+                console.log(resultado.Product.user.seguidores)
+                res.redirect('/users/profile')
+            }
+                ).catch(err => console.log(err));
+        }).catch(err => console.log(err));
+     
+    },
+
+    logout: (req, res) => {
         req.session.destroy();
-        res.clearCookie('userId'); 
+        res.clearCookie('userId');
         return res.redirect('login')
     },
 };
