@@ -37,13 +37,13 @@
 										<% } else { %>
 											<img src="../images/products/defaultImage.jpg" alt="Default">
 										<% }  %> 
-									</figure>
+									</figure></a>
 									<article class="product-box_data">
-										<h2>
+										<a href="/products/id/<%= listaAutos[i].id %>"><h2>
 											<%= listaAutos[i].nombre %>
-										</h2>
-										<p><!-- Revisar esta ruta que vaya a otra vista-->
-											Creado por: <a href="/users/profile"><%= listaAutos[i].user.usuario %></a>
+										</h2></a>
+										<p>
+											Creado por: <a href="/users/profileUsers/<%= listaAutos[i].id%>"><%= listaAutos[i].user.usuario %></a>
 										</p>
 										<p>
 											<%= listaAutos[i].descripcion %>
@@ -66,7 +66,7 @@
 						<h2 class="products-title">Más comentados</h2>
 					</div>
 					<!-- Show the "ultimos" products -->
-					<% for( let i=0; i < 4; i++ ) { %>
+					<% for( let i=0; i < listaAutos.length; i++ ) { %>
 						<div class="col-12 col-sm-6 col-lg-3">
 							<section class="product-box">
 								<a href="/products/id/<%= listaAutos[i].id %>">
@@ -76,7 +76,7 @@
 										<% } else { %>
 											<img src="../images/products/defaultImage.jpg" alt="Default">
 										<% }  %> 
-									</figure>
+									</figure></a>
 									<article class="product-box_data">
 										<h2>
 											<%= listaAutos[i].nombre %>

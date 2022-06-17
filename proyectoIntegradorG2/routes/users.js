@@ -30,11 +30,16 @@ router.post('/register', upload.single('imgRegister'), userController.procesarRe
 
 router.get('/profile', userController.profile),
 
+router.get('/profileUsers/:id', userController.profileUsers),
+
+router.get('/profileUser/:id', userController.follow),
+
 router.get('/profile-edit', userController.profileEdit),
+
+
 
 router.post('/profile-edit', upload.single('imgPerfil'), userController.profileUpdate),
 
-router.get('/logout', userController.logout)
-
+router.get('/logout', userController.logout),
 
 module.exports = router;
