@@ -43,7 +43,12 @@
 											<%= listaAutos[i].nombre %>
 										</h2></a>
 										<p>
-											Creado por: <a href="/users/profileUsers/<%= listaAutos[i].id%>"><%= listaAutos[i].user.usuario %></a>
+											Creado por:
+											<% if (listaAutos[i].user.id === locals.user.id) { %>
+												<a href="/users/profile"><%= listaAutos[i].user.usuario %></a>		 
+											<% } else {%>
+											<a href="/users/profileUsers/<%= listaAutos[i].id%>"><%= listaAutos[i].user.usuario %></a>
+										<% } %>
 										</p>
 										<p>
 											<%= listaAutos[i].descripcion %>
