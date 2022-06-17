@@ -3,13 +3,9 @@ const user = db.User;
 const bcrypt = require('bcryptjs');
 const User = require("../database/models/User");
 const producto = db.Product;
-const follower = db.Follower; 
-
-
+const follower = db.Follower;
 
 const controller = {
-
-
     login: (req, res) => res.render('login'),
 
     procesarLogin: (req, res) => {
@@ -117,8 +113,11 @@ const controller = {
     },
 
     profileUsers: (req, res) => {
+        // follower.findAll()
+        // .then(result => console.log(result))
+        // .catch(err => console.log(err))
         let idProd = req.params.id;
-        console.log(idProd);
+        // console.log(idProd);
         producto.findOne({
             include: {
                 all: true,
@@ -128,37 +127,35 @@ const controller = {
             where: [{ id: idProd }]
         })
             .then(resultado => {
-                console.log(resultado),
-                    res.render('profileUsers', {
-                        productos: resultado.dataValues
-                    })
+                let productos = resultado.dataValues;
+                // res.render('profileUsers', {
+                //     productos: productos,
+                // })
+                producto.findAll({
+                    where: [{ userId: productos.user.id }]
+                })
+                .then(result => {
+                    res.render('profileUsers',{
+                        productosUsuario: result,
+                        productos: productos,
+                
+                })
             })
+        })
             .catch(err => console.log(err));
 
     },
     follow: (req, res) => {
-        let idProd = req.params.id;
-        console.log(idProd);
-        producto.findOne({
-            include: {
-                all: true,
-                nested: true
-            },
-            where: [{ id: idProd }]
-        })
-        .then(resultado => {
-            let seguidor = {
-                seguidor: req.session.user.id, /*id del usuario en sesion*/
-                seguido: resultado.dataValues.user.id,
-    
-            }
-            follower.create(seguidor).then(resultado => {
-                console.log(resultado.Product.user.seguidores)
-                res.redirect('/users/profile')
-            }
-                ).catch(err => console.log(err));
-        }).catch(err => console.log(err));
-     
+        let info = req.body
+        //console.log("ESTE ES EL ID QUE BUSCABAS" + info.seguidoId)
+        let seguidor = {
+            seguidor: req.session.user.id, /*id del usuario en sesion*/
+            seguido: info.seguidoId,
+        }
+        // console.log(seguidor)
+        follower.create(seguidor)
+            .then(resultado => res.redirect('/'))
+            .catch(err => console.log(err))
     },
 
     logout: (req, res) => {

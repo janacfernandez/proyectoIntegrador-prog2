@@ -23,12 +23,16 @@
 				<div class="d-flex align-items-center  ">
 					<h1 class="main-title">  <%= productos.user.nombre + " " + productos.user.apellido %> 
 					</h1>
-					<a class="btn mt-3 ml-4" href="/users/profileUsers/<%= productos.id%>">SEGUIR</a>
+				
+						<form  action="/users/profileUsers/<%= productos.id%>" method="POST" >
+							<input type="hidden" name="seguidoId" value="<%= productos.user.id%>">
+							<input type="submit" class="btn mt-3 ml-4" value="SEGUIR">
+						</form>
 				</div>
 				<div>
 					<ul class="">
 						<p class="profile-p"><%= productos.user.email %></p>
-						<li class="cprofile"><%= productos.user.length %> productos</li>
+						<li class="cprofile"><%= productosUsuario.length %> productos</li>
 						<li class="cprofile">200 seguidores</li>
 						<li class="cprofile">300 comentarios</li>
 					</ul>
