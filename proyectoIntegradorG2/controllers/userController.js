@@ -3,13 +3,9 @@ const user = db.User;
 const bcrypt = require('bcryptjs');
 const product = db.Product
 
-
-
 const controller = {
-
-
     login: (req,res) => res.render('login'),
-
+    
     procesarLogin: (req,res) => {
         let errors = {};
         let info = req.body;
