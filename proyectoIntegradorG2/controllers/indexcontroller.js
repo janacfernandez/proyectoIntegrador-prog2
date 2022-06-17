@@ -24,20 +24,25 @@ const controller = {
   searchResults: (req, res) => {
         let resultado = req.query.search;
         let filter ={
-            where:[ {nombre:{[op.like]: `%${resultado}%`}}]
-        };
-        let autosEncontrados = [];
-        for (let i = 0; i < autos.productos.length; i++) {
-            if (autos.productos[i].nombre.toLowerCase().includes(resultado) || autos.productos[i].anio == resultado) {
-                autosEncontrados.push(autos.productos[i])
+            where :{
+                [op.or]: [
+                  { nombre: { [op.like]: `%${resultado}%` } },
+                  { descripcion: { [op.like]: `%${resultado}%` } }
+                ]
+              }, 
+               include: [ { association: 'user' }]
             }
+      
+            product.findAll(filter)
+            .then((result) => {
+            return res.render('search-results', { listaAutos: result, resultado: req.query.search} )
+            }).catch((err) => {
+                console.log(err);
+            });
         }
-        return res.render('search-results', {
-            listaAutos: autosEncontrados,
-            busq: req.query.search,
-        })
-     },
-};
+    
+    };
+
 
 
 module.exports = controller;

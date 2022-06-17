@@ -23,11 +23,11 @@
 				<div class="d-flex align-items-center  ">
 					<h1 class="main-title">  <%= productos.user.nombre + " " + productos.user.apellido %> 
 					</h1>
-					
-					<form action="/users/profileUsers/<%= productos.id%>" method="POST" >
-						<input type="hidden" name="seguidoId" value="<%= productos.user.id%>">
-						<input type="submit" class="btn mt-3 ml-4" value="SEGUIR">
-					</form>
+				
+						<form  action="/users/profileUsers/<%= productos.id%>" method="POST" >
+							<input type="hidden" name="seguidoId" value="<%= productos.user.id%>">
+							<input type="submit" class="btn mt-3 ml-4" value="SEGUIR">
+						</form>
 				</div>
 				<div>
 					<ul class="">
