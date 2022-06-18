@@ -31,22 +31,21 @@ module.exports = function (sequelize, dataTypes){
 
     const Comentario = sequelize.define(alias, cols, config);
 
-
     //Relación con productos 
-    Comentario.associate = function (models) { 
-        Comentario.belongsTo(models.Product, {
-            as: "product",
-            foreignKey: "productId"
-        })
-    };
+Comentario.associate = function (models) { 
+    Comentario.belongsTo(models.Product, {
+        as: "product",
+        foreignKey: "productId"
+    })
+};
 
-    //Relación con usuarios 
-    Comentario.associate = function (models) { 
-        Comentario.belongsTo(models.User, {
-            as: "user",
-            foreignKey: "userId"
-        })
-    }; 
+//Relación con usuarios 
+Comentario.associate = function (models) { 
+    Comentario.belongsTo(models.User, {
+        as: "user",
+        foreignKey: "userId"
+    })
+}; 
 
     return Comentario;
 }

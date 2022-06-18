@@ -1,5 +1,6 @@
 const db = require("../database/models");
 const Product = db.Product;
+let ComentariosTabla = db.Comentarios;
 
 
 const controller = {
@@ -20,7 +21,7 @@ const controller = {
             console.log(product.userId.usuario)
             return res.render('product-detail', {
                 listaAutos: product,
-                usuario: product.userId, 
+                usuario: product.userId,
             })
         })
             .catch(err => console.log(err));
@@ -107,41 +108,44 @@ const controller = {
                 console.log(result);
                 return res.redirect('/')
             })
-    }
-};
+    },
+
+
+    comentarios: (req, res) => {
+         if (locals.user.usuario != undefined) { 
+            return res.redirect('register') }
+      /*  
+       if (req.session.user == undefined) {
+            res.redirect('/users/register')
+
+         }
+      let filtro1 = {
+            include: {
+                all: true,
+                nested: true
+            },
+            order: [["comentarios", "createdAt", "DESC"]]
+        }
+        product.findByPk(id, filtro1)
+            .then((result) => {
+                return res.render('products', {product: result.dataValues})
+            }).catch((err) => {
+                console.log(err);
+            }) */ 
+            let info = req.body;
+        let comentario = {
+            comentarios: info.comentario,
+            productId: req.params.id,
+            userId: req.session.user.id,
+        }
+        ComentariosTabla.create(comentario)
+            .then((result) => {
+                return res.redirect('products/id/:id')
+            }).catch((err) => {
+                console.log("Este es el error" + err);
+            });
+
+    } }
+
 module.exports = controller;
 
-//  comentarios: (req, res) => {
-
-    // Comentario.findAll({
-   //     limit: 10,
-     //   limit: 20,
-      //  order: [
-       //     ['created_at', 'DESC']
-      //  ]
-
-/*   procesarComentarios : (req, res) => {
-    let info = req.body
-    let comentario = {
-        comentario : info.comentario
-    }
-    Comentario.create(comentario)
-    .then((result) => {
-        return res.redirect('/products/')
-    }).catch((err) => {
-        console.log(err);
-    });
-},
-showComentarios : (req, res) => {
-    let id = req.params.id;
-    Comentario.findByPk(id).then((result) => {
-        let comentario = {
-            comentario: result.comentario, 
-        }
-    return res.render('products', {comentarios : comentario})
-    }).catch((err) => {
-        console.log(err);
-    });
-},
-
- */

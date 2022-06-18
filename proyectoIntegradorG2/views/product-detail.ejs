@@ -36,7 +36,7 @@
 												<%= listaAutos.descripcion %>
 											</p>
 											<p class="product-detail-description">
-												Creado por: <%= usuario%> <a href="/users/profile/ "></a>
+												Creado por: <%= listaAutos.user %> <a href="/users/profile/ "></a>
 											</p>
 
 										</article>
@@ -44,9 +44,10 @@
 											<section class="comments">
 
 											</section>
-											<form class="form" action="/products/detail/<%= listaAutos.id %> "
+										
+											<form class="form" action="products/id/<%= listaAutos.id %>"
 												method="POST">
-												<input class="form-input" type="text" value=""
+												<input class="form-input" type="text" name= "comentarios" value=""
 													placeholder="Agregar comentario">
 												<button type="submit" class="buy-now-button"> ENVIAR </button>
 											</form>

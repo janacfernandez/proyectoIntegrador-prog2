@@ -29,10 +29,7 @@ router.get('/id/:id', productController.detail),
 
 router.get('/delete/id/:id', productController.delete);
 
-// router.post('/detail/:id', productController.comentarios) VER
+router.post('/id/:id', productController.comentarios)
 
-/* // Rutas para agregar y mostrar un comentario
-router.get('/comentario', productController.showComentarios)
-router.post('/comentario', productController.procesarComentarios); */
 module.exports = router;
 
