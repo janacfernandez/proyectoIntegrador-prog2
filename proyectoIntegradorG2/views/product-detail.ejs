@@ -5,58 +5,61 @@
 
 	<body class="productD">
 		<!-- Header -->
-		<% if (locals.user != undefined) { %>
-			<%- include('./partials/headerLogueado')  %> 
-	  <% }else {%>
-			<%- include('./partials/headerDeslogueado')  %> 
-	  <% } %>
-		<!-- /Header -->
+		<% if (locals.user !=undefined) { %>
+			<%- include('./partials/headerLogueado') %>
+				<% }else {%>
+					<%- include('./partials/headerDeslogueado') %>
+						<% } %>
+							<!-- /Header -->
 
-			<!-- product detail -->
-			<div class="container products-wrapper">
-				<div class="d-flex align-items-center">
-					<h2 class="products-title">
-						<%= listaAutos.nombre %>
-					</h2>
-					<p class="product-detail-description">
-						<a href="/products/product-edit/id/<%= listaAutos.id %>">Editar</a>
-					</p>
-					 <% if (locals.user != undefined) { %>
-							<p class="product-detail-description">
-								<a href="/products/delete/id/<%= listaAutos.id %>">Borrar</a>	
-							</p>
-							<% } %> 
-				</div>
-				<div class="product-detail">
-					<div class="row">
-						<article class="col-12 col-lg-8 product-detail-info">
-							<img src="/images/products/<%= listaAutos.img %>" alt="" class="product-detail-img">
-							<p class="product-detail-description">
-								<%= listaAutos.descripcion %>
-							</p>
-							<p class="product-detail-description">
-								Creado por: <a href="/users/profile/"></a>
-							</p>
+							<!-- product detail -->
+							<div class="container products-wrapper">
+								<div class="d-flex align-items-center">
+									<h2 class="products-title">
+										<%= listaAutos.nombre %>
+									</h2>
+									<p class="product-detail-description">
+										<a href="/products/product-edit/id/<%= listaAutos.id %>">Editar</a>
+									</p>
+									<% if (locals.user !=undefined) { %>
+										<p class="product-detail-description">
+											<a href="/products/delete/id/<%= listaAutos.id %>">Borrar</a>
+										</p>
+										<% } %>
+								</div>
+								<div class="product-detail">
+									<div class="row">
+										<article class="col-12 col-lg-8 product-detail-info">
+											<img src="/images/products/<%= listaAutos.img %>" alt=""
+												class="product-detail-img">
+											<p class="product-detail-description">
+												<%= listaAutos.descripcion %>
+											</p>
+											<p class="product-detail-description">
+												Creado por: <%= usuario%> <a href="/users/profile/ "></a>
+											</p>
 
-						</article>
-						<div class="col-12 col-lg-4">
-							<section class="comments">
-							 
-							</section>
-							<form class="form" action="/products/detail/<%= listaAutos.id %> " method="POST">
-								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-								<button type="submit" class="buy-now-button"> ENVIAR </button>
-							</form>
-							<hr>
-						</div>
-					</div>
-				</div>
-			</div>
-					<!-- /product detail -->
+										</article>
+										<div class="col-12 col-lg-4">
+											<section class="comments">
 
-					<!-- footer -->
-					<%- include('./partials/footer') %>
-					<!-- /footer -->
+											</section>
+											<form class="form" action="/products/detail/<%= listaAutos.id %> "
+												method="POST">
+												<input class="form-input" type="text" value=""
+													placeholder="Agregar comentario">
+												<button type="submit" class="buy-now-button"> ENVIAR </button>
+											</form>
+											<hr>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /product detail -->
+
+							<!-- footer -->
+							<%- include('./partials/footer') %>
+								<!-- /footer -->
 
 	</body>
 

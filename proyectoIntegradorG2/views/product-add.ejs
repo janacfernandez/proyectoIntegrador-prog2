@@ -5,37 +5,38 @@
 
     <body>
         <!-- Header -->
-        <% if (locals.user != undefined) { %>
-            <%- include('./partials/headerLogueado')  %> 
-      <% }else {%>
-            <%- include('./partials/headerDeslogueado')  %> 
-      <% } %>
-        <!-- /Header -->
+        <% if (locals.user !=undefined) { %>
+            <%- include('./partials/headerLogueado') %>
+                <% }else {%>
+                    <%- include('./partials/headerDeslogueado') %>
+                        <% } %>
+                            <!-- /Header -->
 
-            <!-- Novedades -->
-            <div class="container products-wrapper">
-                <div class="col-12">
-                    <h2 class="products-title">Agregar productos</h2>
+                            <!-- Novedades -->
+                            <div class="container products-wrapper">
+                                <div class="col-12">
+                                    <h2 class="products-title">Agregar producto</h2>
 
-                    <form class="form-register" action="/products/add" enctype="multipart/form-data" method="POST">
-                        <h4 class="register" class="file" >Imagen</h4>
-                        <input class="register" type="file" name="imgProductAdd" id="" placeholder="">
-                        <h4 class="register" class="text">Producto</h4>
-                        <input class="register" type="text" name="nombre" id="" placeholder=""> <br>
-                        <h4 class="register" class="text">Descripción del producto</h4>
-                        <input class="register" type="text" name="descripcion" id="" placeholder="">
-                        <h4 class="register" class="text"> Año</h4>
-                        <input class="register" type="text" name="anio" id="" placeholder=""> <br>
-                        <br>
-                        <button class="button-product-add" type="submit">Guardar</button>
-                    </form><br>
-                </div>
-            </div>
-            </div>
+                                    <form class="form-register" action="/products/add" enctype="multipart/form-data"
+                                        method="POST">
+                                        <h4 class="register" class="file">Imagen</h4>
+                                        <input class="register" type="file" name="imgProductAdd" id="" placeholder="">
+                                        <h4 class="register" class="text">Producto</h4>
+                                        <input class="register" type="text" name="nombre" id="" placeholder=""> <br>
+                                        <h4 class="register" class="text">Descripción del producto</h4>
+                                        <input class="register" type="text" name="descripcion" id="" placeholder="">
+                                        <h4 class="register" class="text"> Año</h4>
+                                        <input class="register" type="text" name="anio" id="" placeholder=""> <br>
+                                        <br>
+                                        <button class="button-product-add" type="submit">Guardar</button>
+                                    </form><br>
+                                </div>
+                            </div>
+                            </div>
 
-            <!-- footer -->
-            <%- include('./partials/footer') %>
-            <!-- /footer -->
+                            <!-- footer -->
+                            <%- include('./partials/footer') %>
+                                <!-- /footer -->
     </body>
 
 </html>

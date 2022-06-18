@@ -2,56 +2,57 @@
 <html lang="es">
 <!--  Head -->
 <%- include('./partials/head') %>
-<!-- Fin Head -->
+	<!-- Fin Head -->
 
 	<body class="bregister">
 		<!-- Header -->
-		<% if (locals.user != undefined) { %>
-			<%- include('./partials/headerLogueado')  %> 
-	  <% }else {%>
-			<%- include('./partials/headerDeslogueado')  %> 
-	  <% } %>
-		<!-- /Header -->
+		<% if (locals.user !=undefined) { %>
+			<%- include('./partials/headerLogueado') %>
+				<% }else {%>
+					<%- include('./partials/headerDeslogueado') %>
+						<% } %>
+							<!-- /Header -->
 
-			<!-- Novedades -->
-			<div class="container products-wrapper">
-				<div>
-					<div class="col-12">
-						<h2 class="products-title">Registrate</h2>
-					</div>
-					<!-- Show the "ultimos" products -->
-					<form class="form-register" action="/users/register" enctype="multipart/form-data" method="POST">
-						<h4 class="register">Nombre</h4>
-						<input class="register" type="text" name="name" id="">
-						<h4 class="register">Apellido</h4>
-						<input class="register" type="text" name="apellido" id="">
-						<h4 class="register">E-mail</h4>
-						<input class="register" type="email" name="email" id="">
-						<h4 class="register"> Usuario </h4>
-						<input class="register" type="text" name="usuario" id="">
-						<h4 class="register">Contraseña</h4>
-						<input class="register" type="password" name="contrasenia" id="">
-						<h4 class="register"> Fecha de nacimiento </h4>
-						<input class="fecha" type="date" name="fDeNac" id="">
-						<h4 class="register"> Número de documento </h4>
-						<input class="register" type="number" name="dni" id="">
-						<h4 class="register"> Género </h4>
-						<!-- <select name="genero">
+							<!-- Novedades -->
+							<div class="container products-wrapper">
+								<div>
+									<div class="col-12">
+										<h2 class="products-title">Registrate</h2>
+									</div>
+									<!-- Show the "ultimos" products -->
+									<form class="form-register" action="/users/register" enctype="multipart/form-data"
+										method="POST">
+										<h4 class="register">Nombre</h4>
+										<input class="register" type="text" name="name" id="">
+										<h4 class="register">Apellido</h4>
+										<input class="register" type="text" name="apellido" id="">
+										<h4 class="register">E-mail</h4>
+										<input class="register" type="email" name="email" id="">
+										<h4 class="register"> Usuario </h4>
+										<input class="register" type="text" name="usuario" id="">
+										<h4 class="register">Contraseña</h4>
+										<input class="register" type="password" name="contrasenia" id="">
+										<h4 class="register"> Fecha de nacimiento </h4>
+										<input class="fecha" type="date" name="fDeNac" id="">
+										<h4 class="register"> Número de documento </h4>
+										<input class="register" type="number" name="dni" id="">
+										<h4 class="register"> Género </h4>
+										<!-- <select name="genero">
 							<option value="1">Hombre</option>
 							<option value="2">Mujer</option>
 							<option value="3">Otro</option>
 						</select> -->
-						<h4 class="register"> Foto de perfil </h4>
-						<input class="register" type="file" name="imgRegister" id="">
-						<br>
-						<button class="button-register" type="submit"> Crear </button>
-					</form>
-				</div>
-			</div>
+										<h4 class="register"> Foto de perfil </h4>
+										<input class="register" type="file" name="imgRegister" id="">
+										<br>
+										<button class="button-register" type="submit"> Crear </button>
+									</form>
+								</div>
+							</div>
 
-			<!-- footer -->
-			<%- include('./partials/footer') %>
-			<!-- /footer -->
+							<!-- footer -->
+							<%- include('./partials/footer') %>
+								<!-- /footer -->
 	</body>
 
 </html>

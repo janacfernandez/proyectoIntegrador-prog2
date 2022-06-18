@@ -6,64 +6,70 @@
 
 	<body>
 		<!-- Header -->
-		<% if (locals.user != undefined) { %>
-			<%- include('./partials/headerLogueado')  %> 
-	  <% }else {%>
-			<%- include('./partials/headerDeslogueado')  %> 
-	  <% } %>
-			<!-- /Header -->
+		<% if (locals.user !=undefined) { %>
+			<%- include('./partials/headerLogueado') %>
+				<% }else {%>
+					<%- include('./partials/headerDeslogueado') %>
+						<% } %>
+							<!-- /Header -->
 
-			<!-- Novedades -->
-			<div class="container products-wrapper">
-				<div class="row">
-					<div class="col-12">
-						<h2 class="products-title">Resultados de búsqueda: <%= resultado %>
-						</h2>
-					</div>
-					<!-- Show the "ultimos" products -->
+							<!-- Novedades -->
+							<div class="container products-wrapper">
+								<div class="row">
+									<div class="col-12">
+										<h2 class="products-title">Resultados de búsqueda: <%= resultado %>
+										</h2>
+									</div>
+									<!-- Show the "ultimos" products -->
 
-					<% if (listaAutos.length===0) { %>
-						<div class="col-12">
-							<h2 class="products-title"> No hay resultados para su criterio de búsqueda </h2>
-						</div>
-						<% } else { %>
-							<% for( let i=0; i < listaAutos.length; i++ ) { %>
+									<% if (listaAutos.length===0) { %>
+										<div class="col-12">
+											<h2 class="products-title"> No hay resultados para su criterio de búsqueda
+											</h2>
+										</div>
+										<% } else { %>
+											<% for( let i=0; i < listaAutos.length; i++ ) { %>
 
-								<div class="col-12 col-sm-6 col-lg-3">
-									<section class="product-box">
-										<a href="/products/id/<%= listaAutos[i].id %>">
-											<figure class="product-box_image">
-												<% if (listaAutos[i].img != null) { %>
-													<img src="../images/products/<%= listaAutos[i].img %>" alt="<%= listaAutos[i].nombre %>">
-												<% } else { %>
-													<img src="../images/products/defaultImage.jpg" alt="Default">
-												<% }  %> 
-											</figure>
-											<article class="product-box_data">
-												<h2>
-													<%= listaAutos[i].nombre %>
-												</h2>
-												<p>
-													Creado por: <a href="/users/profileUsers/<%= listaAutos[i].id%>"><%= listaAutos[i].user.usuario %></a>
-												</p>
-												<p>
-													<%= listaAutos[i].descripcion %>
-												</p>
-												<p>
-													<%= listaAutos[i].comentarios %>
-												</p>
-											</article>
-										</a>
-									</section>
+												<div class="col-12 col-sm-6 col-lg-3">
+													<section class="product-box">
+														<a href="/products/id/<%= listaAutos[i].id %>">
+															<figure class="product-box_image">
+																<% if (listaAutos[i].img !=null) { %>
+																	<img src="../images/products/<%= listaAutos[i].img %>"
+																		alt="<%= listaAutos[i].nombre %>">
+																	<% } else { %>
+																		<img src="../images/products/defaultImage.jpg"
+																			alt="Default">
+																		<% } %>
+															</figure>
+															<article class="product-box_data">
+																<h2>
+																	<%= listaAutos[i].nombre %>
+																</h2>
+																<p>
+																	Creado por: <a
+																		href="/users/profileUsers/<%= listaAutos[i].id%>">
+																		<%= listaAutos[i].user.usuario %>
+																	</a>
+																</p>
+																<p>
+																	<%= listaAutos[i].descripcion %>
+																</p>
+																<p>
+																	<%= listaAutos[i].comentarios %>
+																</p>
+															</article>
+														</a>
+													</section>
+												</div>
+												<% } %>
+													<% } %>
 								</div>
-								<% } %>
-									<% } %>
-				</div>
-			</div>
+							</div>
 
-			<!-- footer -->
-			<%- include('./partials/footer') %>
-				<!-- /footer -->
+							<!-- footer -->
+							<%- include('./partials/footer') %>
+								<!-- /footer -->
 	</body>
 
 </html>

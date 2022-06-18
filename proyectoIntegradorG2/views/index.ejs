@@ -4,104 +4,120 @@
 <%- include('./partials/head') %>
 
 	<body>
-		<% if (locals.user != undefined) { %>
-			<%- include('./partials/headerLogueado')  %> 
-	  <% }else {%>
-			<%- include('./partials/headerDeslogueado')  %> 
-	  <% } %>
-
-			<!-- Banner -->
-			<div class=>
-				<img src="images/banner.jpg" alt="Banner de ofertas">
-			</div>
-			<!-- /Banner -->
-
-			<h2>
-				<%= listaAutos.product %>
-			</h2>
-
-			<!-- Novedades -->
-			<div class="container products-wrapper">
-				<div class="row">
-					<div class="col-12">
-						<h2 class="products-title">Novedades</h2>
-					</div>
-					<!-- Show the "ultimos" products -->
-					<% for( let i=0; i < listaAutos.length; i++ ) { %>
-						<div class="col-12 col-sm-6 col-lg-3">
-							<section class="product-box">
-								<a href="/products/id/<%= listaAutos[i].id %>">
-									<figure class="product-box_image">
-										<% if (listaAutos[i].img != null) { %>
-											<img src="../images/products/<%= listaAutos[i].img %>" alt="<%= listaAutos[i].nombre %>">
-										<% } else { %>
-											<img src="../images/products/defaultImage.jpg" alt="Default">
-										<% }  %> 
-									</figure></a>
-									<article class="product-box_data">
-										<a href="/products/id/<%= listaAutos[i].id %>"><h2>
-											<%= listaAutos[i].nombre %>
-										</h2></a>
-										<p>
-											Creado por: <a href="/users/profileUsers/<%= listaAutos[i].id%>"><%= listaAutos[i].user.usuario %></a>
-										</p>
-										<p>
-											<%= listaAutos[i].descripcion %>
-										</p>
-										<p>
-											<%= listaAutos[i].comentarios %>
-										</p>
-									</article>
-								</a>
-							</section>
-						</div>
+		<% if (locals.user !=undefined) { %>
+			<%- include('./partials/headerLogueado') %>
+				<% }else {%>
+					<%- include('./partials/headerDeslogueado') %>
 						<% } %>
-				</div>
-			</div>
 
-			<!-- Más comentados -->
-			<div class="container products-wrapper">
-				<div class="row">
-					<div class="col-12">
-						<h2 class="products-title">Más comentados</h2>
-					</div>
-					<!-- Show the "ultimos" products -->
-					<% for( let i=0; i < listaAutos.length; i++ ) { %>
-						<div class="col-12 col-sm-6 col-lg-3">
-							<section class="product-box">
-								<a href="/products/id/<%= listaAutos[i].id %>">
-									<figure class="product-box_image">
-										<% if (listaAutos[i].img != null) { %>
-											<img src="../images/products/<%= listaAutos[i].img %>" alt="<%= listaAutos[i].nombre %>">
-										<% } else { %>
-											<img src="../images/products/defaultImage.jpg" alt="Default">
-										<% }  %> 
-									</figure></a>
-									<article class="product-box_data">
-										<h2>
-											<%= listaAutos[i].nombre %>
-										</h2>
-										<p><!-- Revisar esta ruta que vaya a otra vista-->
-											Creado por: <a href="/users/profile"><%= listaAutos[i].user.usuario %></a>
-										</p>
-										<p>
-											<%= listaAutos[i].descripcion %>
-										</p>
-									
-										<p><%= listaAutos[i].comentarios %></p>
-									</article>
-								</a>
-							</section>
-						</div>
-						<% } %>
-				</div>
-			</div>
-			<!-- /Más comentados -->
+							<!-- Banner -->
+							<div class=>
+								<img src="images/banner.jpg" alt="Banner de ofertas">
+							</div>
+							<!-- /Banner -->
+
+							<h2>
+								<%= listaAutos.product %>
+							</h2>
+
+							<!-- Novedades -->
+							<div class="container products-wrapper">
+								<div class="row">
+									<div class="col-12">
+										<h2 class="products-title">Novedades</h2>
+									</div>
+									<!-- Show the "ultimos" products -->
+									<% for( let i=0; i < listaAutos.length; i++ ) { %>
+										<div class="col-12 col-sm-6 col-lg-3">
+											<section class="product-box">
+												<a href="/products/id/<%= listaAutos[i].id %>">
+													<figure class="product-box_image">
+														<% if (listaAutos[i].img !=null) { %>
+															<img src="../images/products/<%= listaAutos[i].img %>"
+																alt="<%= listaAutos[i].nombre %>">
+															<% } else { %>
+																<img src="../images/products/defaultImage.jpg"
+																	alt="Default">
+																<% } %>
+													</figure>
+												</a>
+												<article class="product-box_data">
+													<a href="/products/id/<%= listaAutos[i].id %>">
+														<h2>
+															<%= listaAutos[i].nombre %>
+														</h2>
+													</a>
+													<p>
+														Creado por: <a
+															href="/users/profileUsers/<%= listaAutos[i].id%>">
+															<%= listaAutos[i].user.usuario %>
+														</a>
+													</p>
+													<p>
+														<%= listaAutos[i].descripcion %>
+													</p>
+													<p>
+														<%= listaAutos[i].comentarios %>
+													</p>
+												</article>
+												</a>
+											</section>
+										</div>
+										<% } %>
+								</div>
+							</div>
+
+							<!-- Más comentados -->
+							<div class="container products-wrapper">
+								<div class="row">
+									<div class="col-12">
+										<h2 class="products-title">Más comentados</h2>
+									</div>
+									<!-- Show the "ultimos" products -->
+									<% for( let i=0; i < listaAutos.length; i++ ) { %>
+										<div class="col-12 col-sm-6 col-lg-3">
+											<section class="product-box">
+												<a href="/products/id/<%= listaAutos[i].id %>">
+													<figure class="product-box_image">
+														<% if (listaAutos[i].img !=null) { %>
+															<img src="../images/products/<%= listaAutos[i].img %>"
+																alt="<%= listaAutos[i].nombre %>">
+															<% } else { %>
+																<img src="../images/products/defaultImage.jpg"
+																	alt="Default">
+																<% } %>
+													</figure>
+												</a>
+												<article class="product-box_data">
+													<h2>
+														<%= listaAutos[i].nombre %>
+													</h2>
+													<p>
+														<!-- Revisar esta ruta que vaya a otra vista-->
+														Creado por: <a href="/users/profile">
+															<%= listaAutos[i].user.usuario %>
+														</a>
+													</p>
+													<p>
+														<%= listaAutos[i].descripcion %>
+													</p>
+
+													<p>
+														<%= listaAutos[i].comentarios %>
+													</p>
+												</article>
+												</a>
+											</section>
+										</div>
+										<% } %>
+								</div>
+							</div>
+							<!-- /Más comentados -->
 
 
-			<!-- footer -->
-			<%- include('./partials/footer') %>
-			<!-- /footer -->
+							<!-- footer -->
+							<%- include('./partials/footer') %>
+								<!-- /footer -->
 	</body>
 
 </html>
