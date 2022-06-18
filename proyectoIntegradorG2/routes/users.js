@@ -36,8 +36,6 @@ router.get('/profile', userController.profile),
 
     router.get('/profile-edit', userController.profileEdit),
 
-
-
     router.post('/profile-edit', upload.single('imgPerfil'), userController.profileUpdate),
 
     router.get('/logout', userController.logout),

@@ -127,10 +127,21 @@ const controller = {
             where: [{ id: idProd }]
         })
             .then(resultado => {
-                res.render('profileUsers', {
-                    productos: resultado.dataValues
+                let productos = resultado.dataValues;
+                // res.render('profileUsers', {
+                //     productos: productos,
+                // })
+                producto.findAll({
+                    where: [{ userId: productos.user.id }]
+                })
+                .then(result => {
+                    res.render('profileUsers',{
+                        productosUsuario: result,
+                        productos: productos,
+                
                 })
             })
+        })
             .catch(err => console.log(err));
 
     },
