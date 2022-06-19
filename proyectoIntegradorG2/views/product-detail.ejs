@@ -36,13 +36,25 @@
 												<%= listaAutos.descripcion %>
 											</p>
 											<p class="product-detail-description">
-												Creado por: <%= listaAutos.user %> <a href="/users/profile/ "></a>
-											</p>
+												Creado por: <%= listaAutos.user %> <a href="/users/profile/ "> 
+												</a>
+											</p> 
 
 										</article>
 										<div class="col-12 col-lg-4">
 											<section class="comments">
-
+													<% for (let i = 0; i < listaAutos.comment ; i++)// falta el .length que me dice undefined
+													 { %> 
+														<article>
+															<img src= "/images/users/<%=listaAutos.comment[i].user.foto%>" alt="img perfil">
+															<div class="data">
+																<p class="user">
+																<strong> <a href="/profile/<%=listaAutos.comment[i].user.id%>"> <%=listaAutos.comment[i].user.nombre%> <%=listaAutos.comment[i].user.apellido%> </a> </strong>
+																	<%= listaAutos.comment[i].comentarios %> 
+																</p>
+															</div>
+														</article>
+														<% } %>
 											</section>
 										
 											<form class="form" action="/products/id/<%= listaAutos.id %>"

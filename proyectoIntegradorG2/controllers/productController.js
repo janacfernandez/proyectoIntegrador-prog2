@@ -113,9 +113,10 @@ const controller = {
 
     comments: (req, res) => {
         if (req.session.user == undefined) {
-             res.redirect('register')
+             res.redirect('/users/login')
  
           }
+          else {
          let info = req.body;
          let comentario = {
              comentarios: info.comentario,
@@ -129,10 +130,9 @@ const controller = {
                  console.log("Este es el error" + err);
              });
  
-     } }
+     } } }
 
-   
-      /*  
+ /* 
     
       let filtro1 = {
             include: {
@@ -141,13 +141,13 @@ const controller = {
             },
             order: [["comentarios", "createdAt", "DESC"]]
         }
-        product.findByPk(id, filtro1)
+        Product.findByPk(id, filtro1)
             .then((result) => {
                 return res.render('products', {product: result.dataValues})
             }).catch((err) => {
                 console.log(err);
-            }) */ 
-           
+            }) 
+           */
 
 module.exports = controller;
 
