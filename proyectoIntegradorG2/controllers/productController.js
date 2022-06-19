@@ -2,28 +2,20 @@ const db = require("../database/models");
 const Product = db.Product;
 let ComentariosTabla = db.Comentarios;
 
-
 const controller = {
     detail: (req, res) => {
         let id = req.params.id;
-        Product.findByPk(id).then((result) => {
-            console.log(result)
-            let product = {
-                id: result.dataValues.id,
-                img: result.dataValues.img,
-                nombre: result.nombre,
-                descripcion: result.descripcion,
-                anio: result.anio,
-                createdAt: new Date(),
-                userId: result.userId,
-
-            }
-            console.log(product.userId.usuario)
+        let filter = {
+            include : {
+                all: true,
+                nested: true
+            } }
+        Product.findByPk(id, filter).then((result) => {
             return res.render('product-detail', {
-                listaAutos: product,
-                usuario: product.userId,
+                listaAutos: result.dataValues,
             })
         })
+        
             .catch(err => console.log(err));
     },
 
@@ -60,6 +52,7 @@ const controller = {
                     nombre: result.dataValues.nombre,
                     descripcion: result.dataValues.descripcion,
                     anio: result.dataValues.anio,
+                    updatedAt: new Date()
                 }
                 return res.render('product-edit', {
                     listaAutos: product
@@ -92,7 +85,7 @@ const controller = {
 
         Product.update(producto, filter)
             .then((result) => {
-                return res.redirect("/");
+                return res.redirect("/products/id/" + idEdit);
             }).catch((err) => {
                 return res.send(err)
             });
@@ -112,27 +105,28 @@ const controller = {
 
 
     comentarios: (req, res) => {
-         if (locals.user.usuario != undefined) { 
-            return res.redirect('register') }
-      /*  
-       if (req.session.user == undefined) {
-            res.redirect('/users/register')
-
-         }
-      let filtro1 = {
-            include: {
-                all: true,
-                nested: true
-            },
-            order: [["comentarios", "createdAt", "DESC"]]
+        if (locals.user.usuario != undefined) {
+            return res.redirect('register')
         }
-        product.findByPk(id, filtro1)
-            .then((result) => {
-                return res.render('products', {product: result.dataValues})
-            }).catch((err) => {
-                console.log(err);
-            }) */ 
-            let info = req.body;
+        /*  
+         if (req.session.user == undefined) {
+              res.redirect('/users/register')
+  
+           }
+        let filtro1 = {
+              include: {
+                  all: true,
+                  nested: true
+              },
+              order: [["comentarios", "createdAt", "DESC"]]
+          }
+          product.findByPk(id, filtro1)
+              .then((result) => {
+                  return res.render('products', {product: result.dataValues})
+              }).catch((err) => {
+                  console.log(err);
+              }) */
+        let info = req.body;
         let comentario = {
             comentarios: info.comentario,
             productId: req.params.id,
@@ -145,7 +139,8 @@ const controller = {
                 console.log("Este es el error" + err);
             });
 
-    } }
+    }
+}
 
 module.exports = controller;
 

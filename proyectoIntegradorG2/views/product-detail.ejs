@@ -18,10 +18,10 @@
 									<h2 class="products-title">
 										<%= listaAutos.nombre %>
 									</h2>
-									<p class="product-detail-description">
-										<a href="/products/product-edit/id/<%= listaAutos.id %>">Editar</a>
-									</p>
-									<% if (locals.user !=undefined) { %>
+									<% if (locals.user !=undefined && locals.user.id==listaAutos.userId) { %>
+										<p class="product-detail-description">
+											<a href="/products/product-edit/id/<%= listaAutos.id %>">Editar</a>
+										</p>
 										<p class="product-detail-description">
 											<a href="/products/delete/id/<%= listaAutos.id %>">Borrar</a>
 										</p>
@@ -35,19 +35,21 @@
 											<p class="product-detail-description">
 												<%= listaAutos.descripcion %>
 											</p>
+
+											<p class="product-detail-description"> Fecha de Creación: <%= listaAutos.createdAt %></p>
 											<p class="product-detail-description">
-												Creado por: <%= listaAutos.user %> <a href="/users/profile/ "></a>
-											</p>
+												<a href="/users/profileUsers/<%= listaAutos.id %>"> Creado por: <%= listaAutos.user.usuario%></a>
+										   
+											   </p>
 
 										</article>
 										<div class="col-12 col-lg-4">
 											<section class="comments">
 
 											</section>
-										
-											<form class="form" action="products/id/<%= listaAutos.id %>"
-												method="POST">
-												<input class="form-input" type="text" name= "comentarios" value=""
+
+											<form class="form" action="products/id/<%= listaAutos.id %>" method="POST">
+												<input class="form-input" type="text" name="comentarios" value=""
 													placeholder="Agregar comentario">
 												<button type="submit" class="buy-now-button"> ENVIAR </button>
 											</form>
