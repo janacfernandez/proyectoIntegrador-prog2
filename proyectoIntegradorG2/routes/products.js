@@ -29,7 +29,7 @@ router.get('/id/:id', productController.detail),
 
 router.get('/delete/id/:id', productController.delete);
 
-router.post('/id/:id', productController.comentarios)
+router.post('/id/:id', productController.comments)
 
 module.exports = router;
 

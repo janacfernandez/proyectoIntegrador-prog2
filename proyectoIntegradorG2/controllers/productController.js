@@ -1,6 +1,6 @@
 const db = require("../database/models");
 const Product = db.Product;
-let ComentariosTabla = db.Comentarios;
+let comment = db.Comment;
 
 
 const controller = {
@@ -111,14 +111,29 @@ const controller = {
     },
 
 
-    comentarios: (req, res) => {
-         if (locals.user.usuario != undefined) { 
-            return res.redirect('register') }
-      /*  
-       if (req.session.user == undefined) {
-            res.redirect('/users/register')
-
+    comments: (req, res) => {
+        if (req.session.user == undefined) {
+             res.redirect('register')
+ 
+          }
+         let info = req.body;
+         let comentario = {
+             comentarios: info.comentario,
+             productId: req.params.id,
+             userId: req.session.user.id,
          }
+         comment.create(comentario)
+             .then((result) => {
+                 return res.redirect('/products/id/' + req.params.id)
+             }).catch((err) => {
+                 console.log("Este es el error" + err);
+             });
+ 
+     } }
+
+   
+      /*  
+    
       let filtro1 = {
             include: {
                 all: true,
@@ -132,20 +147,7 @@ const controller = {
             }).catch((err) => {
                 console.log(err);
             }) */ 
-            let info = req.body;
-        let comentario = {
-            comentarios: info.comentario,
-            productId: req.params.id,
-            userId: req.session.user.id,
-        }
-        ComentariosTabla.create(comentario)
-            .then((result) => {
-                return res.redirect('products/id/:id')
-            }).catch((err) => {
-                console.log("Este es el error" + err);
-            });
-
-    } }
+           
 
 module.exports = controller;
 
