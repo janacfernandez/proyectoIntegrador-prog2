@@ -17,14 +17,15 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row" class="row-p" >
 			<div class="img-container offset-3 col-2">
-				<img src="/images/users/<%= productos.user.foto%>" alt="foto de perfil" class="foto-perfil">
+				 <img src="/images/users/<%= productos.user.foto%>" alt="<%= productos.user.foto%>" class="foto-perfil">
+				
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center  ">
 					<h1 class="main-title">  <%= productos.user.nombre + " " + productos.user.apellido %> 
 					</h1>
-				
-						<form  action="/users/profileUsers/<%= productos.id%>" method="POST" >
+					
+						<form  action="/users/profileUsers/" method="POST" >
 							<input type="hidden" name="seguidoId" value="<%= productos.user.id%>">
 							<input type="submit" class="btn mt-3 ml-4" value="SEGUIR">
 						</form>
