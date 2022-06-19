@@ -8,8 +8,9 @@ const controller = {
         let filter = {
             include : {
                 all: true,
-                nested: true
-            } }
+                nested: true },
+                // order: [["comentarios", "createdAt", "DESC"]]
+             }
         Product.findByPk(id, filter).then((result) => {
             return res.render('product-detail', {
                 listaAutos: result.dataValues,
@@ -123,23 +124,6 @@ const controller = {
              });
  
      } } }
-
- /* 
-    
-      let filtro1 = {
-            include: {
-                all: true,
-                nested: true
-            },
-            order: [["comentarios", "createdAt", "DESC"]]
-        }
-        Product.findByPk(id, filtro1)
-            .then((result) => {
-                return res.render('products', {product: result.dataValues})
-            }).catch((err) => {
-                console.log(err);
-            }) 
-           */
 
 module.exports = controller;
 
