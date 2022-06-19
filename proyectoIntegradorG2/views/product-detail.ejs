@@ -5,58 +5,82 @@
 
 	<body class="productD">
 		<!-- Header -->
-		<% if (locals.user != undefined) { %>
-			<%- include('./partials/headerLogueado')  %> 
-	  <% }else {%>
-			<%- include('./partials/headerDeslogueado')  %> 
-	  <% } %>
-		<!-- /Header -->
+		<% if (locals.user !=undefined) { %>
+			<%- include('./partials/headerLogueado') %>
+				<% }else {%>
+					<%- include('./partials/headerDeslogueado') %>
+						<% } %>
+							<!-- /Header -->
 
-			<!-- product detail -->
-			<div class="container products-wrapper">
-				<div class="d-flex align-items-center">
-					<h2 class="products-title">
-						<%= listaAutos.nombre %>
-					</h2>
-					<p class="product-detail-description">
-						<a href="/products/product-edit/id/<%= listaAutos.id %>">Editar</a>
-					</p>
-					 <% if (locals.user != undefined) { %>
-							<p class="product-detail-description">
-								<a href="/products/delete/id/<%= listaAutos.id %>">Borrar</a>	
-							</p>
-							<% } %> 
-				</div>
-				<div class="product-detail">
-					<div class="row">
-						<article class="col-12 col-lg-8 product-detail-info">
-							<img src="/images/products/<%= listaAutos.img %>" alt="" class="product-detail-img">
-							<p class="product-detail-description">
-								<%= listaAutos.descripcion %>
-							</p>
-							<p class="product-detail-description">
-								Creado por: <a href="/users/profile/"></a>
-							</p>
+							<!-- product detail -->
+							<div class="container products-wrapper">
+								<div class="d-flex align-items-center">
+									<h2 class="products-title">
+										<%= listaAutos.nombre %>
+									</h2>
+									<% if (locals.user !=undefined && locals.user.id==listaAutos.userId) { %>
+										<p class="product-detail-description">
+											<a href="/products/product-edit/id/<%= listaAutos.id %>">Editar</a>
+										</p>
+										<p class="product-detail-description">
+											<a href="/products/delete/id/<%= listaAutos.id %>">Borrar</a>
+										</p>
+										<% } %>
+								</div>
+								<div class="product-detail">
+									<div class="row">
+										<article class="col-12 col-lg-8 product-detail-info">
+											<img src="/images/products/<%= listaAutos.img %>" alt=""
+												class="product-detail-img">
+											<p class="product-detail-description">
+												<%= listaAutos.descripcion %>
+											</p>
 
-						</article>
-						<div class="col-12 col-lg-4">
-							<section class="comments">
-							 
-							</section>
-							<form class="form" action="/products/detail/<%= listaAutos.id %> " method="POST">
-								<input class="form-input" type="text" value="" placeholder="Agregar comentario">
-								<button type="submit" class="buy-now-button"> ENVIAR </button>
-							</form>
-							<hr>
-						</div>
-					</div>
-				</div>
-			</div>
-					<!-- /product detail -->
+											<p class="product-detail-description"> Fecha de Creación: <%= listaAutos.createdAt %></p>
+											<p class="product-detail-description">
+												<a href="/users/profileUsers/<%= listaAutos.id %>"> Creado por: <%= listaAutos.user.usuario%></a>
+										   
+											   </p>
 
-					<!-- footer -->
-					<%- include('./partials/footer') %>
-					<!-- /footer -->
+										</article>
+										<div class="col-12 col-lg-4">
+											<section class="comments">
+													<% for (let i = 0; i < listaAutos.comment ; i++)// falta el .length que me dice undefined
+													 { %> 
+														<article>
+															<img src= "/images/users/<%=listaAutos.comment[i].user.foto%>" alt="img perfil">
+															<div class="data">
+																<p class="user">
+																<strong> <a href="/profile/<%=listaAutos.comment[i].user.id%>"> <%=listaAutos.comment[i].user.nombre%> <%=listaAutos.comment[i].user.apellido%> </a> </strong>
+																	<%= listaAutos.comment[i].comentarios %> 
+																</p>
+															</div>
+														</article>
+														<% } %>
+											</section>
+<<<<<<< HEAD
+
+											<form class="form" action="products/id/<%= listaAutos.id %>" method="POST">
+												<input class="form-input" type="text" name="comentarios" value=""
+=======
+										
+											<form class="form" action="/products/id/<%= listaAutos.id %>"
+												method="POST">
+												<input class="form-input" type="text" name= "comentarios" value=""
+>>>>>>> 7bbd66caa5e6f566f43be7456583c2ede2dfc778
+													placeholder="Agregar comentario">
+												<button type="submit" class="buy-now-button"> ENVIAR </button>
+											</form>
+											<hr>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- /product detail -->
+
+							<!-- footer -->
+							<%- include('./partials/footer') %>
+								<!-- /footer -->
 
 	</body>
 

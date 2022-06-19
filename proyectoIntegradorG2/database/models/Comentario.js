@@ -1,6 +1,6 @@
-module.exports = function (sequelize, dataTypes){
-    
-    let alias = 'Comentario';
+module.exports = function (sequelize, dataTypes) {
+
+    let alias = 'Comment'
 
     let cols = {
         id: {
@@ -11,8 +11,11 @@ module.exports = function (sequelize, dataTypes){
         comentarios: {
             type: dataTypes.STRING
         },
-        img:{
-            type: dataTypes.STRING
+        userId: {
+            type: dataTypes.INTEGER,
+        },
+        productId: {
+            type: dataTypes.INTEGER,
         },
         createdAt: {
             type: dataTypes.DATE,
@@ -22,38 +25,29 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.DATE,
             allowNull: true,
         },
-        producto_id: { // ver esto //
-            type: dataTypes.INTEGER
-        },
-        usuario_id: {
-            type: dataTypes.INTEGER
-        }
     }
 
     let config = {
-        tableName: "comentarios",
-        timestamps: true, 
+        tableName: "comments",
+        timestamps: true,
         underscored: false,
-    };
+    }
 
-    const Comentario = sequelize.define(alias, cols, config);
+    const Comment = sequelize.define(alias, cols, config);
 
-
-    //Relación con productos VER
-    Comentario.associate = function (models) { 
-        Comentario.belongsTo(models.Product, {
-            as: "productos",
-            foreignKey: "producto_id"
+    //Relación con productos 
+    Comment.associate = function (models) {
+        Comment.belongsTo(models.Product, {
+            as: "product",
+            foreignKey: "productId"
         })
-    };
-
-    //Relación con usuarios VER
-    Comentario.associate = function (models) { 
-        Comentario.belongsTo(models.User, {
-            as: "usuarios",
-            foreignKey: "usuario_id"
-        })
-    }; 
-
-    return Comentario;
+        //Relación con usuarios 
+        Comment.associate = function (models) {
+            Comment.belongsTo(models.User, {
+                as: "user",
+                foreignKey: "userId"
+            })
+        }
+    }
+      return Comment;
 }

@@ -2,52 +2,59 @@
 <html lang="es">
 <!-- Include Head -->
 <%- include('./partials/head') %>
-<!-- Fin Include Head -->
+	<!-- Fin Include Head -->
 
 	<body>
 		<!-- Header -->
-		<% if (locals.user != undefined) { %>
-			<%- include('./partials/headerLogueado')  %> 
-	  <% }else {%>
-			<%- include('./partials/headerDeslogueado')  %> 
-	  <% } %>
-			<!-- /Header -->
+		<% if (locals.user !=undefined) { %>
+			<%- include('./partials/headerLogueado') %>
+				<% }else {%>
+					<%- include('./partials/headerDeslogueado') %>
+						<% } %>
+							<!-- /Header -->
 
-			<!-- Novedades -->
-			<div class="container products-wrapper-2">
-					<div class="col-12">
-						<h2 class="products-title">Editar mi perfil</h2>
-					<!-- Show the "ultimos" products -->
-					<h2 class="col-12">
-							<div class="container products-wrapper-formulario-register">
-								<div>
+							<!-- Novedades -->
+							<div class="container products-wrapper-2">
+								<div class="col-12">
+									<h2 class="products-title">Editar mi perfil</h2>
 									<!-- Show the "ultimos" products -->
-									<form class="form-profile-edit" action="profile-edit"  enctype="multipart/form-data" method="POST">
-										<h4 class="register">Nombre</h4>
-										<input class="register" type="text" name="name" id="" value= "<%= locals.user.nombre%>">
-										<h4 class="register">Apellido</h4>
-										<input class="register" type="text" name="apellido" id="" value= "<%= locals.user.apellido%>">
-										<h4 class="register">E-mail</h4>
-										<input class="register" type="email" name="email" id="" value= "<%= locals.user.email%>">
-										<h4 class="register"> Usuario </h4>
-										<input class="register" type="text" name="usuario" id="" value= "<%= locals.user.usuario%>" >
-										<h4 class="register"> Fecha de nacimiento </h4>
-										<input class="fecha" type="date" name="fDeNac" id="" value= "<%= locals.user.fDeNac%>">
-										<h4 class="register"> Número de documento </h4>
-										<input class="register" type="number" name="dni" id="" value= "<%= locals.user.dni%>">
-										<h4 class="register"> Foto de perfil </h4>
-										<input class="register" type="file" name="imgPerfil" id="">
-										<button class="button-register" type="submit"> Editar </button>
-									</form>
+									<h2 class="col-12">
+										<div class="container products-wrapper-formulario-register">
+											<div>
+												<!-- Show the "ultimos" products -->
+												<form class="form-profile-edit" action="profile-edit"
+													enctype="multipart/form-data" method="POST">
+													<h4 class="register">Nombre</h4>
+													<input class="register" type="text" name="name" id=""
+														value="<%= locals.user.nombre%>">
+													<h4 class="register">Apellido</h4>
+													<input class="register" type="text" name="apellido" id=""
+														value="<%= locals.user.apellido%>">
+													<h4 class="register">E-mail</h4>
+													<input class="register" type="email" name="email" id=""
+														value="<%= locals.user.email%>">
+													<h4 class="register"> Usuario </h4>
+													<input class="register" type="text" name="usuario" id=""
+														value="<%= locals.user.usuario%>">
+													<h4 class="register"> Fecha de nacimiento </h4>
+													<input class="fecha" type="date" name="fDeNac" id=""
+														value="<%= locals.user.fDeNac%>">
+													<h4 class="register"> Número de documento </h4>
+													<input class="register" type="number" name="dni" id=""
+														value="<%= locals.user.dni%>">
+													<h4 class="register"> Foto de perfil </h4>
+													<input class="register" type="file" name="imgPerfil" id="">
+													<button class="button-register" type="submit"> Editar </button>
+												</form>
+											</div>
+										</div>
+									</h2>
 								</div>
 							</div>
-					</h2>
-				</div>
-			</div>
 
-			<!-- footer -->
-			<%- include('./partials/footer') %>
-			<!-- /footer -->
+							<!-- footer -->
+							<%- include('./partials/footer') %>
+								<!-- /footer -->
 	</body>
 
 </html>

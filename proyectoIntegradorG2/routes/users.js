@@ -8,36 +8,36 @@ let path = require('path');
 
 /* Configurar multer */
 let storage = multer.diskStorage({
-    destination : function(req, file, cb) {
+    destination: function (req, file, cb) {
         cb(null, path.join(__dirname, '../public/images/users'));
     },
-    filename : function(req, file, cb) {
-            //      ejemplo de como va a quedar el nombre: fotoPerfil-243534534534.png
+    filename: function (req, file, cb) {
+        //      ejemplo de como va a quedar el nombre: fotoPerfil-243534534534.png
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
 });
 
-let upload = multer({storage : storage})
+let upload = multer({ storage: storage })
 
 /* GET & POST users listing. */
 router.get('/login', userController.login),
 
-router.post('/login', userController.procesarLogin),
+    router.post('/login', userController.procesarLogin),
 
-router.get('/register', userController.register),
+    router.get('/register', userController.register),
 
-router.post('/register', upload.single('imgRegister'), userController.procesarRegister)
+    router.post('/register', upload.single('imgRegister'), userController.procesarRegister)
 
 router.get('/profile', userController.profile),
 
-router.get('/profileUsers/:id', userController.profileUsers),
+    router.get('/profileUsers/:id', userController.profileUsers),
 
-router.post('/profileUsers/:id', userController.follow),
+    router.post('/profileUsers/:id', userController.follow),
 
-router.get('/profile-edit', userController.profileEdit),
+    router.get('/profile-edit', userController.profileEdit),
 
-router.post('/profile-edit', upload.single('imgPerfil'), userController.profileUpdate),
+    router.post('/profile-edit', upload.single('imgPerfil'), userController.profileUpdate),
 
-router.get('/logout', userController.logout),
+    router.get('/logout', userController.logout),
 
-module.exports = router;
+    module.exports = router;
