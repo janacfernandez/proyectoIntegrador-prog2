@@ -45,11 +45,29 @@
 										</article>
 										<div class="col-12 col-lg-4">
 											<section class="comments">
-
+													<% for (let i = 0; i < listaAutos.comment ; i++)// falta el .length que me dice undefined
+													 { %> 
+														<article>
+															<img src= "/images/users/<%=listaAutos.comment[i].user.foto%>" alt="img perfil">
+															<div class="data">
+																<p class="user">
+																<strong> <a href="/profile/<%=listaAutos.comment[i].user.id%>"> <%=listaAutos.comment[i].user.nombre%> <%=listaAutos.comment[i].user.apellido%> </a> </strong>
+																	<%= listaAutos.comment[i].comentarios %> 
+																</p>
+															</div>
+														</article>
+														<% } %>
 											</section>
+<<<<<<< HEAD
 
 											<form class="form" action="products/id/<%= listaAutos.id %>" method="POST">
 												<input class="form-input" type="text" name="comentarios" value=""
+=======
+										
+											<form class="form" action="/products/id/<%= listaAutos.id %>"
+												method="POST">
+												<input class="form-input" type="text" name= "comentarios" value=""
+>>>>>>> 7bbd66caa5e6f566f43be7456583c2ede2dfc778
 													placeholder="Agregar comentario">
 												<button type="submit" class="buy-now-button"> ENVIAR </button>
 											</form>
