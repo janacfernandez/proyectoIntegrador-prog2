@@ -112,7 +112,7 @@ const controller = {
           else {
          let info = req.body;
          let comentario = {
-             comentarios: info.comentario,
+             comentarios: info.comentarios,
              productId: req.params.id,
              userId: req.session.user.id,
          }
