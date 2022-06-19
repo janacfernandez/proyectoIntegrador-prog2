@@ -9,7 +9,7 @@ const controller = {
             include : {
                 all: true,
                 nested: true },
-                // order: [["comentarios", "createdAt", "DESC"]]
+                order: [["comment", "createdAt", "DESC"]]
              }
         Product.findByPk(id, filter).then((result) => {
             return res.render('product-detail', {
