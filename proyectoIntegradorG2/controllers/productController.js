@@ -9,7 +9,9 @@ const controller = {
             include : {
                 all: true,
                 nested: true
-            } }
+            },
+            order : [["comment", "createdAt" , "DESC"]]
+         }
         Product.findByPk(id, filter).then((result) => {
             return res.render('product-detail', {
                 listaAutos: result.dataValues,
@@ -19,8 +21,14 @@ const controller = {
             .catch(err => console.log(err));
     },
 
-    add: (req, res) => res.render('product-add'),
-
+    add: (req, res) => { 
+        if (req.session.user == undefined) {
+            res.redirect('/users/login')
+         }
+         else {
+          return res.render('product-add')
+       }
+    },
     store: (req, res) => {
         let info = req.body;
         let imgProductAdd = req.file.filename;
@@ -42,25 +50,31 @@ const controller = {
     },
 
     edit: (req, res) => {
-        let id = req.params.id;
 
-        Product.findByPk(id)
-            .then((result) => {
-                let product = {
-                    id: result.dataValues.id,
-                    img: result.dataValues.img,
-                    nombre: result.dataValues.nombre,
-                    descripcion: result.dataValues.descripcion,
-                    anio: result.dataValues.anio,
-                    updatedAt: new Date()
-                }
-                return res.render('product-edit', {
-                    listaAutos: product
+        if (req.session.user == undefined) {
+            res.redirect('/users/login')
+        }
+        else {
+            let id = req.params.id;
+            Product.findByPk(id)
+                .then((result) => {
+                    let product = {
+                        id: result.dataValues.id,
+                        img: result.dataValues.img,
+                        nombre: result.dataValues.nombre,
+                        descripcion: result.dataValues.descripcion,
+                        anio: result.dataValues.anio,
+                        updatedAt: new Date()
+                    }
+                    return res.render('product-edit', {
+                        listaAutos: product
+                    })
                 })
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+
     },
 
     updateProd: (req, res) => {
@@ -85,7 +99,7 @@ const controller = {
 
         Product.update(producto, filter)
             .then((result) => {
-                return res.redirect("/products/id/" + idEdit);
+                return res.redirect("/id/" + idEdit);
             }).catch((err) => {
                 return res.send(err)
             });
@@ -104,6 +118,7 @@ const controller = {
     },
 
     comments: (req, res) => {
+      
         if (req.session.user == undefined) {
              res.redirect('/users/login')
  

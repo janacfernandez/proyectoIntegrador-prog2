@@ -99,17 +99,21 @@ const controller = {
     },
 
     profile: (req, res) => {
-        producto.findAll({
-            where: [{ userId: req.session.user.id }]
-        })
-            .then(resultado => {
 
-                res.render('profile', {
-                    productos: resultado
-                })
+        if (req.session.user != undefined) {
+            producto.findAll({
+                where: [{ userId: req.session.user.id }]
             })
-            .catch(err => console.log(err));
+                .then(resultado => {
 
+                    res.render('profile', {
+                        productos: resultado
+                    })
+                })
+                .catch(err => console.log(err));
+        } else {
+            res.redirect('/users/login')
+        }
     },
 
     profileUsers: (req, res) => {
