@@ -22,9 +22,10 @@
 										<p class="product-detail-description">
 											<a href="/products/product-edit/id/<%= listaAutos.id %>">Editar</a>
 										</p>
-										<p class="product-detail-description">
-											<a href="/products/delete/id/<%= listaAutos.id %>">Borrar</a>
-										</p>
+										
+											<form class="product-detail-description" action="/products/delete/id/<%= listaAutos.id %>" class= "editButton" method="POST"> 
+												<button type="submit" class="editButton" > Borrar </button>
+											</form>
 										<% } %>
 								</div>
 								<div class="product-detail">

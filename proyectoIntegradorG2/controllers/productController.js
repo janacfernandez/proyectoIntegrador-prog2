@@ -99,7 +99,7 @@ const controller = {
 
         Product.update(producto, filter)
             .then((result) => {
-                return res.redirect("/id/" + idEdit);
+                return res.redirect("/products/id/" + idEdit);
             }).catch((err) => {
                 return res.send(err)
             });
