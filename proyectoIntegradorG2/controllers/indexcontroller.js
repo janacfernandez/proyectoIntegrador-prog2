@@ -28,7 +28,8 @@ const controller = {
             where: {
                 [op.or]: [
                     { nombre: { [op.like]: `%${resultado}%` } },
-                    { descripcion: { [op.like]: `%${resultado}%` } }
+                    { descripcion: { [op.like]: `%${resultado}%` } },
+                    { anio: { [op.like]: `%${resultado}%` } }
                 ]
             },
             include: [{ association: 'user' }]
