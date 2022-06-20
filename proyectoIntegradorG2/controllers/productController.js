@@ -126,7 +126,7 @@ const controller = {
           else {
          let info = req.body;
          let comentario = {
-             comentarios: info.comentario,
+             comentarios: info.comentarios,
              productId: req.params.id,
              userId: req.session.user.id,
          }
@@ -138,23 +138,6 @@ const controller = {
              });
  
      } } }
-
- /* 
-    
-      let filtro1 = {
-            include: {
-                all: true,
-                nested: true
-            },
-            order: [["comentarios", "createdAt", "DESC"]]
-        }
-        Product.findByPk(id, filtro1)
-            .then((result) => {
-                return res.render('products', {product: result.dataValues})
-            }).catch((err) => {
-                console.log(err);
-            }) 
-           */
 
 module.exports = controller;
 
