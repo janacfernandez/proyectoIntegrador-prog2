@@ -1,5 +1,5 @@
-module.exports = function (sequelize, dataTypes){
-    
+module.exports = function (sequelize, dataTypes) {
+
     let alias = 'User';
 
     let cols = {
@@ -40,6 +40,10 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.DATE,
             allowNull: true,
         },
+        deletedAt: {
+            type: dataTypes.DATE,
+            allowNull: true,
+        },
     }
 
     let config = {
@@ -50,18 +54,18 @@ module.exports = function (sequelize, dataTypes){
 
     const User = sequelize.define(alias, cols, config);
 
-    User.associate = function(models){
+    User.associate = function (models) {
         User.hasMany(models.Product, {
             as: "product",
-            foreignKey: "userId", 
+            foreignKey: "userId",
         }),
-    User.hasMany(models.Comment, {
-        as: "comment",
-      foreignKey: "userId"
-    })
-    }; 
+            User.hasMany(models.Comment, {
+                as: "comment",
+                foreignKey: "userId"
+            })
+    };
 
-    User.associate = function(models){
+    User.associate = function (models) {
         User.belongsToMany(models.User, {
             as: "seguidores",
             through: "followers",/*nombre de la tabla pivot*/

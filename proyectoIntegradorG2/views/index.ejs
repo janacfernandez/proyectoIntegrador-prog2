@@ -96,8 +96,10 @@
 														<%= listaAutos[i].nombre %>
 													</h2>
 													<p>
-														Creado por:
-											
+														<!-- Revisar esta ruta que vaya a otra vista-->
+														Creado por: <a href="/users/profileUsers/<%= listaAutos[i].id%>">
+															<%= listaAutos[i].user.usuario %>
+														</a>
 													</p>
 													<p>
 														<%= listaAutos[i].descripcion %>

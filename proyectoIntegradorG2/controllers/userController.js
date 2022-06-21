@@ -115,6 +115,7 @@ const controller = {
     },
 
     profile: (req, res) => {
+        if (req.session.user != undefined) {
         producto.findAll({
             where: [{ userId: req.session.user.id }]
         })
@@ -128,10 +129,11 @@ const controller = {
                         seguidores: result
                     })
                 })
-              
-            })
-            .catch(err => console.log(err));
-
+                })
+                .catch(err => console.log(err));
+        } else {
+            res.redirect('/users/login')
+        }
     },
 
     profileUsers: (req, res) => {

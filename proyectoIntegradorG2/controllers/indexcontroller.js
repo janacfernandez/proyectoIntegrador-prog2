@@ -29,7 +29,7 @@ const controller = {
                 [op.or]: [
                     { nombre: { [op.like]: `%${resultado}%` } },
                     { descripcion: { [op.like]: `%${resultado}%` } },
-                    // { anio: { [op.like]: `%${anio}%` } }
+                    { anio: { [op.like]: `%${resultado}%` } }
                 ]
             },
             include: [{ association: 'user' }]
