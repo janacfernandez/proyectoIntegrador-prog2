@@ -19,6 +19,11 @@
 									<div class="col-12">
 										<h2 class="products-title">Registrate</h2>
 									</div>
+
+									<% if (locals.errors != undefined) { %>
+										<h3><%=  locals.errors.message%> </h3>
+									<% } %>
+
 									<!-- Show the "ultimos" products -->
 									<form class="form-register" action="/users/register" enctype="multipart/form-data"
 										method="POST">

@@ -48,10 +48,13 @@
 														</h2>
 													</a>
 													<p>
-														Creado por: <a
-															href="/users/profileUsers/<%= listaAutos[i].id%>">
-															<%= listaAutos[i].user.usuario %>
-														</a>
+														Creado por:
+														<% if (locals.user === undefined || locals.user.id != listaAutos[i].user.id ) { %>
+														 <a href="/users/profileUsers/<%= listaAutos[i].user.usuario%>"><%= listaAutos[i].user.usuario %></a>
+														<% } else {%>
+															<a href="/users/profile"><%= listaAutos[i].user.usuario %></a>	
+														<% } %> 
+														
 													</p>
 													<p>
 														<%= listaAutos[i].descripcion %>
@@ -93,10 +96,8 @@
 														<%= listaAutos[i].nombre %>
 													</h2>
 													<p>
-														<!-- Revisar esta ruta que vaya a otra vista-->
-														Creado por: <a href="/users/profile">
-															<%= listaAutos[i].user.usuario %>
-														</a>
+														Creado por:
+											
 													</p>
 													<p>
 														<%= listaAutos[i].descripcion %>

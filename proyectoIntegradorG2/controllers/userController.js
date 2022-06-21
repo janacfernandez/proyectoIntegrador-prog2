@@ -43,21 +43,37 @@ const controller = {
     procesarRegister: (req, res) => {
         let info = req.body;
         let imgRegister = req.file.filename;
-        let usuario = {
-            nombre: info.name,
-            apellido: info.apellido,
-            email: info.email,
-            usuario: info.usuario,
-            contrasenia: bcrypt.hashSync(info.contrasenia, 10),
-            fDeNac: info.fDeNac,
-            dni: info.dni,
-            foto: imgRegister,
-            created_at: new Date(),
-        }
-
-        user.create(usuario)
-            .then(resultado => res.redirect("/users/login"))
-            .catch(err => console.log(err));
+        let errors = {};
+        let filtro = {
+            where: [{ email: req.body.email }]
+        };
+        user.findOne(filtro)
+        .then(result => {
+            console.log(result)
+            if (result != undefined){
+                errors.message = "El mail ya existe";
+                res.locals.errors = errors;
+                return res.render('register');
+            }else{
+                let usuario = {
+                    nombre: info.name,
+                    apellido: info.apellido,
+                    email: info.email,
+                    usuario: info.usuario,
+                    contrasenia: bcrypt.hashSync(info.contrasenia, 10),
+                    fDeNac: info.fDeNac,
+                    dni: info.dni,
+                    foto: imgRegister,
+                    created_at: new Date(),
+                }
+        
+                user.create(usuario)
+                    .then(resultado => res.redirect("/users/login"))
+                    .catch(err => console.log(err));
+               
+            }
+        })
+    
     },
 
     profileEdit: (req, res) => {
@@ -103,42 +119,44 @@ const controller = {
             where: [{ userId: req.session.user.id }]
         })
             .then(resultado => {
-
-                res.render('profile', {
-                    productos: resultado
+                let filtro = {where: [{seguido: req.session.user.id}]}
+                follower.findAll(filtro)
+                .then(result => {
+                    console.log(result)
+                    res.render('profile', {
+                        productos: resultado,
+                        seguidores: result
+                    })
                 })
+              
             })
             .catch(err => console.log(err));
 
     },
 
     profileUsers: (req, res) => {
-        // follower.findAll()
-        // .then(result => console.log(result))
-        // .catch(err => console.log(err))
-        let idProd = req.params.id;
-        // console.log(idProd);
-        producto.findOne({
+        let usuario = req.params.usuario;
+        user.findOne({
             include: {
                 all: true,
                 nested: true
             },
-
-            where: [{ id: idProd }]
+            where: [{ usuario: usuario }]
         })
             .then(resultado => {
-                let productos = resultado.dataValues;
-                // res.render('profileUsers', {
-                //     productos: productos,
-                // })
+                let idUsuario = resultado.id;
                 producto.findAll({
-                    where: [{ userId: productos.user.id }]
+                    where: [{ userId: idUsuario }]
                 })
-                .then(result => {
-                    res.render('profileUsers',{
+                .then(seguidores => {
+                    let filtro = {where: [{seguido: idUsuario}]}
+                    follower.findAll(filtro)
+                    .then(result => {
+                       res.render('profileUsers',{
                         productosUsuario: result,
-                        productos: productos,
-                
+                        usuario: resultado,
+                        seguidores: seguidores,
+                    })                  
                 })
             })
         })
@@ -146,16 +164,52 @@ const controller = {
 
     },
     follow: (req, res) => {
+        let errors = {}
         let info = req.body
-        //console.log("ESTE ES EL ID QUE BUSCABAS" + info.seguidoId)
         let seguidor = {
             seguidor: req.session.user.id, /*id del usuario en sesion*/
             seguido: info.seguidoId,
         }
-        // console.log(seguidor)
-        follower.create(seguidor)
-            .then(resultado => res.redirect('/'))
-            .catch(err => console.log(err))
+        console.log("SEGUIDOR" + req.session.user.id + "SEGUIDO" + info.seguidoId)
+        
+        filtro = {
+            where:[{seguidor: req.session.user.id, seguido: info.seguidoId}]
+        }
+        console.log(filtro)
+        follower.findOne(filtro)
+        .then(result => {
+            console.log("ESTE ES EL RESULTADO" + result)
+            if (result === null) {
+                follower.create(seguidor)
+                .then(resultado => {res.redirect('/')})
+                .catch(err => console.log(err))
+            } else {
+                errors.message = "Usted ya sigue a este usuario"
+                console.log(errors.message)
+                res.locals.errors = errors
+                user.findOne({
+                    include: {
+                        all: true,
+                        nested: true
+                    },
+                    where: [{ usuario: info.usuario }]
+                })
+                    .then(resultado => {
+                        producto.findAll({
+                            where: [{ userId: info.seguidoId }]
+                        })
+                        .then(result => {
+                            console.log(resultado)
+                            res.render('profileUsers',{
+                                productosUsuario: result,
+                                usuario: resultado,
+                        })
+                    })
+                })
+            }
+        })
+
+        
     },
 
     logout: (req, res) => {

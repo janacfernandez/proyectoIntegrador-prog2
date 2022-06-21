@@ -30,9 +30,9 @@ router.get('/login', userController.login),
 
 router.get('/profile', userController.profile),
 
-    router.get('/profileUsers/:id', userController.profileUsers),
+    router.get('/profileUsers/:usuario', userController.profileUsers),
 
-    router.post('/profileUsers/:id', userController.follow),
+    router.post('/profileUsers/:usuario', userController.follow),
 
     router.get('/profile-edit', userController.profileEdit),
 
