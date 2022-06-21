@@ -22,10 +22,12 @@
 										<p class="product-detail-description">
 											<a href="/products/product-edit/id/<%= listaAutos.id %>">Editar</a>
 										</p>
-										
-											<form class="product-detail-description" action="/products/delete/id/<%= listaAutos.id %>" class= "editButton" method="POST"> 
-												<button type="submit" class="editButton" > Borrar </button>
-											</form>
+
+										<form class="product-detail-description"
+											action="/products/delete/id/<%= listaAutos.id %>" class="editButton"
+											method="POST">
+											<button type="submit" class="editButton"> Borrar </button>
+										</form>
 										<% } %>
 								</div>
 								<div class="product-detail">
@@ -49,18 +51,22 @@
 										</article>
 										<div class="col-12 col-lg-4">
 											<section class="comments">
-												<% for (let i = 0; i < listaAutos.comment.length; i++)
-													 { %> 
-														<article>
-															<img src= "/images/users/<%=listaAutos.user.foto%> " alt="img perfil">
-															<div class="data">
-																<p class="user">
-																<strong> <a href="/users/profileUsers/<%=listaAutos.id%>"> <%=listaAutos.user.nombre%> <%=listaAutos.user.apellido%> </a> </strong>
-																	<%= listaAutos.comment[i].comentarios %> 
-																</p>
-															</div>
-														</article>
-														<% } %>
+												<% for (let i=0; i < listaAutos.comment.length; i++) { %>
+													<article>
+														<img src="/images/users/<%=listaAutos.user.foto%> "
+															alt="img perfil">
+														<div class="data">
+															<p class="user">
+																<strong> <a
+																		href="/users/profileUsers/<%=listaAutos.id%>">
+																		<%=listaAutos.user.nombre%>
+																			<%=listaAutos.user.apellido%>
+																	</a> </strong>
+																<%= listaAutos.comment[i].comentarios %>
+															</p>
+														</div>
+													</article>
+													<% } %>
 											</section>
 
 											<form class="form" action="/products/id/<%= listaAutos.id %>" method="POST">

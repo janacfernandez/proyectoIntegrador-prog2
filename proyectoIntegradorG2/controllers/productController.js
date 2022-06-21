@@ -1,3 +1,4 @@
+
 const db = require("../database/models");
 const Product = db.Product;
 let comment = db.Comment;
@@ -6,28 +7,26 @@ const controller = {
     detail: (req, res) => {
         let id = req.params.id;
         let filter = {
-            include : {
+            include: {
                 all: true,
                 nested: true
             },
-            order : [["comment", "createdAt" , "DESC"]]
-         }
+            order: [["comment", "createdAt", "DESC"]]
+        }
         Product.findByPk(id, filter).then((result) => {
             return res.render('product-detail', {
                 listaAutos: result.dataValues,
             })
-        })
-        
-            .catch(err => console.log(err));
+        }).catch(err => console.log(err));
     },
 
-    add: (req, res) => { 
+    add: (req, res) => {
         if (req.session.user == undefined) {
             res.redirect('/users/login')
-         }
-         else {
-          return res.render('product-add')
-       }
+        }
+        else {
+            return res.render('product-add')
+        }
     },
     store: (req, res) => {
         let info = req.body;
@@ -78,31 +77,36 @@ const controller = {
     },
 
     updateProd: (req, res) => {
-        let info = req.body;
-        let imgProductEdit = req.file.filename;
-        let idEdit = req.params.id;
 
-        let producto = {
-            img: imgProductEdit,
-            nombre: info.nombre,
-            descripcion: info.descripcion,
-            anio: info.anio,
-            createdAt: new Date(),
-            updatedAt: new Date()
-        }
+        if (req.session.user.id == req.body.userId) {
+            let info = req.body;
+            let imgProductEdit = req.file.filename;
+            let idEdit = req.params.id;
 
-        let filter = {
-            where: {
-                id: idEdit
+            let producto = {
+                img: imgProductEdit,
+                nombre: info.nombre,
+                descripcion: info.descripcion,
+                anio: info.anio,
+                createdAt: new Date(),
+                updatedAt: new Date()
             }
-        }
 
-        Product.update(producto, filter)
-            .then((result) => {
-                return res.redirect("/products/id/" + idEdit);
-            }).catch((err) => {
-                return res.send(err)
-            });
+            let filter = {
+                where: {
+                    id: idEdit
+                }
+            }
+
+            Product.update(producto, filter)
+                .then((result) => {
+                    return res.redirect("/products/id/" + idEdit);
+                }).catch((err) => {
+                    return res.send(err)
+                });
+        } else {
+            res.redirect('/users/login')
+        }
     },
     delete: (req, res) => {
         let idDelete = req.params.id;
@@ -118,26 +122,31 @@ const controller = {
     },
 
     comments: (req, res) => {
-      
+
         if (req.session.user == undefined) {
-             res.redirect('/users/login')
- 
-          }
-          else {
-         let info = req.body;
-         let comentario = {
-             comentarios: info.comentarios,
-             productId: req.params.id,
-             userId: req.session.user.id,
-         }
-         comment.create(comentario)
-             .then((result) => {
-                 return res.redirect('/products/id/' + req.params.id)
-             }).catch((err) => {
-                 console.log("Este es el error" + err);
-             });
- 
-     } } }
+            res.redirect('/users/login')
+
+        }
+        else {
+            let info = req.body;
+            let userId = req.session.user.id;
+            let prodId = req.params.id;
+            let comentario = {
+                comentarios: info.comentarios,
+                productId: prodId,
+                userId: userId,
+                createdAt: Date()
+            }
+            comment.create(comentario)
+                .then((result) => {
+                    return res.redirect('/products/id/' + prodId)
+                }).catch((err) => {
+                    console.log("Este es el error" + err);
+                });
+
+        }
+    }
+}
 
 module.exports = controller;
 
