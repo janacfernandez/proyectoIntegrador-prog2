@@ -150,12 +150,12 @@ const controller = {
                 producto.findAll({
                     where: [{ userId: idUsuario }]
                 })
-                .then(seguidores => {
+                .then(productos => {
                     let filtro = {where: [{seguido: idUsuario}]}
                     follower.findAll(filtro)
-                    .then(result => {
+                    .then(seguidores => {
                        res.render('profileUsers',{
-                        productosUsuario: result,
+                        productosUsuario: productos,
                         usuario: resultado,
                         seguidores: seguidores,
                     })                  
@@ -189,25 +189,26 @@ const controller = {
                 errors.message = "Usted ya sigue a este usuario"
                 console.log(errors.message)
                 res.locals.errors = errors
-                user.findOne({
-                    include: {
-                        all: true,
-                        nested: true
-                    },
-                    where: [{ usuario: info.usuario }]
-                })
-                    .then(resultado => {
-                        producto.findAll({
-                            where: [{ userId: info.seguidoId }]
-                        })
-                        .then(result => {
-                            console.log(resultado)
-                            res.render('profileUsers',{
-                                productosUsuario: result,
-                                usuario: resultado,
-                        })
-                    })
-                })
+                res.redirect(info.usuario)
+            //     user.findOne({
+            //         include: {
+            //             all: true,
+            //             nested: true
+            //         },
+            //         where: [{ usuario: info.usuario }]
+            //     })
+            //         .then(resultado => {
+            //             producto.findAll({
+            //                 where: [{ userId: info.seguidoId }]
+            //             })
+            //             .then(result => {
+            //                 console.log(resultado)
+            //                 res.render('profileUsers',{
+            //                     productosUsuario: result,
+            //                     usuario: resultado,
+            //             })
+            //         })
+            //     })
             }
         })
 

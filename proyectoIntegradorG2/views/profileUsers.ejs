@@ -24,7 +24,7 @@
 				<div class="d-flex align-items-center  ">
 					<h1 class="main-title">  <%= usuario.nombre + " " + usuario.apellido %> 
 					</h1>
-					
+					<% if (locals.user != undefined) { %>
 						<form  action="/users/profileUsers/<%= usuario.nombre %>" method="POST" >
 							<input type="hidden" name="seguidoId" value="<%= usuario.id%>">
 							<input type="hidden" name="usuario" value="<%= usuario.usuario%>">
@@ -36,9 +36,17 @@
 								<input type="submit" class="btn mt-3 ml-4" value = "SEGUIR">
 							<% } %>
 						</form>
+					<% } else { %>
+						<p> Logueate para seguir a este usuario</p>
+
+					<%}%>
+					
+					
+						
 				</div>
 				<div>
 					<ul class="">
+						<%console.log(productosUsuario)%>
 						<p class="profile-p"><%= usuario.email %></p>
 						<li class="cprofile"><%= productosUsuario.length %> productos</li>
 						<li class="cprofile"> <%=usuario.seguidores.length%> seguidores</li>

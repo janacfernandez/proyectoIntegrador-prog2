@@ -38,6 +38,6 @@ router.get('/profile', userController.profile),
 
     router.post('/profile-edit', upload.single('imgPerfil'), userController.profileUpdate),
 
-    router.get('/logout', userController.logout),
+    router.post('/logout', userController.logout),
 
     module.exports = router;
