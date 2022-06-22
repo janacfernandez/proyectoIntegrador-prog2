@@ -12,7 +12,7 @@
 					<%- include('./partials/headerDeslogueado') %>
 						<% } %>
 							<!-- /Header -->
-
+				
 							<!-- Novedades -->
 							<div class="container products-wrapper-2">
 								<div class="col-12">
@@ -43,7 +43,12 @@
 													<input class="register" type="number" name="dni" id=""
 														value="<%= locals.user.dni%>">
 													<h4 class="register"> Foto de perfil </h4>
+<<<<<<< HEAD
 													<input class="register" type="file" name="imgPerfil" id="" required>
+=======
+													<figure><img src=/images/users/<%=locals.user.foto%> alt="foto de perfil" ></figure>
+													<input class="register" type="file" name="imgPerfil" id="">
+>>>>>>> 2429132913e1dfe5a2ace0ba515deb3e1cbb897b
 													<button class="button-register" type="submit"> Editar </button>
 												</form>
 											</div>
@@ -51,7 +56,6 @@
 									</h2>
 								</div>
 							</div>
-
 							<!-- footer -->
 							<%- include('./partials/footer') %>
 								<!-- /footer -->

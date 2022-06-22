@@ -26,7 +26,7 @@
 									<div class="col-12">
 										<h2 class="products-title">Novedades</h2>
 									</div>
-					
+
 									<!-- Show the "ultimos" products -->
 									<% for( let i=0; i < listaAutos.length; i++ ) { %>
 										<div class="col-12 col-sm-6 col-lg-3">
@@ -50,12 +50,18 @@
 													</a>
 													<p>
 														Creado por:
-														<% if (locals.user === undefined || locals.user.id != listaAutos[i].user.id ) { %>
-														 <a href="/users/profileUsers/<%= listaAutos[i].user.usuario%>"><%= listaAutos[i].user.usuario %></a>
-														<% } else {%>
-															<a href="/users/profile"><%= listaAutos[i].user.usuario %></a>	
-														<% } %> 
-														
+														<% if (locals.user===undefined || locals.user.id
+															!=listaAutos[i].user.id ) { %>
+															<a
+																href="/users/profileUsers/<%= listaAutos[i].user.usuario%>">
+																<%= listaAutos[i].user.usuario %>
+															</a>
+															<% } else {%>
+																<a href="/users/profile">
+																	<%= listaAutos[i].user.usuario %>
+																</a>
+																<% } %>
+
 													</p>
 													<p>
 														<%= listaAutos[i].descripcion %>
@@ -96,10 +102,11 @@
 													<h2>
 														<%= listaAutos[i].nombre %>
 													</h2>
-										
+
 													<p>
 														<!-- Revisar esta ruta que vaya a otra vista-->
-														Creado por: <a href="/users/profileUsers/<%= listaAutos[i].id%>">
+														Creado por: <a
+															href="/users/profileUsers/<%= listaAutos[i].user.usuario%>">
 															<%= listaAutos[i].user.usuario %>
 														</a>
 													</p>
