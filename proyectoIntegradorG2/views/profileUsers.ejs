@@ -30,7 +30,7 @@
 							<input type="hidden" name="usuario" value="<%= usuario.usuario%>">
 							 
 							<% if (locals.errors != undefined) { %>
-								<input type="submit" class="btn mt-3 ml-4" value = "<%= locals.errors.message%>">
+								<p><%= locals.errors.message%></p>
 								
 							<% } else { %>
 								<input type="submit" class="btn mt-3 ml-4" value = "SEGUIR">
@@ -46,11 +46,10 @@
 				</div>
 				<div>
 					<ul class="">
-						<%console.log(productosUsuario)%>
 						<p class="profile-p"><%= usuario.email %></p>
 						<li class="cprofile"><%= productosUsuario.length %> productos</li>
 						<li class="cprofile"> <%=usuario.seguidores.length%> seguidores</li>
-						<li class="cprofile">300 comentarios</li>
+						<li class="cprofile"><%=usuario.comment.length%> comentarios</li>
 					</ul>
 				</div>
 			</div>
@@ -77,8 +76,7 @@
 						</figure>
 						<article class="product-box_data">
 							<h2><%= productosUsuario[i].nombre %></h2>
-							<p><%= productosUsuario[i].descripcion %></p>
-							<p><%= productosUsuario[i].comentarios %></p>
+							<p>Descripción: <%= productosUsuario[i].descripcion %></p>
 						</article>
 					</a>
 				</section>

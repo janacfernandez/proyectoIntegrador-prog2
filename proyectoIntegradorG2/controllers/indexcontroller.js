@@ -1,4 +1,3 @@
-const autos = require('../db/data');
 const db = require("../database/models"); //requiero db
 const product = db.Product;
 const bcrypt = require('bcryptjs');

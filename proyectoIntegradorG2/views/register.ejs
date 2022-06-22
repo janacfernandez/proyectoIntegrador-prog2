@@ -27,28 +27,22 @@
 									<!-- Show the "ultimos" products -->
 									<form class="form-register" action="/users/register" enctype="multipart/form-data"
 										method="POST">
-										<h4 class="register">Nombre</h4>
-										<input class="register" type="text" name="name" id="">
-										<h4 class="register">Apellido</h4>
-										<input class="register" type="text" name="apellido" id="">
-										<h4 class="register">E-mail</h4>
-										<input class="register" type="email" name="email" id="">
-										<h4 class="register"> Usuario </h4>
-										<input class="register" type="text" name="usuario" id="">
-										<h4 class="register">Contraseña</h4>
-										<input class="register" type="password" name="contrasenia" id="">
+										<h4 class="register">Nombre *</h4>
+										<input class="register" type="text" name="name" id="" required>
+										<h4 class="register">Apellido *</h4>
+										<input class="register" type="text" name="apellido" id="" required>
+										<h4 class="register">E-mail *</h4>
+										<input class="register" type="email" name="email" id="" required>
+										<h4 class="register"> Usuario *</h4>
+										<input class="register" type="text" name="usuario" id="" required>
+										<h4 class="register">Contraseña *</h4>
+										<input class="register" type="password" name="contrasenia" id="" required>
 										<h4 class="register"> Fecha de nacimiento </h4>
 										<input class="fecha" type="date" name="fDeNac" id="">
 										<h4 class="register"> Número de documento </h4>
 										<input class="register" type="number" name="dni" id="">
-										<h4 class="register"> Género </h4>
-										<!-- <select name="genero">
-							<option value="1">Hombre</option>
-							<option value="2">Mujer</option>
-							<option value="3">Otro</option>
-						</select> -->
 										<h4 class="register"> Foto de perfil </h4>
-										<input class="register" type="file" name="imgRegister" id="">
+										<input class="register" type="file" name="imgRegister" id="" required>
 										<br>
 										<button class="button-register" type="submit"> Crear </button>
 									</form>

@@ -24,18 +24,18 @@
 												<!-- Show the "ultimos" products -->
 												<form class="form-profile-edit" action="profile-edit"
 													enctype="multipart/form-data" method="POST">
-													<h4 class="register">Nombre</h4>
+													<h4 class="register">Nombre *</h4>
 													<input class="register" type="text" name="name" id=""
-														value="<%= locals.user.nombre%>">
-													<h4 class="register">Apellido</h4>
+														value="<%= locals.user.nombre%>" required>
+													<h4 class="register">Apellido *</h4>
 													<input class="register" type="text" name="apellido" id=""
-														value="<%= locals.user.apellido%>">
-													<h4 class="register">E-mail</h4>
+														value="<%= locals.user.apellido%>" required>
+													<h4 class="register">E-mail *</h4>
 													<input class="register" type="email" name="email" id=""
-														value="<%= locals.user.email%>">
-													<h4 class="register"> Usuario </h4>
+														value="<%= locals.user.email%>" required>
+													<h4 class="register"> Usuario *</h4>
 													<input class="register" type="text" name="usuario" id=""
-														value="<%= locals.user.usuario%>">
+														value="<%= locals.user.usuario%>" required>
 													<h4 class="register"> Fecha de nacimiento </h4>
 													<input class="fecha" type="date" name="fDeNac" id=""
 														value="<%= locals.user.fDeNac%>">
@@ -43,7 +43,7 @@
 													<input class="register" type="number" name="dni" id=""
 														value="<%= locals.user.dni%>">
 													<h4 class="register"> Foto de perfil </h4>
-													<input class="register" type="file" name="imgPerfil" id="">
+													<input class="register" type="file" name="imgPerfil" id="" required>
 													<button class="button-register" type="submit"> Editar </button>
 												</form>
 											</div>
