@@ -451,6 +451,18 @@ h4.text {
   overflow: hidden;
 }
 
+.product-detail-createdAt {
+  font-size: 8px;
+}
+
+.product-detail-description1 {
+  font-weight: bold;
+  padding: 15px 15px 15px 40px;
+  font-size: 1.8em;
+  line-height: 1.5;
+  margin-left: auto;
+}
+
 .product-detail-img {
   width: 70%;
   display: block;
@@ -707,6 +719,29 @@ input.add,
 .button-product-add,
 .button-register {
   margin: 0px 10px;
+}
+
+/*====== Botones segunda etapa ======*/
+.editButton {
+  padding: 6px;
+  background: rgb(0, 0, 0);
+  color: white;
+  font-size: 17px;
+  text-align: center;
+  border: rgb(0, 0, 0);
+  margin: 10px;
+  border-radius: 0px;
+}
+
+.logout {
+  padding: 6px;
+  font-size: 17px;
+  text-align: center;
+  color: black;
+  border: rgb(0, 0, 0);
+  margin: 10px;
+  border-radius: 0px;
+  background: #ADA195;
 }
 
 
