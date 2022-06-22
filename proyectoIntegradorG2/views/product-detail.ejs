@@ -38,12 +38,15 @@
 											<p class="product-detail-description">
 												<%= listaAutos.descripcion %>
 											</p>
-
+                                           
+											<p class="product-detail-description"> Última modificación: <%=
+												listaAutos.updatedAt %>
+										</p>
 											<p class="product-detail-description"> Fecha de Creación: <%=
 													listaAutos.createdAt %>
 											</p>
 											<p class="product-detail-description">
-												<a href="/users/profileUsers/<%= listaAutos.id %>"> Creado por: <%=
+												<a href="/users/profileUsers/<%= listaAutos.user.usuario %>"> Creado por: <%=
 														listaAutos.user.usuario%></a>
 
 											</p>
@@ -59,8 +62,8 @@
 														<div class="data">
 															<p class="user">
 																<strong> <a
-																		href="/users/profileUsers/<%=listaAutos.user.usuario%>"></a>
-																		<%=listaAutos.comment[i].user.usuario%>
+																		href="/users/profileUsers/<%=listaAutos.comment[i].user.usuario%>">
+																		<%=listaAutos.comment[i].user.usuario%> </a>
 																	 </strong>
 																<%= listaAutos.comment[i].comentarios %>
 															</p>

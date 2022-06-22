@@ -63,8 +63,10 @@ const controller = {
                         nombre: result.dataValues.nombre,
                         descripcion: result.dataValues.descripcion,
                         anio: result.dataValues.anio,
-                        updatedAt: new Date()
+                        updatedAt: new Date(),
+                        userId: result.dataValues.userId
                     }
+                    console.log(result.img)
                     return res.render('product-edit', {
                         listaAutos: product,
                     })
@@ -77,12 +79,10 @@ const controller = {
     },
 
     updateProd: (req, res) => {
-
-        if (req.session.user.id == req.body.userId) {
-            let info = req.body;
-            let imgProductEdit = req.file.filename;
-            let idEdit = req.params.id;
-
+        let info = req.body;
+        let imgProductEdit = req.file.filename;
+        let idEdit = req.params.id;
+        console.log(imgProductEdit)
             let producto = {
                 img: imgProductEdit,
                 nombre: info.nombre,
@@ -104,9 +104,7 @@ const controller = {
                 }).catch((err) => {
                     return res.send(err)
                 });
-        } else {
-            res.redirect('/users/login')
-        }
+
     },
     delete: (req, res) => {
         let idDelete = req.params.id;

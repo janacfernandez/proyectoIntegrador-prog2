@@ -11,7 +11,7 @@
 					<%- include('./partials/headerDeslogueado') %>
 						<% } %>
 							<!-- /Header -->
-
+							<% if (locals.user !=undefined && locals.user.id==listaAutos.userId) { %>
 							<!-- Novedades -->
 							<div class="container products-wrapper">
 								<div class="col-12">
@@ -19,8 +19,9 @@
 
 									<form class="form-register" action=""
 										enctype="multipart/form-data" method="POST">
-										<h4 class="register" class="file">Imagen</h4>
-										<input class="register" type="file" name="imgProductEdit" id="" placeholder="">
+										<h4 class="register" class="file" > Imagen </h4> 
+										 <figure><img src="/images/products/<%=listaAutos.img%>" alt="" srcset=""> </figure>
+										<input class="register" type="file" name="imgProductEdit" id=""  >
 										<h4 class="register" class="text">Producto</h4>
 										<input class="register" type="text" name="nombre" id="" placeholder=""
 											value="<%= listaAutos.nombre %>"> <br>
@@ -36,7 +37,9 @@
 								</div>
 							</div>
 							</div>
-
+							<% }else {%>
+								<%  res.redirect('/users/login')%>
+							<% } %>
 							<!-- footer -->
 							<%- include('./partials/footer') %>
 								<!-- /footer -->
