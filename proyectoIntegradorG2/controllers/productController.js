@@ -1,4 +1,3 @@
-
 const db = require("../database/models");
 const Product = db.Product;
 let comment = db.Comment;
@@ -13,9 +12,10 @@ const controller = {
             },
             order: [["comment", "createdAt", "DESC"]]
         }
-        Product.findByPk(id, filter).then((result) => {
+        Product.findByPk(id, filter)
+        .then((result) => {
             return res.render('product-detail', {
-                listaAutos: result.dataValues,
+                listaAutos: result,
             })
         }).catch(err => console.log(err));
     },
@@ -66,7 +66,7 @@ const controller = {
                         updatedAt: new Date()
                     }
                     return res.render('product-edit', {
-                        listaAutos: product
+                        listaAutos: product,
                     })
                 })
                 .catch((err) => {
@@ -143,6 +143,8 @@ const controller = {
                 }).catch((err) => {
                     console.log("Este es el error" + err);
                 });
+
+               
 
         }
     }

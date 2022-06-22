@@ -46,10 +46,12 @@
 																<h2>
 																	<%= listaAutos[i].nombre %>
 																</h2>
+																
 																<p>
-																	Creado por: <a
-																		href="/users/profileUsers/<%= listaAutos[i].id%>">
-																		<%= listaAutos[i].user %>
+																	Creado por: 
+																	<a
+																		href="/users/profileUsers/<%= listaAutos[i].user.usuario%>">
+																		<%= listaAutos[i].user.usuario %>
 																	</a>
 																</p>
 																<p>

@@ -20,17 +20,18 @@ let upload = multer({ storage: storage })
 
 /* GET home page. */
 router.get('/id/:id', productController.detail),
+router.post('/id/:id', productController.comments)
 
-    router.get('/add', productController.add),
-    router.post('/add', upload.single('imgProductAdd'), productController.store),
+router.get('/add', productController.add),
+router.post('/add', upload.single('imgProductAdd'), productController.store),
 
-    router.get('/product-edit/id/:id', productController.edit),
-    router.post('/product-edit/id/:id', upload.single('imgProductEdit'), productController.updateProd);
+router.get('/product-edit/id/:id', productController.edit),
+router.post('/product-edit/id/:id', upload.single('imgProductEdit'), productController.updateProd);
 
 router.post('/delete/id/:id', productController.delete);
 
 
-router.post('/id/:id', productController.comments)
+
 
 module.exports = router;
 

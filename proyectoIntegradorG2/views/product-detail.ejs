@@ -51,17 +51,17 @@
 										</article>
 										<div class="col-12 col-lg-4">
 											<section class="comments">
+												<% console.log (listaAutos.id) %>
 												<% for (let i=0; i < listaAutos.comment.length; i++) { %>
 													<article>
-														<img src="/images/users/<%=listaAutos.user.foto%> "
+														<img src="/images/users/<%=listaAutos.comment[i].user.foto%> "
 															alt="img perfil">
 														<div class="data">
 															<p class="user">
 																<strong> <a
-																		href="/users/profileUsers/<%=listaAutos.id%>">
-																		<%=listaAutos.user.nombre%>
-																			<%=listaAutos.user.apellido%>
-																	</a> </strong>
+																		href="/users/profileUsers/<%=listaAutos.user.usuario%>"></a>
+																		<%=listaAutos.comment[i].user.usuario%>
+																	 </strong>
 																<%= listaAutos.comment[i].comentarios %>
 															</p>
 														</div>

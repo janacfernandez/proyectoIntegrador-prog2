@@ -58,14 +58,14 @@ module.exports = function (sequelize, dataTypes) {
         User.hasMany(models.Product, {
             as: "product",
             foreignKey: "userId",
-        }),
-            User.hasMany(models.Comment, {
-                as: "comment",
-                foreignKey: "userId"
-            })
-    };
+        })
+    }
 
-    User.associate = function (models) {
+    User.associate = function (models){
+        User.hasMany(models.Comment, {
+            as: "comment",
+            foreignKey: "userId"
+        })
         User.belongsToMany(models.User, {
             as: "seguidores",
             through: "followers",/*nombre de la tabla pivot*/
@@ -73,6 +73,7 @@ module.exports = function (sequelize, dataTypes) {
             otherKey: "seguido",
             timestamps: false
         })
-    }
+    };
+
     return User;
 }
