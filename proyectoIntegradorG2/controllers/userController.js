@@ -128,7 +128,7 @@ const controller = {
 
         user.findOne(filtro2)
         .then(result => {
-            if(result != undefined){
+            if(result != undefined && result.email != info.email){
                 errors.message = "El mail ya existe";
                 res.locals.errors = errors;
                 return res.render('profile-edit');

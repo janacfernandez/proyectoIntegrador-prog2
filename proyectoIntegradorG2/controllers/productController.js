@@ -28,11 +28,11 @@ const controller = {
             return res.render('product-add')
         }
     },
-    
+
     store: (req, res) => {
         let info = req.body;
         let imgProductAdd = req.file.filename;
-        let product = {
+        let producto = {
             img: imgProductAdd,
             nombre: info.nombre,
             descripcion: info.descripcion,
@@ -42,7 +42,7 @@ const controller = {
 
         }
 
-        product.create(product)
+        product.create(producto)
             .then((result) => {
                 return res.redirect("/")
             })
