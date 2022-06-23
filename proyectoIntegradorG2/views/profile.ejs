@@ -25,7 +25,7 @@
 											<h1 class="main-title">
 												<%= usuario.nombre + " " + usuario.apellido %>
 												<% if (locals.user == undefined) { %>
-													<p>Logueate para seguir a este usuario</p>
+													<p class="pLogueate">Logueate para seguir a este usuario</p>
 													<%} else if (locals.user.usuario != usuario.usuario) { %>
 														<%if(locals.errors == undefined) {%>
 														<form  action="/users/profile/<%= usuario.id %>" method="POST" >
@@ -34,7 +34,7 @@
 															<input type="submit" class="btn mt-3 ml-4" value = "SEGUIR">
 														</form>
 														<% }else {%>
-															<p>Usted ya sigue a este usuario ¿Quiere dejarlo de seguir?</p>
+															<p class="sigue">Usted ya sigue a este usuario ¿Quiere dejarlo de seguir?</p>
 															<form  action="/users/unfollow" method="POST" >
 																<input type="hidden" name="seguidoId" value="<%= usuario.id%>">
 																<input type="hidden" name="seguidoUsuario" value="<%= usuario.usuario%>">
@@ -87,7 +87,7 @@
 															<%= usuario.product[i].nombre %>
 														</h2>
 														<p>
-															Descripción: <%= usuario.product[i].descripcion %>
+															<%= usuario.product[i].descripcion %>
 														</p>
 														<p>
 															<%= usuario.product[i].comment.length %> comentarios

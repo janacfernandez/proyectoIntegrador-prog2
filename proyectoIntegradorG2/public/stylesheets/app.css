@@ -752,12 +752,16 @@ input.add,
   margin: 0px 10px;
 }
 
-/*====== profileUsers ======*/
+/*====== profile ======*/
 .pLogueate {
   font-style: italic;
   color: #ADA195;
-  margin-left: 20px;
+  font-size:large;
   }
+
+  .sigue  {
+    color: #ADA195;
+    }
 
 /*====== Botones segunda etapa ======*/
 a.editButton , .editButton {
