@@ -28,6 +28,7 @@ const controller = {
             return res.render('product-add')
         }
     },
+    
     store: (req, res) => {
         let info = req.body;
         let imgProductAdd = req.file.filename;

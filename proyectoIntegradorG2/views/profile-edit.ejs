@@ -22,6 +22,9 @@
 										<div class="container products-wrapper-formulario-register">
 											<div>
 												<!-- Show the "ultimos" products -->
+												<% if (locals.errors != undefined) { %>
+													<p><%=locals.errors.message%></p>
+												<% } %>
 												<form class="form-profile-edit" action="profile-edit"
 													enctype="multipart/form-data" method="POST">
 													<h4 class="register">Nombre *</h4>

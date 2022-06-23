@@ -18,7 +18,7 @@ const controller = {
                     let contraEncriptada = bcrypt.compareSync(info.contrasenia, resultado.contrasenia)
                     if (contraEncriptada) {
                         req.session.user = resultado.dataValues;
-                        if (req.body.recordar != undefined) {
+                        if (info.recordar != undefined) {
                             res.cookie('userId', resultado.dataValues.id, { maxAge: 1000 * 60 * 10 })
                         }
                         return res.redirect('/')
@@ -101,9 +101,9 @@ const controller = {
     },
 
     profileUpdate: (req, res) => {
+        let errors ={};
         let info = req.body;
         let idEdicion = req.session.user.id;
-        let usuarioEdicion = req.session.user.usuario
         let imgPerfil = req.file.filename;
         let usuario = {
             nombre: info.name,
@@ -122,13 +122,27 @@ const controller = {
             }
         }
 
-        user.update(usuario, filtro)
+        let filtro2 = {
+            where: [{email: info.email}]
+        }
+
+        user.findOne(filtro2)
+        .then(result => {
+            if(result != undefined){
+                errors.message = "El mail ya existe";
+                res.locals.errors = errors;
+                return res.render('profile-edit');
+            }else {
+                user.update(usuario, filtro)
             .then(resultado => {
                 req.session.user = resultado.dataValues;
                 res.redirect('/users/profile/' + idEdicion)
 
             })
-            .catch(err => console.log(err));
+            }
+        })
+        .catch(err => console.log(err));
+        
     },
 
     follow: (req, res) => {
