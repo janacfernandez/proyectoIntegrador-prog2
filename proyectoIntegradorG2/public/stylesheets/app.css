@@ -177,10 +177,10 @@ h4.register {
 }
 
 .right-navbar {
-  margin-right: 50px
+  margin-right: 80px;
 }
 .left-navbar {
-  margin-left: 5px;
+  margin-left: 20px;
 }
 
 .logout {
@@ -195,7 +195,7 @@ h4.register {
 }
 
 .logout:hover {
-  color: #ADA195;
+  color: white;
 }
 
 .left-navbar a,
@@ -369,11 +369,17 @@ h4.text {
   font-size: 17px;
 }
 
+.form-register2 {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%
+}
+
 .form-register {
   display: flex;
   flex-direction: column;
-  max-width: 50%;
 }
+
 
 .form-profile-edit {
   display: flex;
@@ -460,7 +466,7 @@ h4.text {
 
 .product-detail-description1 {
   font-weight: bold;
-  padding: 15px 15px 15px 40px;
+  padding: 2px 15px 15px 40px;
   font-size: 1.5em;
   line-height: 1.5;
   margin-left: auto;
@@ -468,7 +474,7 @@ h4.text {
 
 .product-detail-description2 {
   font-weight: bold;
-  padding: 15px 15px 15px 40px;
+  padding: 2px 15px 15px 40px;
   font-size: 1.54em;
   line-height: 1.5;
   margin-left: auto;
@@ -745,6 +751,13 @@ input.add,
 .button-register {
   margin: 0px 10px;
 }
+
+/*====== profileUsers ======*/
+.pLogueate {
+  font-style: italic;
+  color: #ADA195;
+  margin-left: 20px;
+  }
 
 /*====== Botones segunda etapa ======*/
 a.editButton , .editButton {
