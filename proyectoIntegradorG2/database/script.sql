@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-06-2022 a las 00:12:08
+-- Tiempo de generación: 23-06-2022 a las 00:23:54
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -90,7 +90,7 @@ INSERT INTO `followers` (`id`, `seguidor`, `seguido`) VALUES
 
 CREATE TABLE `products` (
   `id` int(10) UNSIGNED NOT NULL,
-  `img` varchar(500) DEFAULT NULL,
+  `img` varchar(500) DEFAULT 'defaultImage.jpg',
   `nombre` varchar(100) NOT NULL,
   `descripcion` varchar(1000) DEFAULT NULL,
   `anio` int(11) DEFAULT NULL,
@@ -130,7 +130,7 @@ CREATE TABLE `users` (
   `contrasenia` varchar(100) NOT NULL,
   `fDeNac` date DEFAULT NULL,
   `dni` int(11) DEFAULT NULL,
-  `foto` varchar(500) DEFAULT NULL,
+  `foto` varchar(500) DEFAULT 'defaultImage.jpg',
   `createdAt` date DEFAULT NULL,
   `updatedAt` date DEFAULT NULL,
   `deletedAt` date DEFAULT NULL
