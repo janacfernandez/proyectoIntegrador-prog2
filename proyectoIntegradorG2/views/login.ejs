@@ -21,10 +21,10 @@
 					<!-- Show the "ultimos" products -->
 					<h2 class="col-12">
 						<form class="form-login" action="/users/login" method="POST">
-							<h4 class="register">E-mail</h4>
-							<input class="register" type="email" name="email" id="" placeholder="">
-							<h4 class="register">Contraseña</h4>
-							<input class="register" type="password" name="contrasenia" id="" placeholder="">
+							<h4 class="register">E-mail *</h4>
+							<input class="register" type="email" name="email" id="" placeholder="" required>
+							<h4 class="register">Contraseña *</h4>
+							<input class="register" type="password" name="contrasenia" id="" placeholder="" required >
 							<% if (locals.errors != undefined) { %>
 								<p><%=  locals.errors.message%> </p>
 							<% } %>

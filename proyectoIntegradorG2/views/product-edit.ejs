@@ -12,37 +12,38 @@
 						<% } %>
 							<!-- /Header -->
 							<% if (locals.user !=undefined && locals.user.id==listaAutos.userId) { %>
-							<!-- Novedades -->
-							<div class="container products-wrapper">
-								<div class="col-12">
-									<h2 class="products-title">Editar producto</h2>
+								<!-- Novedades -->
+								<div class="container products-wrapper">
+									<div class="col-12">
+										<h2 class="products-title">Editar producto</h2>
 
-									<form class="form-register" action=""
-										enctype="multipart/form-data" method="POST">
-										<h4 class="register" class="file" > Imagen </h4> 
-										 <figure><img src="/images/products/<%=listaAutos.img%>" alt="" srcset=""> </figure>
-										<input class="register" type="file" name="imgProductEdit" id=""  >
-										<h4 class="register" class="text">Producto</h4>
-										<input class="register" type="text" name="nombre" id="" placeholder=""
-											value="<%= listaAutos.nombre %>"> <br>
-										<h4 class="register" class="text">Descripción del producto</h4>
-										<input class="register" type="text" name="descripcion" id="" placeholder=""
-											value="<%= listaAutos.descripcion %>">
-										<h4 class="register" class="text"> Año</h4>
-										<input class="register" type="text" name="anio" id="" placeholder=""
-											value="<%= listaAutos.anio %>"> <br>
-										<br>
-										<button class="button-product-add" type="submit">Guardar</button>
-									</form><br>
+										<form class="form-register" action="" enctype="multipart/form-data"
+											method="POST">
+											<h4 class="register" class="file"> Imagen * </h4>
+											<figure class="register"><img src="/images/products/<%=listaAutos.img%>"
+													alt="" srcset=""> </figure>
+											<input class="register" type="file" name="imgProductEdit" id="" required>
+											<h4 class="register" class="text">Producto</h4>
+											<input class="register" type="text" name="nombre" id="" placeholder=""
+												value="<%= listaAutos.nombre %>" required> <br>
+											<h4 class="register" class="text">Descripción del producto</h4>
+											<input class="register" type="text" name="descripcion" id="" placeholder=""
+												value="<%= listaAutos.descripcion %>" required>
+											<h4 class="register" class="text"> Año</h4>
+											<input class="register" type="text" name="anio" id="" placeholder=""
+												value="<%= listaAutos.anio %>" required> <br>
+											<br>
+											<button class="button-product-add" type="submit">Guardar</button>
+										</form><br>
+									</div>
 								</div>
-							</div>
-							</div>
-							<% }else {%>
-								<%  res.redirect('/users/login')%>
-							<% } %>
-							<!-- footer -->
-							<%- include('./partials/footer') %>
-								<!-- /footer -->
+								</div>
+								<% }else {%>
+									<% res.redirect('/users/login')%>
+										<% } %>
+											<!-- footer -->
+											<%- include('./partials/footer') %>
+												<!-- /footer -->
 	</body>
 
 </html>

@@ -89,6 +89,7 @@ h4.register {
 
 }
 
+
 /*====== Main Header ======*/
 .aHeader {
   display: inline-block;
@@ -106,7 +107,7 @@ h4.register {
 }
 
 .main-header {
-  padding: 0.5% 6%;
+  padding: 0.5% 3%;
   background-color: black;
 }
 
@@ -167,7 +168,6 @@ h4.register {
 }
 
 .main-navbar {
-  margin-top: 20px;
   display: none;
 }
 
@@ -372,6 +372,7 @@ h4.text {
 .form-register {
   display: flex;
   flex-direction: column;
+  max-width: 50%;
 }
 
 .form-profile-edit {
@@ -453,15 +454,32 @@ h4.text {
 
 .product-detail-createdAt {
   font-size: 8px;
+  font-weight: lighter;
+
 }
 
 .product-detail-description1 {
   font-weight: bold;
   padding: 15px 15px 15px 40px;
-  font-size: 1.8em;
+  font-size: 1.5em;
   line-height: 1.5;
   margin-left: auto;
 }
+
+.product-detail-description2 {
+  font-weight: bold;
+  padding: 15px 15px 15px 40px;
+  font-size: 1.54em;
+  line-height: 1.5;
+  margin-left: auto;
+}
+
+a.product-detail-description2 {
+  color: #ADA195;
+  margin: 0%;
+  padding: 0%;
+}
+
 
 .product-detail-img {
   width: 70%;
@@ -483,7 +501,6 @@ h4.text {
 .product-detail-description {
   padding: 15px 15px 15px 40px;
   font-size: 1.8em;
-  line-height: 1.5;
   margin-left: auto;
 }
 
@@ -585,6 +602,7 @@ h4.text {
 
 .comments .data {
   width: 85%;
+  margin-left: 5%;
 
 }
 
@@ -597,6 +615,9 @@ h4.text {
   font-size: 1.7em;
 }
 
+strong {
+  font-size: 1.2em;
+}
 
 /*====== Formularios ======*/
 .form-label {
@@ -654,6 +675,10 @@ form.form-login {
   text-align: center;
 }
 
+figure.register {
+ padding: 0px;
+ width: auto; 
+}
 input.register {
   font-size: 15px;
   text-align: left;
@@ -722,7 +747,7 @@ input.add,
 }
 
 /*====== Botones segunda etapa ======*/
-.editButton {
+a.editButton , .editButton {
   padding: 6px;
   background: rgb(0, 0, 0);
   color: white;
@@ -734,7 +759,7 @@ input.add,
 }
 
 .logout {
-  padding: 6px;
+  padding: 10px 30px;
   font-size: 17px;
   text-align: center;
   color: black;

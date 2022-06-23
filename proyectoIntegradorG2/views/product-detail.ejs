@@ -20,12 +20,12 @@
 									</h2>
 									<% if (locals.user !=undefined && locals.user.id==listaAutos.userId) { %>
 										<p class="product-detail-description">
-											<a class="editButton" href="/products/product-edit/id/<%= listaAutos.id %>">Editar</a>
+											<a class="editButton"
+												href="/products/product-edit/id/<%= listaAutos.id %>">Editar</a>
 										</p>
 
 										<form class="product-detail-description"
-											action="/products/delete/id/<%= listaAutos.id %>" 
-											method="POST">
+											action="/products/delete/id/<%= listaAutos.id %>" method="POST">
 											<button type="submit" class="editButton"> Borrar </button>
 										</form>
 										<% } %>
@@ -45,8 +45,9 @@
 											<p class="product-detail-description1"> Fecha de creación: <%=
 													listaAutos.createdAt %>
 											</p>
-											<p class="product-detail-description1">
-												<a href="/users/profileUsers/<%= listaAutos.user.usuario %>"> Creado
+											<p class="product-detail-description2">
+												<a class="product-detail-description2"
+													href="/users/profileUsers/<%= listaAutos.user.usuario %>"> Creado
 													por: <%= listaAutos.user.usuario%></a>
 
 											</p>
@@ -67,9 +68,8 @@
 																		</a>
 																	</strong>
 																	<%= listaAutos.comment[i].comentarios %>
-																		<p class="product-detail-createdAt"> Fecha de
-																			creación: <%=
-																				listaAutos.comment[i].createdAt %>
+																		<p class="product-detail-createdAt">
+																			<%= listaAutos.comment[i].createdAt %>
 																		</p>
 																</p>
 															</div>
