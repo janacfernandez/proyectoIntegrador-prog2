@@ -28,11 +28,13 @@ router.get('/login', userController.login),
 
     router.post('/register', upload.single('imgRegister'), userController.procesarRegister)
 
-router.get('/profile', userController.profile),
+    router.get('/profile/:nombre', userController.profile),
 
-    router.get('/profileUsers/:usuario', userController.profileUsers),
+    // router.get('/profileUsers/:usuario', userController.profileUsers),
 
-    router.post('/profileUsers/:usuario', userController.follow),
+    router.post('/profile/:nombre', userController.follow),
+
+    router.post('/unfollow', userController.unfollow)
 
     router.get('/profile-edit', userController.profileEdit),
 

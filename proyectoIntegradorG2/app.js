@@ -51,10 +51,13 @@ app.use(function(req, res, next) {
   }
 })
 
+
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/products',productRouter);
 app.use('/register',usersRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
