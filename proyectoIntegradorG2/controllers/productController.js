@@ -1,5 +1,5 @@
 const db = require("../database/models");
-const Product = db.Product;
+const product = db.Product;
 let comment = db.Comment;
 
 const controller = {
@@ -12,7 +12,7 @@ const controller = {
             },
             order: [["comment", "createdAt", "DESC"]]
         }
-        Product.findByPk(id, filter)
+        product.findByPk(id, filter)
         .then((result) => {
             return res.render('product-detail', {
                 listaAutos: result,
@@ -41,7 +41,7 @@ const controller = {
 
         }
 
-        Product.create(product)
+        product.create(product)
             .then((result) => {
                 return res.redirect("/")
             })
@@ -55,7 +55,7 @@ const controller = {
         }
         else {
             let id = req.params.id;
-            Product.findByPk(id)
+            product.findByPk(id)
                 .then((result) => {
                     let product = {
                         id: result.dataValues.id,
@@ -98,34 +98,28 @@ const controller = {
                 }
             }
 
-            Product.update(producto, filter)
-                .then((result) => {
-                    return res.redirect("/products/id/" + idEdit);
-                }).catch((err) => {
-                    return res.send(err)
-                });
+            product.update(producto, filter)
+                .then(result => res.redirect("/products/id/" + idEdit))
+                .catch(err => res.send(err));
 
     },
+    
     delete: (req, res) => {
         let idDelete = req.params.id;
-        Product.destroy({
+        product.destroy({
             where: {
                 id: idDelete
             }
         })
-            .then((result) => {
-                console.log(result);
-                return res.redirect('/')
-            })
+        .then(result => res.redirect('/'))
+        .catch(err => console.log(err))
     },
 
     comments: (req, res) => {
-
         if (req.session.user == undefined) {
             res.redirect('/users/login')
 
-        }
-        else {
+        } else {
             let info = req.body;
             let userId = req.session.user.id;
             let prodId = req.params.id;
@@ -135,15 +129,11 @@ const controller = {
                 userId: userId,
                 createdAt: Date()
             }
+
             comment.create(comentario)
-                .then((result) => {
-                    return res.redirect('/products/id/' + prodId)
-                }).catch((err) => {
-                    console.log("Este es el error" + err);
-                });
-
-               
-
+                .then(result => res.redirect('/products/id/' + prodId))
+                .catch(err =>
+                    console.log("Este es el error" + err));
         }
     }
 }

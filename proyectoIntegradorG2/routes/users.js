@@ -28,11 +28,9 @@ router.get('/login', userController.login),
 
     router.post('/register', upload.single('imgRegister'), userController.procesarRegister)
 
-    router.get('/profile/:nombre', userController.profile),
+    router.get('/profile/:idUsuario', userController.profile),
 
-    // router.get('/profileUsers/:usuario', userController.profileUsers),
-
-    router.post('/profile/:nombre', userController.follow),
+    router.post('/profile/:idUsuario', userController.follow),
 
     router.post('/unfollow', userController.unfollow)
 

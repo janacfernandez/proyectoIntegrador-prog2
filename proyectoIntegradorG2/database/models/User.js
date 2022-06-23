@@ -62,8 +62,8 @@ module.exports = function (sequelize, dataTypes) {
         User.belongsToMany(models.User, {
             as: "seguidores",
             through: "followers",/*nombre de la tabla pivot*/
-            foreignKey: "seguidor",
-            otherKey: "seguido",
+            foreignKey: "seguido",
+            otherKey: "seguidor",
             timestamps: false
         })
         User.hasMany(models.Product, {

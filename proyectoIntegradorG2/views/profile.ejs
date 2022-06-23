@@ -28,7 +28,7 @@
 													<p>Logueate para seguir a este usuario</p>
 													<%} else if (locals.user.usuario != usuario.usuario) { %>
 														<%if(locals.errors == undefined) {%>
-														<form  action="/users/profile/<%= usuario.nombre %>" method="POST" >
+														<form  action="/users/profile/<%= usuario.id %>" method="POST" >
 															<input type="hidden" name="seguidoId" value="<%= usuario.id%>">
 															<input type="hidden" name="seguidoUsuario" value="<%= usuario.usuario%>">
 															<input type="submit" class="btn mt-3 ml-4" value = "SEGUIR">
@@ -55,6 +55,7 @@
 												<p class="profile-p">
 													<%= usuario.email %>
 												</p>
+												<%console.log(usuario)%>
 												<li class="cprofile">
 													<%=  usuario.product.length %>  productos
 												</li>

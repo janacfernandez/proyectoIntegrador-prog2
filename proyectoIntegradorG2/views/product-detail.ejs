@@ -46,7 +46,7 @@
 													listaAutos.createdAt %>
 											</p>
 											<p class="product-detail-description">
-												<a href="/users/profile/<%= listaAutos.user.usuario %>"> Creado por: <%=
+												<a href="/users/profile/<%= listaAutos.user.id %>"> Creado por: <%=
 														listaAutos.user.usuario%></a>
 											</p>
 
@@ -61,7 +61,7 @@
 														<div class="data">
 															<p class="user">
 																<strong> <a
-																		href="/users/profile/<%=listaAutos.comment[i].user.usuario%>">
+																		href="/users/profile/<%=listaAutos.comment[i].user.id%>">
 																		<%=listaAutos.comment[i].user.usuario%> </a>
 																	 </strong>
 																<%= listaAutos.comment[i].comentarios %>
