@@ -24,7 +24,7 @@ const controller = {
                         if (req.body.recordar != undefined) {
                             res.cookie('userId', resultado.dataValues.id, { maxAge: 1000 * 60 * 10 })
                         }
-                        return res.redirect('/users/profile')
+                        return res.redirect('/users/profile/' + req.session.user.usuario)
                     } else {
                         errors.message = "Contraseña incorrecta";
                         res.locals.errors = errors;
@@ -84,6 +84,20 @@ const controller = {
         })
     },
 
+    profile: (req, res) => {
+            let nombreUser = req.params.nombre
+            user.findOne({
+                include: {all: true, nested: true},
+                where: {
+                    usuario: nombreUser
+                }
+            })
+
+            .then(result => res.render('profile', {usuario: result.dataValues}))
+
+            .catch(err => console.log(err))
+    },
+
     profileEdit: (req, res) => {
         if (req.session.user != undefined) {
             res.render('profile-edit')
@@ -121,66 +135,46 @@ const controller = {
             .catch(err => console.log(err));
     },
 
-    profile: (req, res) => {
-        if (req.session.user != undefined) {
-        producto.findAll({
-            where: [{ userId: req.session.user.id }]
-        })
-            .then(resultado => {
-                let filtro = {where: [{seguido: req.session.user.id}]}
-                follower.findAll(filtro)
-                .then(result => {
-                    comment.findAll({where: {userId: req.session.user.id}})
-                    .then(comentarios => {res.render('profile', {
-                        productos: resultado,
-                        seguidores: result,
-                        comentarios: comentarios,
-                    })})
-                    
-                })
-                })
-                .catch(err => console.log(err));
-        } else {
-            res.redirect('/users/login')
-        }
-    },
+    
 
-    profileUsers: (req, res) => {
-        let usuario = req.params.usuario;
-        user.findOne({
-            include: {
-                all: true,
-                nested: true
-            },
-            where: [{ usuario: usuario }]
-        })
-            .then(resultado => {
-                let idUsuario = resultado.id;
-                producto.findAll({
-                    where: [{ userId: idUsuario }]
-                })
-                .then(productos => {
-                    let filtro = {where: [{seguido: idUsuario}]}
-                    follower.findAll(filtro)
-                    .then(seguidores => {
-                       res.render('profileUsers',{
-                        productosUsuario: productos,
-                        usuario: resultado,
-                        seguidores: seguidores,
-                    })                  
-                })
-            })
-        })
-            .catch(err => console.log(err));
+    //    profileUsers: (req, res) => {
+    //     let usuario = req.params.usuario;
+    //     user.findOne({
+    //         include: {
+    //             all: true,
+    //             nested: true
+    //         },
+    //         where: [{ usuario: usuario }]
+    //     })
+    //         .then(resultado => {
+    //             let idUsuario = resultado.id;
+    //             producto.findAll({
+    //                 where: [{ userId: idUsuario }]
+    //             })
+    //             .then(productos => {
+    //                 let filtro = {where: [{seguido: idUsuario}]}
+    //                 follower.findAll(filtro)
+    //                 .then(seguidores => {
+    //                    res.render('profileUsers',{
+    //                     productosUsuario: productos,
+    //                     usuario: resultado,
+    //                     seguidores: seguidores,
+    //                 })                  
+    //             })
+    //         })
+    //     })
+    //         .catch(err => console.log(err));
 
-    },
+    // },
     follow: (req, res) => {
+        
         let errors = {}
         let info = req.body
         let seguidor = {
             seguidor: req.session.user.id, /*id del usuario en sesion*/
             seguido: info.seguidoId,
         }
+        console.log(info.seguidoUsuario)
         filtro = {
             where:[{seguidor: req.session.user.id, seguido: info.seguidoId}]
         }
@@ -193,33 +187,34 @@ const controller = {
         .then(result => {
             if (result === null) {
                 follower.create(seguidor)
-                .then(resultado => {res.redirect('/')})
+                .then(resultado => {res.redirect('/users/profile/'+ info.seguidoUsuario)})
                 .catch(err => console.log(err))
             } else {
                 errors.message = "Usted ya sigue a este usuario"
                 res.locals.errors = errors
-                console.log(result)
-                user.findOne({
+                user.findByPk(info.seguidoId, {
                     include: {
                         all: true,
                         nested: true
-                    },
-                    where: [{ usuario: info.usuario }]
+                    }
                 })
-                    .then(resultado => {
-                        producto.findAll({
-                            where: [{ userId: info.seguidoId }]
-                        })
-                        .then(result => {
-                            console.log(resultado)
-                            res.render('profileUsers',{
-                                productosUsuario: result,
-                                usuario: resultado,
-                        })
-                    })
-                })
+                .then(resultado => {
+                    return res.render('profile', {usuario: resultado} )
+                })  
             }
         })      
+    },
+
+    unfollow: (req, res) => {
+        let info = req.body
+        let seguidor = req.session.user.id /*id del usuario en sesion*/
+        let seguido = info.seguidoId
+        filtro = {
+            where:[{seguidor: seguidor, seguido: seguido}]
+        }
+        follower.destroy(filtro)
+        .then(resultado => res.redirect('/users/profile/' + info.seguidoUsuario))
+        .catch(err => console.log(err))
     },
 
     logout: (req, res) => {

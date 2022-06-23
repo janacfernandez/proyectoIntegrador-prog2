@@ -50,14 +50,13 @@
 													</a>
 													<p>
 														Creado por:
-														<% if (locals.user===undefined || locals.user.id
-															!=listaAutos[i].user.id ) { %>
+														<% if (locals.user===undefined || locals.user.id != listaAutos[i].user.id ) { %>
 															<a
-																href="/users/profileUsers/<%= listaAutos[i].user.usuario%>">
+																href="/users/profile/<%= listaAutos[i].user.usuario%>">
 																<%= listaAutos[i].user.usuario %>
 															</a>
 															<% } else {%>
-																<a href="/users/profile">
+																<a href="/users/profile/<%=locals.user.usuario%>">
 																	<%= listaAutos[i].user.usuario %>
 																</a>
 																<% } %>

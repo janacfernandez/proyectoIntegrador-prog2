@@ -49,12 +49,7 @@
 																
 																<p>
 																	Creado por:
-																	<% if (locals.user === undefined || locals.user.id != listaAutos[i].user.id ) { %>
-																	 <a href="/users/profileUsers/<%= listaAutos[i].user.usuario%>"><%= listaAutos[i].user.usuario %></a>
-																	<% } else {%>
-																		<a href="/users/profile"><%= listaAutos[i].user.usuario %></a>	
-																	<% } %> 
-																	
+																	 <a href="/users/profile/<%= listaAutos[i].user.usuario%>"><%= listaAutos[i].user.usuario %></a>						
 																</p>
 																<p>
 																	<%= listaAutos[i].descripcion %>
