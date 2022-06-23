@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-06-2022 a las 00:23:54
+-- Tiempo de generación: 23-06-2022 a las 05:22:46
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -54,7 +54,8 @@ INSERT INTO `comments` (`id`, `comentarios`, `createdAt`, `updatedAt`, `deletedA
 (10, 'totalmente! súper cómodo para mamás como yo, que tienen que ir de un lugar a otro con sus hijo', '2022-06-22', '2022-06-22', NULL, 3, 2),
 (11, 'muy buena relación precio-calidad. Es uno de los autos más económicos del mercado y no se queda atrás en cuanto a comodidades', '2022-06-22', '2022-06-22', NULL, 1, 1),
 (12, 'hay mejores opciones en cuanto a autos de la misma categoría, no se dejen engañar!', '2022-06-22', '2022-06-22', NULL, 1, 4),
-(13, 'muy buen auto', '2022-06-22', '2022-06-22', NULL, 1, 8);
+(13, 'muy buen auto', '2022-06-22', '2022-06-22', NULL, 1, 8),
+(14, 'muy buen auto', '2022-06-23', '2022-06-23', NULL, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -80,7 +81,8 @@ INSERT INTO `followers` (`id`, `seguidor`, `seguido`) VALUES
 (5, 3, 2),
 (6, 4, 1),
 (7, 4, 2),
-(8, 4, 3);
+(8, 4, 3),
+(9, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -106,7 +108,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `img`, `nombre`, `descripcion`, `anio`, `comentarios`, `createdAt`, `updatedAt`, `deletedAt`, `userId`) VALUES
-(1, 'imgProductAdd-1655934711902.jpg', 'Toyota Yaris', 'El Toyota Yaris Cross es el nuevo B-SUV de Toyota, un modelo basado en la misma plataforma del Yaris que llega para competir en uno de los segmentos de mayor crecimiento de los últimos años, el de los crossover urbanos.', 2021, NULL, '2022-06-22', '2022-06-22', NULL, 2),
+(1, 'imgProductEdit-1655954410782.jpg', 'Toyota Yaris', 'El Toyota Yaris Cross es el nuevo B-SUV de Toyota, un modelo basado en la misma plataforma del Yaris que llega para competir en uno de los segmentos de mayor crecimiento de los últimos años, el de los crossover urbanos.', 2021, NULL, '2022-06-23', '2022-06-23', NULL, 2),
 (2, 'imgProductAdd-1655934762520.jpg', 'Audi A3 ', 'El Audi A3 Sportback 2020, que también se vende con carrocería Sedán, es la cuarta generación del compacto premium. El mismo es un híbrido enchufable que permite disfrutar de la conducción como nunca. Con toda la autonomía que necesitamos y la potencia que buscamos, combina las ventajas de un motor de combustión y un motor eléctrico. ¿Lo mejor? Que une lo más gratificante de uno para escenificar todo lo bueno del otro', 2015, NULL, '2022-06-22', '2022-06-22', NULL, 1),
 (3, 'imgProductAdd-1655934813053.jpg', 'BMW Serie 2', 'El primer BMW Serie 2 Gran Coupé introduce una nueva forma de dominio en la clase compacta. Sobre todo la estética orientada al rendimiento deja claras sus ambiciones. En consonancia con las tecnologías de gama alta y funciones de dinamismo de conducción, el BMW Serie 2 Gran Coupé se distingue fácilmente de los demás vehículos y sigue su propio camino.', 2019, NULL, '2022-06-22', '2022-06-22', NULL, 1),
 (4, 'imgProductAdd-1655934868547.jpg', 'Kia Sorento', 'Se trata de un SUV que nació con todo lo aprendido de sus homólogos. De hecho, será bastante usual dar con él un automóvil con varias similitudes técnicas con su primo 100% eléctrico, el e-Niro. Con numerosas funcionalidades, un interior muy equipado y dimensiones bien pronunciadas, este entrega una potencia combinada de 230 CV. Sus rivales más próximos son el Lexus RX 450h L, el Skoda Kodiaq 2.0 TSI 4×4 y el BMW X3 xDrive30i.', 2015, NULL, '2022-06-22', '2022-06-22', NULL, 3),
@@ -142,7 +144,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `nombre`, `apellido`, `email`, `usuario`, `contrasenia`, `fDeNac`, `dni`, `foto`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
 (1, 'Alejandro', 'Gutierrez', 'agutierrez@gmail.com', 'agutierrez', '$2a$10$7seOYsaZNrx/Ryq90OV6tu5Tfmig3qL3Y2TTSrZC9TcAcUtgFFJWy', '1998-10-22', 18227465, 'imgRegister-1655934420611.jpeg', '2022-06-22', '2022-06-22', NULL),
-(2, 'Pedro', 'Lanus', 'planus@gmail.com', 'planus', '$2a$10$yHOFq2ZYzH6N/nKTxC0che3.yT4PnpJX3lu/0HUrnLm0DgamqP3Ei', '1990-12-18', 44553999, 'imgRegister-1655934466361.jpeg', '2022-06-22', '2022-06-22', NULL),
+(2, 'Pedro', 'Lanus', 'planus@gmail.com', 'planus', '$2a$10$yHOFq2ZYzH6N/nKTxC0che3.yT4PnpJX3lu/0HUrnLm0DgamqP3Ei', '1990-12-18', 44553999, 'imgPerfil-1655954424633.jpeg', '2022-06-22', '2022-06-23', NULL),
 (3, 'Juana', 'Rodriguez', 'jrodriguez@gmail.com', 'jrodriguez', '$2a$10$iPabOMXFZKtLB1NNGHk/6.aBoSHlnbmDGtc/PHyF.bAsh./qdZ.hC', '0000-00-00', 4719756, 'imgRegister-1655934499247.png', '2022-06-22', '2022-06-22', NULL),
 (4, 'Manuela', 'Lezcano', 'mlezcano@hotmail.com', 'mlezcano', '$2a$10$2vwBcthz6KGvph.sLJLxpeFbcGEzIOyc6O.Nr1tRqlftZWuxBkL4m', '1999-02-06', 54609876, 'imgRegister-1655934543831.jpg', '2022-06-22', '2022-06-22', NULL),
 (5, 'Martin', 'Perez', 'mperez@yahoo.com', 'mperez', '$2a$10$e/5/KLQyLYpIqT.9wRcxk.SCaPMbqg88rEkb6B9T9/z2PMSbjDde2', '1980-05-08', 567890, 'imgRegister-1655934635957.jpg', '2022-06-22', '2022-06-22', NULL);
@@ -188,13 +190,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `followers`
 --
 ALTER TABLE `followers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `products`
