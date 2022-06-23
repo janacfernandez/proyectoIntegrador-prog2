@@ -16,10 +16,6 @@
 							</div>
 							<!-- /Banner -->
 
-							<h2>
-								<%= listaAutos.product %>
-							</h2>
-
 							<!-- Novedades -->
 							<div class="container products-wrapper">
 								<div class="row">
@@ -50,10 +46,9 @@
 													</a>
 													<p>
 														Creado por:
-															<a
-																href="/users/profile/<%= listaAutos[i].user.id%>">
-																<%= listaAutos[i].user.usuario %>
-															</a>
+														<a href="/users/profile/<%= listaAutos[i].user.id%>">
+															<%= listaAutos[i].user.usuario %>
+														</a>
 													</p>
 													<p>
 														<%= listaAutos[i].descripcion %>
@@ -118,7 +113,7 @@
 
 							<!-- footer -->
 							<%- include('./partials/footer') %>
-								<!-- /footer -->
+							<!-- /footer -->
 	</body>
 
 </html>

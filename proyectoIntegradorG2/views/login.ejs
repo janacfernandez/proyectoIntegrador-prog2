@@ -3,44 +3,47 @@
 <!-- Include Head -->
 <%- include('./partials/head') %>
 
-
 	<body class="bregister">
 		<!-- Header -->
-		<% if (locals.user != undefined) { %>
-			<%- include('./partials/headerLogueado')  %> 
-	  <% }else {%>
-			<%- include('./partials/headerDeslogueado')  %> 
-	  <% } %>
-		<!-- /Header -->>
-			<!-- Novedades -->
-			<div class="container products-wrapper">
-				<div>
-					<div class="col-12">
-						<h2 class="products-title">Ingresar</h2>
-					</div>
-					<!-- Show the "ultimos" products -->
-					<h2 class="col-12">
-						<form class="form-login" action="/users/login" method="POST">
-							<h4 class="register">E-mail *</h4>
-							<input class="register" type="email" name="email" id="" placeholder="" required>
-							<h4 class="register">Contraseña *</h4>
-							<input class="register" type="password" name="contrasenia" id="" placeholder="" required >
-							<% if (locals.errors != undefined) { %>
-								<p><%=  locals.errors.message%> </p>
-							<% } %>
-							<div class="checkbox">
-								<span>Recordarme</span>
-								<input type="checkbox" name="recordar" id="">
+		<% if (locals.user !=undefined) { %>
+			<%- include('./partials/headerLogueado') %>
+				<% }else {%>
+					<%- include('./partials/headerDeslogueado') %>
+						<% } %>
+							<!-- /Header -->>
+							<!-- Novedades -->
+							<div class="container products-wrapper">
+								<div>
+									<div class="col-12">
+										<h2 class="products-title">Ingresar</h2>
+									</div>
+									<!-- Show the "ultimos" products -->
+									<h2 class="col-12">
+										<form class="form-login" action="/users/login" method="POST">
+											<h4 class="register">E-mail *</h4>
+											<input class="register" type="email" name="email" id="" placeholder=""
+												required>
+											<h4 class="register">Contraseña *</h4>
+											<input class="register" type="password" name="contrasenia" id=""
+												placeholder="" required>
+											<% if (locals.errors !=undefined) { %>
+												<p>
+													<%= locals.errors.message%>
+												</p>
+												<% } %>
+													<div class="checkbox">
+														<span>Recordarme</span>
+														<input type="checkbox" name="recordar" id="">
+													</div>
+													<button class="submitb" type="submit">Ingresar</button>
+										</form>
+									</h2>
+								</div>
 							</div>
-							<button class="submitb" type="submit">Ingresar</button>
-						</form>
-					</h2>
-				</div>
-			</div>
 
-			<!-- footer -->
-			<%- include('./partials/footer') %>
-			<!-- /footer -->
+							<!-- footer -->
+							<%- include('./partials/footer') %>
+							<!-- /footer -->
 	</body>
 
 </html>

@@ -54,21 +54,22 @@
 										<div class="col-12 col-lg-4">
 											<section class="comments">
 												<% console.log (listaAutos.id) %>
-												<% for (let i=0; i < listaAutos.comment.length; i++) { %>
-													<article>
-														<img src="/images/users/<%=listaAutos.comment[i].user.foto%> "
-															alt="img perfil">
-														<div class="data">
-															<p class="user">
-																<strong> <a
-																		href="/users/profile/<%=listaAutos.comment[i].user.id%>">
-																		<%=listaAutos.comment[i].user.usuario%> </a>
-																	 </strong>
-																<%= listaAutos.comment[i].comentarios %>
-															</p>
-														</div>
-													</article>
-													<% } %>
+													<% for (let i=0; i < listaAutos.comment.length; i++) { %>
+														<article>
+															<img src="/images/users/<%=listaAutos.comment[i].user.foto%> "
+																alt="img perfil">
+															<div class="data">
+																<p class="user">
+																	<strong> <a
+																			href="/users/profile/<%=listaAutos.comment[i].user.id%>">
+																			<%=listaAutos.comment[i].user.usuario%>
+																		</a>
+																	</strong>
+																	<%= listaAutos.comment[i].comentarios %>
+																</p>
+															</div>
+														</article>
+														<% } %>
 											</section>
 
 											<form class="form" action="/products/id/<%= listaAutos.id %>" method="POST">

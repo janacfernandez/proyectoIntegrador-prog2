@@ -37,17 +37,13 @@
 
 		<ul class="right-navbar">
 			<li><a class="aHeader" href="/users/profile/<%=locals.user.id%>">
-				Bienvenid@ <%= locals.user.nombre + " " + locals.user.apellido %>
+					Bienvenid@ <%= locals.user.nombre + " " + locals.user.apellido %>
 						<i class="fas fa-user"></i>
 				</a>
 			</li>
 			<li>
-					<form action="/users/logout" method="post">
-						<input class="logout" type="submit" name="logout" value = "Salir">
-					</form>
-					<!-- <a href="/users/logout" class="logout" type="submit">
-						Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-					</a> -->
+				<form action="/users/logout" method="post">
+					<input class="logout" type="submit" name="logout" value="Salir">
 				</form>
 			</li>
 		</ul>

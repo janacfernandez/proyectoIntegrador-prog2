@@ -23,29 +23,29 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(session({secret: "app", resave: false, saveUninitialized: true}));
+app.use(session({ secret: "app", resave: false, saveUninitialized: true }));
 
-app.use(function(req, res, next) {
-  if ( req.session.user != undefined) {
+app.use(function (req, res, next) {
+  if (req.session.user != undefined) {
     res.locals.user = req.session.user;
     return next()
   }
   return next();
 });
 
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   if (req.cookies.userId != undefined && req.session.user == undefined) {
 
     let idCookieUser = req.cookies.userId;
-    
+
     db.User.findByPk(idCookieUser)
-    .then((user) => {
-      req.session.user = user.dataValues;
-      res.locals.user  = user.dataValues;
-      return next();
-    }).catch((err) => {
-      console.log(err);
-    });
+      .then((user) => {
+        req.session.user = user.dataValues;
+        res.locals.user = user.dataValues;
+        return next();
+      }).catch((err) => {
+        console.log(err);
+      });
   } else {
     return next();
   }
@@ -55,17 +55,17 @@ app.use(function(req, res, next) {
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/products',productRouter);
-app.use('/register',usersRouter);
+app.use('/products', productRouter);
+app.use('/register', usersRouter);
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};

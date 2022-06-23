@@ -87,9 +87,9 @@ const controller = {
             include: { all: true, nested: true },
         })
 
-        .then(result => res.render('profile', { usuario: result.dataValues }))
+            .then(result => res.render('profile', { usuario: result.dataValues }))
 
-        .catch(err => console.log(err))
+            .catch(err => console.log(err))
     },
 
     profileEdit: (req, res) => {
@@ -125,8 +125,8 @@ const controller = {
         user.update(usuario, filtro)
             .then(resultado => {
                 req.session.user = resultado.dataValues;
-             res.redirect('/users/profile/' + idEdicion)
-                
+                res.redirect('/users/profile/' + idEdicion)
+
             })
             .catch(err => console.log(err));
     },
@@ -150,8 +150,8 @@ const controller = {
             .then(result => {
                 if (result === null) {
                     follower.create(seguidor)
-                        .then(resultado => { 
-                            res.redirect('/users/profile/' + info.seguidoId) 
+                        .then(resultado => {
+                            res.redirect('/users/profile/' + info.seguidoId)
                         })
                         .catch(err => console.log(err))
                 } else {

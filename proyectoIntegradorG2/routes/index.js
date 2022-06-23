@@ -6,5 +6,4 @@ router.get('/', indexController.index),
 
 router.get('/search-results', indexController.searchResults),
 
-
 module.exports = router;

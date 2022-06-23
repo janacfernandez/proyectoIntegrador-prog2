@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/productController');
-/* Importaciones */
 let multer = require('multer');
 let path = require('path');
 
@@ -18,7 +17,6 @@ let storage = multer.diskStorage({
 
 let upload = multer({ storage: storage })
 
-/* GET home page. */
 router.get('/id/:id', productController.detail),
 router.post('/id/:id', productController.comments)
 
@@ -29,9 +27,6 @@ router.get('/product-edit/id/:id', productController.edit),
 router.post('/product-edit/id/:id', upload.single('imgProductEdit'), productController.updateProd),
 
 router.post('/delete/id/:id', productController.delete);
-
-
-
 
 module.exports = router;
 
