@@ -27,6 +27,12 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `comments`
 --
 
+-- Creación de la Base de datos: `top_wheels_db`
+CREATE SCHEMA top_wheels_db;
+
+-- Indicamos que queremos utilizar la Base de datos: `top_wheels_db`
+USE top_wheels_db;
+
 CREATE TABLE `comments` (
   `id` int(10) UNSIGNED NOT NULL,
   `comentarios` varchar(500) DEFAULT NULL,
